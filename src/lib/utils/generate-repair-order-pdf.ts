@@ -70,7 +70,7 @@ export function generateRepairOrderPDF(data: RepairOrderData): Promise<Buffer> {
     // Logo o nombre del concesionario
     if (data.dealershipLogoBuffer) {
       try {
-        doc.image(data.dealershipLogoBuffer, ML, 18, { fit: [140, 52], align: "left", valign: "center" });
+        doc.image(data.dealershipLogoBuffer, ML, 18, { fit: [140, 52], align: "center", valign: "center" });
       } catch {
         doc.font("Helvetica-Bold").fontSize(18).fillColor(WHITE).text(data.dealershipName, ML, 28, { width: CW / 2 });
       }

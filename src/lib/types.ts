@@ -166,7 +166,7 @@ export interface Notification {
   id: string;
   user_id: string;
   appointment_id?: string;
-  type: "status_change" | "budget_sent" | "repair_completed" | "repair_order_sent";
+  type: "status_change" | "budget_sent" | "repair_completed" | "repair_order_sent" | "appointment_accepted" | "appointment_rejected";
   title: string;
   message: string;
   read: boolean;

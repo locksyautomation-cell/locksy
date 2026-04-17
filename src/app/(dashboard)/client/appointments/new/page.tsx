@@ -216,7 +216,7 @@ export default function NewAppointmentPage() {
               <div>
                 <p className="text-sm font-medium text-orange">Sin vehículos compatibles</p>
                 <p className="text-sm text-orange/90 mt-0.5">
-                  Este concesionario trabaja con {selectedDealership.vehicle_type === "motos" ? "motos" : "coches"}.
+                  Este concesionario trabaja con {selectedDealership?.vehicle_type === "motos" ? "motos" : "coches"}.
                   Registra un vehículo del tipo correcto en tu perfil antes de reservar.
                 </p>
               </div>

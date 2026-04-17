@@ -103,7 +103,7 @@ export default function AdminAppointmentDetailPage() {
     });
     if (res.ok) {
       setAppointment((prev) => prev ? {
-        ...prev, status, repair_status: repairStatus || null,
+        ...prev, status: status as Appointment["status"], repair_status: repairStatus || null,
         dealer_observations: observations, dealer_recommendations: recommendations,
         budget_amount: budgetAmount ? parseFloat(budgetAmount) : undefined,
         budget_url: budgetUrl || undefined, invoice_url: invoiceUrl || undefined,

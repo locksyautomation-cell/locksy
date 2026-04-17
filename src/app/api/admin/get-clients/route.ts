@@ -77,7 +77,7 @@ export async function GET() {
     }
 
     const manualContacts = (manualData || []).map((row) => {
-      const dealership = row.dealership as Record<string, string> | null;
+      const dealership = row.dealership as unknown as Record<string, string> | null;
       return {
         id: row.id as string,
         client_id: null as null,

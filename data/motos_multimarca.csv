@@ -1,0 +1,1173 @@
+vehicle_type,brand,model
+motos,Beta,Alp 4.0 200
+motos,Beta,Alp 4.0 350
+motos,Beta,EVO 80
+motos,Beta,EVO 125
+motos,Beta,EVO 200
+motos,Beta,EVO 250
+motos,Beta,EVO 300
+motos,Beta,M4 350
+motos,Beta,M4 400
+motos,Beta,M4 450
+motos,Beta,MR 125
+motos,Beta,MR 300
+motos,Beta,MX 125
+motos,Beta,REV3 125
+motos,Beta,REV3 200
+motos,Beta,REV3 250
+motos,Beta,REV3 270
+motos,Beta,RR 2T 125
+motos,Beta,RR 2T 200
+motos,Beta,RR 2T 250
+motos,Beta,RR 2T 300
+motos,Beta,RR 4T 350
+motos,Beta,RR 4T 390
+motos,Beta,RR 4T 430
+motos,Beta,RR 4T 450
+motos,Beta,RR 4T 480
+motos,Beta,RR-S / RS 300
+motos,Beta,RR-S / RS 350
+motos,Beta,RR-S / RS 390
+motos,Beta,RR-S / RS 430
+motos,Beta,RR-S / RS 450
+motos,Beta,RR-S / RS 480
+motos,Beta,RX 125
+motos,Beta,RX 300
+motos,Beta,RX 350
+motos,Beta,RX 450
+motos,Beta,Techno 125
+motos,Beta,Techno 200
+motos,Beta,Techno 250
+motos,Beta,Techno 280
+motos,Beta,Zero 4.0
+motos,BMW,C 400 GT
+motos,BMW,C 400 X
+motos,BMW,C 600 Sport
+motos,BMW,C 650 GT
+motos,BMW,C 650 Sport
+motos,BMW,C Evolution
+motos,BMW,CE 02
+motos,BMW,CE 04
+motos,BMW,F 650 Funduro
+motos,BMW,F 650 GS
+motos,BMW,F 650 GS Dakar
+motos,BMW,F 700 GS
+motos,BMW,F 750 GS
+motos,BMW,F 800 GS
+motos,BMW,F 800 GS Adventure
+motos,BMW,F 800 GT
+motos,BMW,F 800 R
+motos,BMW,F 800 S
+motos,BMW,F 800 ST
+motos,BMW,F 850 GS
+motos,BMW,F 850 GS Adventure
+motos,BMW,F 900 R
+motos,BMW,F 900 XR
+motos,BMW,G 310 GS
+motos,BMW,G 310 R
+motos,BMW,G 450 X
+motos,BMW,G 650 GS
+motos,BMW,G 650 Moto Serrow
+motos,BMW,G 650 Xcountry
+motos,BMW,G 650 Xchallenge
+motos,BMW,HP2 Enduro
+motos,BMW,HP2 Megamoto
+motos,BMW,HP2 Sport
+motos,BMW,HP4
+motos,BMW,K 1200 GT
+motos,BMW,K 1200 LT
+motos,BMW,K 1200 R
+motos,BMW,K 1200 R Sport
+motos,BMW,K 1200 S
+motos,BMW,K 1300 GT
+motos,BMW,K 1300 R
+motos,BMW,K 1300 S
+motos,BMW,K 1600 B
+motos,BMW,K 1600 GT
+motos,BMW,K 1600 GTL
+motos,BMW,K 1600 Grand America
+motos,BMW,M 1000 R
+motos,BMW,M 1000 RR
+motos,BMW,M 1000 XR
+motos,BMW,R 1100 GS
+motos,BMW,R 1100 R
+motos,BMW,R 1100 RS
+motos,BMW,R 1100 RT
+motos,BMW,R 1100 S
+motos,BMW,R 1150 GS
+motos,BMW,R 1150 GS Adventure
+motos,BMW,R 1150 R
+motos,BMW,R 1150 R Rockster
+motos,BMW,R 1150 RS
+motos,BMW,R 1150 RT
+motos,BMW,R 1200 C
+motos,BMW,R 1200 CL
+motos,BMW,R 1200 GS
+motos,BMW,R 1200 GS Adventure
+motos,BMW,R 1200 R
+motos,BMW,R 1200 RS
+motos,BMW,R 1200 RT
+motos,BMW,R 1200 S
+motos,BMW,R 1200 ST
+motos,BMW,R 1250 GS
+motos,BMW,R 1250 GS Adventure
+motos,BMW,R 1250 R
+motos,BMW,R 1250 RS
+motos,BMW,R 1250 RT
+motos,BMW,R 850 C
+motos,BMW,R 850 R
+motos,BMW,R 900 RT
+motos,BMW,R Nine T
+motos,BMW,R Nine T Pure
+motos,BMW,R Nine T Racer
+motos,BMW,R Nine T Scrambler
+motos,BMW,R Nine T Urban G/S
+motos,BMW,S 1000 R
+motos,BMW,S 1000 RR
+motos,BMW,S 1000 XR
+motos,BMW,XR 1200
+motos,Can-Am,Canyon 600
+motos,Can-Am,Origin
+motos,Can-Am,Pulse
+motos,Can-Am,Ryker 600
+motos,Can-Am,Ryker 900
+motos,Can-Am,Ryker Rally 900
+motos,Can-Am,Spyder F3
+motos,Can-Am,Spyder F3-S
+motos,Can-Am,Spyder F3-T
+motos,Can-Am,Spyder F3 Limited
+motos,Can-Am,Spyder RS
+motos,Can-Am,Spyder RS-S
+motos,Can-Am,Spyder RT
+motos,Can-Am,Spyder RT-S
+motos,Can-Am,Spyder RT Limited
+motos,Can-Am,Spyder ST
+motos,Can-Am,Spyder ST-S
+motos,CF Moto,150NK
+motos,CF Moto,250CL-C
+motos,CF Moto,250NK
+motos,CF Moto,300NK
+motos,CF Moto,300SS
+motos,CF Moto,400NK
+motos,CF Moto,450CL-C
+motos,CF Moto,450CL-C Bobber
+motos,CF Moto,450CL-C AMT
+motos,CF Moto,450NK
+motos,CF Moto,450SS
+motos,CF Moto,650GT
+motos,CF Moto,650MT
+motos,CF Moto,650NK
+motos,CF Moto,650TK
+motos,CF Moto,650TR-G
+motos,CF Moto,675NK
+motos,CF Moto,675SS
+motos,CF Moto,700CL-X
+motos,CF Moto,700CL-X Heritage
+motos,CF Moto,700CL-X Sport
+motos,CF Moto,800MT Sport
+motos,CF Moto,800MT Touring
+motos,CF Moto,800NK
+motos,CF Moto,Ibex 450
+motos,CF Moto,Ibex 800 S
+motos,CF Moto,Ibex 800 T
+motos,CF Moto,Ibex 800 E
+motos,CF Moto,Papio CL
+motos,CF Moto,Papio SS
+motos,Ducati,748
+motos,Ducati,748 S
+motos,Ducati,748 R
+motos,Ducati,748 SP
+motos,Ducati,749
+motos,Ducati,749 S
+motos,Ducati,749 R
+motos,Ducati,749 Dark
+motos,Ducati,848
+motos,Ducati,848 Evo
+motos,Ducati,848 Evo Corse SE
+motos,Ducati,916
+motos,Ducati,916 S
+motos,Ducati,916 SP
+motos,Ducati,916 SPS
+motos,Ducati,916 Senna
+motos,Ducati,996
+motos,Ducati,996 S
+motos,Ducati,996 SPS
+motos,Ducati,996 R
+motos,Ducati,998
+motos,Ducati,998 S
+motos,Ducati,998 R
+motos,Ducati,998 FE
+motos,Ducati,999
+motos,Ducati,999 S
+motos,Ducati,999 R
+motos,Ducati,1098
+motos,Ducati,1098 S
+motos,Ducati,1098 R
+motos,Ducati,1198
+motos,Ducati,1198 S
+motos,Ducati,1198 R
+motos,Ducati,1198 SP
+motos,Ducati,Diavel
+motos,Ducati,Diavel Carbon
+motos,Ducati,Diavel AMG
+motos,Ducati,Diavel 1260
+motos,Ducati,Diavel 1260 S
+motos,Ducati,Diavel 1260 Lamborghini
+motos,Ducati,Diavel V4
+motos,Ducati,Hypermotard 796
+motos,Ducati,Hypermotard 821
+motos,Ducati,Hypermotard 821 SP
+motos,Ducati,Hypermotard 939
+motos,Ducati,Hypermotard 939 SP
+motos,Ducati,Hypermotard 950
+motos,Ducati,Hypermotard 950 SP
+motos,Ducati,Hypermotard 950 RVE
+motos,Ducati,Hyperstrada 821
+motos,Ducati,Hyperstrada 939
+motos,Ducati,Monster 400
+motos,Ducati,Monster 600
+motos,Ducati,Monster 620
+motos,Ducati,Monster 695
+motos,Ducati,Monster 696
+motos,Ducati,Monster 750
+motos,Ducati,Monster 795
+motos,Ducati,Monster 796
+motos,Ducati,Monster 821
+motos,Ducati,Monster 821 Stealth
+motos,Ducati,Monster 900
+motos,Ducati,Monster 900 S
+motos,Ducati,Monster 900 Cromo
+motos,Ducati,Monster 1000
+motos,Ducati,Monster 1000 DS
+motos,Ducati,Monster S4R
+motos,Ducati,Monster S4RS
+motos,Ducati,Monster 1100
+motos,Ducati,Monster 1100 S
+motos,Ducati,Monster 1100 Evo
+motos,Ducati,Monster 1200
+motos,Ducati,Monster 1200 S
+motos,Ducati,Monster 1200 R
+motos,Ducati,Monster 937
+motos,Ducati,Monster SP 937
+motos,Ducati,Multistrada 620
+motos,Ducati,Multistrada 1000 DS
+motos,Ducati,Multistrada 1100
+motos,Ducati,Multistrada 1100 S
+motos,Ducati,Multistrada 1200
+motos,Ducati,Multistrada 1200 S
+motos,Ducati,Multistrada 950
+motos,Ducati,Multistrada 950 S
+motos,Ducati,Multistrada 1260
+motos,Ducati,Multistrada 1260 S
+motos,Ducati,Multistrada 1260 Enduro
+motos,Ducati,Multistrada 1260 Pikes Peak
+motos,Ducati,Multistrada V2
+motos,Ducati,Multistrada V2 S
+motos,Ducati,Multistrada V4
+motos,Ducati,Multistrada V4 S
+motos,Ducati,Multistrada V4 RS
+motos,Ducati,Multistrada V4 Pikes Peak
+motos,Ducati,Panigale 899
+motos,Ducati,Panigale 959
+motos,Ducati,Panigale 959 Corse
+motos,Ducati,Panigale 1199
+motos,Ducati,Panigale 1199 S
+motos,Ducati,Panigale 1199 R
+motos,Ducati,Panigale 1299
+motos,Ducati,Panigale 1299 S
+motos,Ducati,Panigale 1299 R
+motos,Ducati,Panigale V2
+motos,Ducati,Panigale V2 Bayliss
+motos,Ducati,Panigale V4
+motos,Ducati,Panigale V4 S
+motos,Ducati,Panigale V4 R
+motos,Ducati,Panigale V4 SP
+motos,Ducati,Panigale V4 SP2
+motos,Ducati,Scrambler Icon
+motos,Ducati,Scrambler Icon Dark
+motos,Ducati,Scrambler Sixty2
+motos,Ducati,Scrambler Flat Track Pro
+motos,Ducati,Scrambler Cafe Racer
+motos,Ducati,Scrambler Full Throttle
+motos,Ducati,Scrambler Heritage
+motos,Ducati,Scrambler Desert Sled
+motos,Ducati,Scrambler Desert Sled Fasthouse
+motos,Ducati,Scrambler Nightshift
+motos,Ducati,Scrambler Urban Motard
+motos,Ducati,Sport 1000
+motos,Ducati,Sport 1000 S
+motos,Ducati,Sport Classic GT 1000
+motos,Ducati,Sport Classic Paul Smart 1000 LE
+motos,Ducati,ST2
+motos,Ducati,ST3
+motos,Ducati,ST4
+motos,Ducati,ST4S
+motos,Ducati,Streetfighter 848
+motos,Ducati,Streetfighter 848 S
+motos,Ducati,Streetfighter V2
+motos,Ducati,Streetfighter V4
+motos,Ducati,Streetfighter V4 S
+motos,Ducati,Streetfighter V4 SP
+motos,Ducati,Streetfighter V4 Lamborghini
+motos,Ducati,SuperSport
+motos,Ducati,SuperSport S
+motos,Ducati,XDiavel
+motos,Ducati,XDiavel S
+motos,Ducati,XDiavel Dark
+motos,Harley-Davidson,Breakout 103
+motos,Harley-Davidson,Breakout 114
+motos,Harley-Davidson,Breakout 117
+motos,Harley-Davidson,CVO Limited
+motos,Harley-Davidson,CVO Road Glide
+motos,Harley-Davidson,CVO Street Glide
+motos,Harley-Davidson,CVO Tri Glide
+motos,Harley-Davidson,Electra Glide Standard
+motos,Harley-Davidson,Electra Glide Ultra Classic
+motos,Harley-Davidson,Electra Glide Ultra Limited
+motos,Harley-Davidson,Fat Bob 96
+motos,Harley-Davidson,Fat Bob 107
+motos,Harley-Davidson,Fat Bob 114
+motos,Harley-Davidson,Fat Boy 88
+motos,Harley-Davidson,Fat Boy Lo
+motos,Harley-Davidson,Fat Boy 107
+motos,Harley-Davidson,Fat Boy 114
+motos,Harley-Davidson,Freewheeler
+motos,Harley-Davidson,Heritage Softail Classic
+motos,Harley-Davidson,Heritage Classic 114
+motos,Harley-Davidson,Iron 883
+motos,Harley-Davidson,Iron 1200
+motos,Harley-Davidson,LiveWire
+motos,Harley-Davidson,Low Rider
+motos,Harley-Davidson,Low Rider S
+motos,Harley-Davidson,Low Rider ST
+motos,Harley-Davidson,Night Rod Special
+motos,Harley-Davidson,Nightster
+motos,Harley-Davidson,Nightster Special
+motos,Harley-Davidson,Pan America 1250
+motos,Harley-Davidson,Pan America 1250 Special
+motos,Harley-Davidson,Road Glide
+motos,Harley-Davidson,Road Glide Special
+motos,Harley-Davidson,Road Glide Ultra
+motos,Harley-Davidson,Road Glide ST
+motos,Harley-Davidson,Road King
+motos,Harley-Davidson,Road King Classic
+motos,Harley-Davidson,Road King Special
+motos,Harley-Davidson,Softail Deluxe
+motos,Harley-Davidson,Softail Slim
+motos,Harley-Davidson,Softail Standard
+motos,Harley-Davidson,Sportster 883
+motos,Harley-Davidson,Sportster 883 Hugger
+motos,Harley-Davidson,Sportster 1200 Custom
+motos,Harley-Davidson,Sportster 1200 Sport
+motos,Harley-Davidson,Sportster S 1250
+motos,Harley-Davidson,Street 500
+motos,Harley-Davidson,Street 750
+motos,Harley-Davidson,Street Glide
+motos,Harley-Davidson,Street Glide Special
+motos,Harley-Davidson,Street Glide ST
+motos,Harley-Davidson,Street Rod
+motos,Harley-Davidson,Super Glide
+motos,Harley-Davidson,Super Glide Custom
+motos,Harley-Davidson,Tri Glide Ultra
+motos,Harley-Davidson,V-Rod
+motos,Harley-Davidson,V-Rod Muscle
+motos,Honda,Africa Twin 750 XRV750
+motos,Honda,Africa Twin CRF1000L
+motos,Honda,Africa Twin CRF1000L Adventure Sports
+motos,Honda,Africa Twin CRF1100L
+motos,Honda,Africa Twin CRF1100L Adventure Sports
+motos,Honda,CB125R
+motos,Honda,CB300R
+motos,Honda,CB400 Super Four
+motos,Honda,CB500F
+motos,Honda,CB500X
+motos,Honda,CB650F
+motos,Honda,CB650R
+motos,Honda,CB750 Hornet
+motos,Honda,CB1000R
+motos,Honda,CB1100
+motos,Honda,CB1100 EX
+motos,Honda,CB1100 RS
+motos,Honda,CB1300
+motos,Honda,CBR125R
+motos,Honda,CBR250R
+motos,Honda,CBR300R
+motos,Honda,CBR400R
+motos,Honda,CBR500R
+motos,Honda,CBR600F
+motos,Honda,CBR600RR
+motos,Honda,CBR650F
+motos,Honda,CBR650R
+motos,Honda,CBR900RR Fireblade
+motos,Honda,CBR954RR Fireblade
+motos,Honda,CBR1000RR Fireblade
+motos,Honda,CBR1000RR-R Fireblade
+motos,Honda,CBR1000RR-R Fireblade SP
+motos,Honda,CMX500 Rebel
+motos,Honda,CMX1100 Rebel
+motos,Honda,CRF125F
+motos,Honda,CRF250L
+motos,Honda,CRF250 Rally
+motos,Honda,CRF300L
+motos,Honda,CRF300 Rally
+motos,Honda,CRF450L
+motos,Honda,CRF450R
+motos,Honda,CRF450X
+motos,Honda,Crossrunner 800
+motos,Honda,Crosstourer 1200
+motos,Honda,DN-01
+motos,Honda,Forza 125
+motos,Honda,Forza 250
+motos,Honda,Forza 300
+motos,Honda,Forza 350
+motos,Honda,Forza 750
+motos,Honda,GL1800 Gold Wing
+motos,Honda,GL1800 Gold Wing Tour
+motos,Honda,Grom MSX125
+motos,Honda,Integra 700
+motos,Honda,Integra 750
+motos,Honda,NC700S
+motos,Honda,NC700X
+motos,Honda,NC750S
+motos,Honda,NC750X
+motos,Honda,NT1100
+motos,Honda,PCX125
+motos,Honda,PCX150
+motos,Honda,SH125
+motos,Honda,SH150
+motos,Honda,SH300
+motos,Honda,SH350
+motos,Honda,Transalp 600
+motos,Honda,Transalp 650
+motos,Honda,Transalp 750
+motos,Honda,VFR800F
+motos,Honda,VFR800X Crossrunner
+motos,Honda,VFR1200F
+motos,Honda,VFR1200X Crosstourer
+motos,Honda,VTR1000F Fire Storm
+motos,Honda,VTR1000 SP-1
+motos,Honda,VTR1000 SP-2
+motos,Honda,X-ADV 750
+motos,Honda,XL125V Varadero
+motos,Honda,XL1000V Varadero
+motos,Husqvarna,FE 250
+motos,Husqvarna,FE 350
+motos,Husqvarna,FE 450
+motos,Husqvarna,FE 501
+motos,Husqvarna,FC 250
+motos,Husqvarna,FC 350
+motos,Husqvarna,FC 450
+motos,Husqvarna,FR 450 Rally
+motos,Husqvarna,FS 450
+motos,Husqvarna,Norden 901
+motos,Husqvarna,Norden 901 Expedition
+motos,Husqvarna,SMR 449
+motos,Husqvarna,SMR 510
+motos,Husqvarna,Svartpilen 125
+motos,Husqvarna,Svartpilen 250
+motos,Husqvarna,Svartpilen 401
+motos,Husqvarna,Svartpilen 701
+motos,Husqvarna,Svartpilen 801
+motos,Husqvarna,Svartpilen 801 SE
+motos,Husqvarna,TC 85
+motos,Husqvarna,TC 125
+motos,Husqvarna,TC 250
+motos,Husqvarna,TE 125
+motos,Husqvarna,TE 150
+motos,Husqvarna,TE 250
+motos,Husqvarna,TE 300
+motos,Husqvarna,TR 650 Terra
+motos,Husqvarna,TR 650 Strada
+motos,Husqvarna,TX 300
+motos,Husqvarna,Vitpilen 401
+motos,Husqvarna,Vitpilen 701
+motos,Indian,Challenger
+motos,Indian,Challenger Limited
+motos,Indian,Challenger Dark Horse
+motos,Indian,Chief
+motos,Indian,Chief Dark Horse
+motos,Indian,Chief Vintage
+motos,Indian,Chief Bobber
+motos,Indian,Chieftain
+motos,Indian,Chieftain Dark Horse
+motos,Indian,Chieftain Limited
+motos,Indian,FTR 1200
+motos,Indian,FTR 1200 S
+motos,Indian,FTR 1200 Rally
+motos,Indian,FTR 1200 Carbon
+motos,Indian,FTR Sport
+motos,Indian,FTR x RSD Super Hooligan
+motos,Indian,Pursuit
+motos,Indian,Pursuit Limited
+motos,Indian,Pursuit Dark Horse
+motos,Indian,Roadmaster
+motos,Indian,Roadmaster Dark Horse
+motos,Indian,Roadmaster Limited
+motos,Indian,Scout
+motos,Indian,Scout Bobber
+motos,Indian,Scout Sixty
+motos,Indian,Scout Rogue
+motos,Indian,Scout Classic
+motos,Indian,Scout Sport
+motos,Indian,Spirit
+motos,Indian,Spirit Roadster
+motos,Indian,Chief Classic
+motos,Indian,Springfield
+motos,Indian,Springfield Dark Horse
+motos,Indian,Super Chief
+motos,Indian,Super Chief Limited
+motos,Kawasaki,Eliminator 500
+motos,Kawasaki,ER-5
+motos,Kawasaki,ER-6n
+motos,Kawasaki,ER-6f
+motos,Kawasaki,H2
+motos,Kawasaki,H2 R
+motos,Kawasaki,H2 Carbon
+motos,Kawasaki,H2 SX
+motos,Kawasaki,H2 SX SE
+motos,Kawasaki,KLR 650
+motos,Kawasaki,KLX 125
+motos,Kawasaki,KLX 150
+motos,Kawasaki,KLX 230
+motos,Kawasaki,KLX 300
+motos,Kawasaki,KLZ 1000 Versys
+motos,Kawasaki,KX 65
+motos,Kawasaki,KX 85
+motos,Kawasaki,KX 250F
+motos,Kawasaki,KX 450F
+motos,Kawasaki,Ninja 125
+motos,Kawasaki,Ninja 250R
+motos,Kawasaki,Ninja 300
+motos,Kawasaki,Ninja 400
+motos,Kawasaki,Ninja 500
+motos,Kawasaki,Ninja 636 ZX-6R
+motos,Kawasaki,Ninja 650
+motos,Kawasaki,Ninja 1000 SX
+motos,Kawasaki,Ninja ZX-4R
+motos,Kawasaki,Ninja ZX-4RR
+motos,Kawasaki,Ninja ZX-6R
+motos,Kawasaki,Ninja ZX-7R
+motos,Kawasaki,Ninja ZX-7RR
+motos,Kawasaki,Ninja ZX-9R
+motos,Kawasaki,Ninja ZX-10R
+motos,Kawasaki,Ninja ZX-10RR
+motos,Kawasaki,Ninja ZX-10R SE
+motos,Kawasaki,Ninja ZX-12R
+motos,Kawasaki,Ninja ZX-14R
+motos,Kawasaki,Ninja ZX-25R
+motos,Kawasaki,Ninja ZZR1400
+motos,Kawasaki,Versys 300
+motos,Kawasaki,Versys 650
+motos,Kawasaki,Versys 1000
+motos,Kawasaki,Vulcan S 650
+motos,Kawasaki,Vulcan 900 Classic
+motos,Kawasaki,Vulcan 900 Custom
+motos,Kawasaki,Vulcan 900 LT
+motos,Kawasaki,Vulcan 1500
+motos,Kawasaki,Vulcan 1700 Voyager
+motos,Kawasaki,Vulcan 1700 Vaquero
+motos,Kawasaki,Vulcan 1700 Nomad
+motos,Kawasaki,Vulcan 2000
+motos,Kawasaki,Vulcan 2000 Classic
+motos,Kawasaki,Vulcan 2000 LT
+motos,Kawasaki,W650
+motos,Kawasaki,W800
+motos,Kawasaki,Z125 Pro
+motos,Kawasaki,Z250
+motos,Kawasaki,Z300
+motos,Kawasaki,Z400
+motos,Kawasaki,Z500
+motos,Kawasaki,Z650
+motos,Kawasaki,Z650 RS
+motos,Kawasaki,Z750
+motos,Kawasaki,Z750 R
+motos,Kawasaki,Z750 S
+motos,Kawasaki,Z800
+motos,Kawasaki,Z900
+motos,Kawasaki,Z900 RS
+motos,Kawasaki,Z900 RS Cafe
+motos,Kawasaki,Z900 RS SE
+motos,Kawasaki,Z1000
+motos,Kawasaki,Z1000 SX
+motos,Kawasaki,Z1000 R
+motos,Kawasaki,ZR-7
+motos,Kawasaki,ZR-7 S
+motos,Kawasaki,ZRX1100
+motos,Kawasaki,ZRX1200
+motos,KTM,125 Duke
+motos,KTM,125 EXC
+motos,KTM,125 SX
+motos,KTM,200 Duke
+motos,KTM,200 EXC
+motos,KTM,250 Adventure
+motos,KTM,250 Duke
+motos,KTM,250 EXC
+motos,KTM,250 EXC-F
+motos,KTM,250 SX
+motos,KTM,250 SX-F
+motos,KTM,300 EXC
+motos,KTM,300 EXC TPI
+motos,KTM,300 XC
+motos,KTM,350 EXC-F
+motos,KTM,350 SX-F
+motos,KTM,390 Adventure
+motos,KTM,390 Duke
+motos,KTM,390 RC
+motos,KTM,450 EXC-F
+motos,KTM,450 Rally
+motos,KTM,450 SMR
+motos,KTM,450 SX-F
+motos,KTM,500 EXC-F
+motos,KTM,690 Duke
+motos,KTM,690 Duke R
+motos,KTM,690 Enduro
+motos,KTM,690 Enduro R
+motos,KTM,690 SMC
+motos,KTM,690 SMC R
+motos,KTM,790 Adventure
+motos,KTM,790 Adventure R
+motos,KTM,790 Duke
+motos,KTM,890 Adventure
+motos,KTM,890 Adventure R
+motos,KTM,890 Adventure Rally
+motos,KTM,890 Duke
+motos,KTM,890 Duke R
+motos,KTM,890 Duke GP
+motos,KTM,990 Adventure
+motos,KTM,990 Adventure Dakar
+motos,KTM,990 Adventure S
+motos,KTM,990 Duke
+motos,KTM,990 RC R
+motos,KTM,990 SMR
+motos,KTM,990 SMT
+motos,KTM,1050 Adventure
+motos,KTM,1090 Adventure
+motos,KTM,1090 Adventure R
+motos,KTM,1190 Adventure
+motos,KTM,1190 Adventure R
+motos,KTM,1290 Super Adventure S
+motos,KTM,1290 Super Adventure R
+motos,KTM,1290 Super Adventure T
+motos,KTM,1290 Super Duke GT
+motos,KTM,1290 Super Duke R
+motos,KTM,1290 Super Duke R EVO
+motos,KTM,1290 Super Duke RR
+motos,KTM,Freeride E-XC
+motos,KTM,RC 125
+motos,KTM,RC 390
+motos,KTM,RC 8C
+motos,KTM,Super Duke 990
+motos,Kymco,AK 550
+motos,Kymco,CV3
+motos,Kymco,Dink 125
+motos,Kymco,Dink 150
+motos,Kymco,Dink 200
+motos,Kymco,Dink 300
+motos,Kymco,Dink Street 125
+motos,Kymco,Dink Street 300
+motos,Kymco,Downtown 125
+motos,Kymco,Downtown 200
+motos,Kymco,Downtown 300
+motos,Kymco,Downtown 350
+motos,Kymco,Exciting 125
+motos,Kymco,Exciting 150
+motos,Kymco,Exciting 250
+motos,Kymco,Exciting 400
+motos,Kymco,Exciting 500
+motos,Kymco,GP 125
+motos,Kymco,GP 150
+motos,Kymco,K-Pipe 125
+motos,Kymco,Like 125
+motos,Kymco,Like 150
+motos,Kymco,Like 200
+motos,Kymco,People 50
+motos,Kymco,People 125
+motos,Kymco,People 150
+motos,Kymco,People 200
+motos,Kymco,People 250
+motos,Kymco,People 300
+motos,Kymco,People S 125
+motos,Kymco,People S 200
+motos,Kymco,People S 300
+motos,Kymco,Quannon 125
+motos,Kymco,Racy 50
+motos,Kymco,Racy 125
+motos,Kymco,Super 8 50
+motos,Kymco,Super 8 125
+motos,Kymco,Super 8 150
+motos,Kymco,Superdink 125
+motos,Kymco,Superdink 350
+motos,Kymco,Xciting 250
+motos,Kymco,Xciting 300
+motos,Kymco,Xciting 400i
+motos,Kymco,Xciting 500
+motos,Kymco,Xciting S400
+motos,Kymco,Yager 50
+motos,Kymco,Yager 125
+motos,Kymco,Z1
+motos,Moto Guzzi,1000 Daytona RS
+motos,Moto Guzzi,Audace
+motos,Moto Guzzi,Audace Carbon
+motos,Moto Guzzi,Breva 750
+motos,Moto Guzzi,Breva 850
+motos,Moto Guzzi,Breva 1100
+motos,Moto Guzzi,Breva 1200 Sport
+motos,Moto Guzzi,California 1100 EV
+motos,Moto Guzzi,California 1100 Stone
+motos,Moto Guzzi,California 1100 Titanium
+motos,Moto Guzzi,California 1100 Special
+motos,Moto Guzzi,California 1400 Custom
+motos,Moto Guzzi,California 1400 Touring
+motos,Moto Guzzi,California 1400 Eldorado
+motos,Moto Guzzi,California 1400 Audace
+motos,Moto Guzzi,Eldorado
+motos,Moto Guzzi,Griso 850
+motos,Moto Guzzi,Griso 1100
+motos,Moto Guzzi,Griso 1200 8V
+motos,Moto Guzzi,Griso 1200 8V SE
+motos,Moto Guzzi,Le Mans 1000
+motos,Moto Guzzi,Nevada 350
+motos,Moto Guzzi,Nevada 750 Classic
+motos,Moto Guzzi,Nevada 750 Club
+motos,Moto Guzzi,Norge 850
+motos,Moto Guzzi,Norge 1200 GT 8V
+motos,Moto Guzzi,Sport 1100
+motos,Moto Guzzi,Sport 1100 Injection
+motos,Moto Guzzi,Centauro GT
+motos,Moto Guzzi,Stelvio 1200
+motos,Moto Guzzi,Stelvio 1200 8V
+motos,Moto Guzzi,Stelvio 1200 NTX
+motos,Moto Guzzi,V7 Classic
+motos,Moto Guzzi,V7 Special
+motos,Moto Guzzi,V7 Stone
+motos,Moto Guzzi,V7 Racer
+motos,Moto Guzzi,V7 Sport
+motos,Moto Guzzi,V7 Stone 850
+motos,Moto Guzzi,V7 Special 850
+motos,Moto Guzzi,V7 Stone Centenario 850
+motos,Moto Guzzi,V9 Bobber
+motos,Moto Guzzi,V9 Roamer
+motos,Moto Guzzi,V85 TT
+motos,Moto Guzzi,V85 TT Travel
+motos,Moto Guzzi,V85 TT Guardia d'Onore
+motos,Moto Guzzi,V100 Mandello
+motos,Moto Guzzi,V100 Mandello S
+motos,MV Agusta,Brutale 750
+motos,MV Agusta,Brutale 750 S
+motos,MV Agusta,Brutale 910
+motos,MV Agusta,Brutale 910 R
+motos,MV Agusta,Brutale 910 Italia
+motos,MV Agusta,Brutale 990
+motos,MV Agusta,Brutale 990 R
+motos,MV Agusta,Brutale 1000 Nurburgring
+motos,MV Agusta,Brutale 1000 RR
+motos,MV Agusta,Brutale 1000 RS
+motos,MV Agusta,Brutale 1000 Serie Oro
+motos,MV Agusta,Brutale 1000 RR RC
+motos,MV Agusta,Brutale 1078
+motos,MV Agusta,Brutale 1078 RR
+motos,MV Agusta,Brutale 1090
+motos,MV Agusta,Brutale 1090 R
+motos,MV Agusta,Brutale 1090 RR
+motos,MV Agusta,Dragster 800
+motos,MV Agusta,Dragster 800 RR
+motos,MV Agusta,Dragster 800 RC
+motos,MV Agusta,Dragster RR SCS
+motos,MV Agusta,Dragster RR Ago
+motos,MV Agusta,Dragster RR America
+motos,MV Agusta,F3 675
+motos,MV Agusta,F3 675 Serie Oro
+motos,MV Agusta,F3 675 Ago
+motos,MV Agusta,F3 800
+motos,MV Agusta,F3 800 RC
+motos,MV Agusta,F3 800 RR
+motos,MV Agusta,F4
+motos,MV Agusta,F4 R
+motos,MV Agusta,F4 CC
+motos,MV Agusta,F4 RR
+motos,MV Agusta,F4 RC
+motos,MV Agusta,F4 Ago
+motos,MV Agusta,F4 1000 Tamburini
+motos,MV Agusta,F4 1000 R
+motos,MV Agusta,F4 1000 312 RR
+motos,MV Agusta,Rivale 800
+motos,MV Agusta,Rush 1000
+motos,MV Agusta,Stradale 800
+motos,MV Agusta,Stradale 800 S
+motos,MV Agusta,Superveloce 800
+motos,MV Agusta,Superveloce 800 Serie Oro
+motos,MV Agusta,Superveloce 800 S
+motos,MV Agusta,Superveloce Alpine
+motos,MV Agusta,Turismo Veloce 800
+motos,MV Agusta,Turismo Veloce 800 Lusso
+motos,MV Agusta,Turismo Veloce 800 S
+motos,Peugeot Motocycles,Django 50
+motos,Peugeot Motocycles,Django 125
+motos,Peugeot Motocycles,Geopolis 125
+motos,Peugeot Motocycles,Geopolis 250
+motos,Peugeot Motocycles,Geopolis 300
+motos,Peugeot Motocycles,Geopolis 400
+motos,Peugeot Motocycles,Geopolis 500
+motos,Peugeot Motocycles,Kisbee 50
+motos,Peugeot Motocycles,Kisbee 100
+motos,Peugeot Motocycles,Ludix 50
+motos,Peugeot Motocycles,Metropolis 400 THP
+motos,Peugeot Motocycles,Satelis 125
+motos,Peugeot Motocycles,Satelis 250
+motos,Peugeot Motocycles,Satelis 400
+motos,Peugeot Motocycles,Satelis 500
+motos,Peugeot Motocycles,Satelis 2 Plus 125
+motos,Peugeot Motocycles,Speedfight 50
+motos,Peugeot Motocycles,Speedfight 100
+motos,Peugeot Motocycles,Speedfight 125
+motos,Peugeot Motocycles,Sum-Up 125
+motos,Peugeot Motocycles,Sum-Up 200
+motos,Peugeot Motocycles,Tweet 50
+motos,Peugeot Motocycles,Tweet 125
+motos,Peugeot Motocycles,Tweet 150
+motos,Peugeot Motocycles,Vivacity 50
+motos,Peugeot Motocycles,Vivacity 125
+motos,Piaggio,Beverly 125
+motos,Piaggio,Beverly 250
+motos,Piaggio,Beverly 300
+motos,Piaggio,Beverly 350
+motos,Piaggio,Beverly 400
+motos,Piaggio,Beverly 500
+motos,Piaggio,Fly 50
+motos,Piaggio,Fly 125
+motos,Piaggio,Fly 150
+motos,Piaggio,Liberty 50
+motos,Piaggio,Liberty 125
+motos,Piaggio,Liberty 150
+motos,Piaggio,Liberty 200
+motos,Piaggio,MP3 125
+motos,Piaggio,MP3 250
+motos,Piaggio,MP3 300
+motos,Piaggio,MP3 400
+motos,Piaggio,MP3 500
+motos,Piaggio,NRG 50
+motos,Piaggio,Typhoon 50
+motos,Piaggio,Typhoon 125
+motos,Piaggio,X7 125
+motos,Piaggio,X7 250
+motos,Piaggio,X7 300
+motos,Piaggio,X8 125
+motos,Piaggio,X8 150
+motos,Piaggio,X8 200
+motos,Piaggio,X8 250
+motos,Piaggio,X8 400
+motos,Piaggio,X10 125
+motos,Piaggio,X10 350
+motos,Piaggio,X10 500
+motos,Piaggio,Zip 50
+motos,Piaggio,Zip 100
+motos,Rieju,Century 125
+motos,Rieju,Cityline 125
+motos,Rieju,Cityline 300
+motos,Rieju,Drac 50
+motos,Rieju,Marathon 50
+motos,Rieju,Marathon 125
+motos,Rieju,Marathon 250
+motos,Rieju,Marathon 450
+motos,Rieju,Marathon 500
+motos,Rieju,Mius Electric 50
+motos,Rieju,Mius Electric 125
+motos,Rieju,MR 300 Racing
+motos,Rieju,MRT 50
+motos,Rieju,MRT 50 Pro
+motos,Rieju,MRT 50 SM
+motos,Rieju,MRX 125
+motos,Rieju,MRX SMX 125
+motos,Rieju,Nuuk Electric
+motos,Rieju,RR 50
+motos,Rieju,RS1 50
+motos,Rieju,RS2 50
+motos,Rieju,RS2 125
+motos,Rieju,RS3 50
+motos,Rieju,RS3 125
+motos,Rieju,SMX 50
+motos,Rieju,SMX 125
+motos,Rieju,Tango 50
+motos,Royal Enfield,Bullet 350
+motos,Royal Enfield,Bullet 500
+motos,Royal Enfield,Bullet Trials 350
+motos,Royal Enfield,Bullet Trials 500
+motos,Royal Enfield,Classic 350
+motos,Royal Enfield,Classic 500
+motos,Royal Enfield,Continental GT 535
+motos,Royal Enfield,Continental GT 650
+motos,Royal Enfield,Guerrilla 450
+motos,Royal Enfield,Himalayan 411
+motos,Royal Enfield,Himalayan 450
+motos,Royal Enfield,Hunter 350
+motos,Royal Enfield,Interceptor 650
+motos,Royal Enfield,Meteor 350
+motos,Royal Enfield,Scram 411
+motos,Royal Enfield,Shotgun 650
+motos,Royal Enfield,Super Meteor 650
+motos,Royal Enfield,Thunderbird 350
+motos,Royal Enfield,Thunderbird 500
+motos,Royal Enfield,Thunderbird Storm 350
+motos,Royal Enfield,Thunderbird Storm 500
+motos,Royal Enfield,Thunderbird X 350
+motos,Royal Enfield,Thunderbird X 500
+motos,Suzuki,Bandit 600
+motos,Suzuki,Bandit 650
+motos,Suzuki,Bandit 1200
+motos,Suzuki,Bandit 1250
+motos,Suzuki,Boulevard C50
+motos,Suzuki,Boulevard C90
+motos,Suzuki,Boulevard M109R
+motos,Suzuki,Boulevard S40
+motos,Suzuki,DR125
+motos,Suzuki,DR200
+motos,Suzuki,DR350
+motos,Suzuki,DR650
+motos,Suzuki,DR-Z400
+motos,Suzuki,DR-Z400S
+motos,Suzuki,DR-Z400SM
+motos,Suzuki,DL650 V-Strom
+motos,Suzuki,DL650 V-Strom XT
+motos,Suzuki,DL1000 V-Strom
+motos,Suzuki,DL1050 V-Strom
+motos,Suzuki,DL1050 V-Strom XT
+motos,Suzuki,DL1050 V-Strom Adventure
+motos,Suzuki,GS500
+motos,Suzuki,GS500F
+motos,Suzuki,GSF600 Bandit
+motos,Suzuki,GSR600
+motos,Suzuki,GSR750
+motos,Suzuki,GSX-R600
+motos,Suzuki,GSX-R750
+motos,Suzuki,GSX-R1000
+motos,Suzuki,GSX-R1000R
+motos,Suzuki,GSX-S750
+motos,Suzuki,GSX-S950
+motos,Suzuki,GSX-S1000
+motos,Suzuki,GSX-S1000F
+motos,Suzuki,GSX-S1000GT
+motos,Suzuki,GSX8R
+motos,Suzuki,GSX8S
+motos,Suzuki,GSX1250FA
+motos,Suzuki,GSX1300R Hayabusa
+motos,Suzuki,GW250 Inazuma
+motos,Suzuki,Intruder 125
+motos,Suzuki,Intruder 250
+motos,Suzuki,Intruder 800
+motos,Suzuki,Intruder 1400
+motos,Suzuki,Intruder 1500 LC
+motos,Suzuki,Katana 1000
+motos,Suzuki,RF600R
+motos,Suzuki,RF900R
+motos,Suzuki,RV125 VanVan
+motos,Suzuki,RV200 VanVan
+motos,Suzuki,SFV650 Gladius
+motos,Suzuki,SV650
+motos,Suzuki,SV650S
+motos,Suzuki,SV650X
+motos,Suzuki,TL1000R
+motos,Suzuki,TL1000S
+motos,Suzuki,V-Strom SX 250
+motos,SYM,Citycom 300i
+motos,SYM,Cruisym 125
+motos,SYM,Cruisym 300
+motos,SYM,GTS 125
+motos,SYM,GTS 250
+motos,SYM,GTS 300
+motos,SYM,Joymax 125
+motos,SYM,Joymax 250
+motos,SYM,Joymax 300
+motos,SYM,Joymax Z 125
+motos,SYM,Joymax Z 300
+motos,SYM,Maxsym 400
+motos,SYM,Maxsym 600
+motos,SYM,Maxsym TL 500
+motos,SYM,Orbit 50
+motos,SYM,Orbit 125
+motos,SYM,Shark 125
+motos,SYM,Symphony 50
+motos,SYM,Symphony 125
+motos,SYM,Wolf 125
+motos,SYM,Wolf 150
+motos,Triumph,Bonneville T100
+motos,Triumph,Bonneville T120
+motos,Triumph,Bonneville Bobber
+motos,Triumph,Bonneville Bobber Black
+motos,Triumph,Bonneville Speedmaster
+motos,Triumph,Daytona 675
+motos,Triumph,Daytona 675 R
+motos,Triumph,Daytona 765
+motos,Triumph,Legend TT
+motos,Triumph,Rocket 3
+motos,Triumph,Rocket 3 R
+motos,Triumph,Rocket 3 GT
+motos,Triumph,Scrambler 900
+motos,Triumph,Scrambler 1200 XC
+motos,Triumph,Scrambler 1200 XE
+motos,Triumph,Scrambler 1200 Steve McQueen
+motos,Triumph,Speed Master
+motos,Triumph,Speed Triple 750
+motos,Triumph,Speed Triple 900
+motos,Triumph,Speed Triple 1050
+motos,Triumph,Speed Triple 1050 R
+motos,Triumph,Speed Triple 1050 S
+motos,Triumph,Speed Triple 1200 RS
+motos,Triumph,Speed Triple 1200 RR
+motos,Triumph,Speed Twin 900
+motos,Triumph,Speed Twin 1200
+motos,Triumph,Speed Twin 1200 RS
+motos,Triumph,Sprint ST 955
+motos,Triumph,Sprint ST 1050
+motos,Triumph,Sprint RS
+motos,Triumph,Street Cup
+motos,Triumph,Street Scrambler
+motos,Triumph,Street Triple 675
+motos,Triumph,Street Triple 675 R
+motos,Triumph,Street Triple 675 RX
+motos,Triumph,Street Triple 765 R
+motos,Triumph,Street Triple 765 RS
+motos,Triumph,Street Triple 765 Moto2 Ed.
+motos,Triumph,Tiger 800
+motos,Triumph,Tiger 800 XC
+motos,Triumph,Tiger 800 XR
+motos,Triumph,Tiger 850 Sport
+motos,Triumph,Tiger 900
+motos,Triumph,Tiger 900 GT
+motos,Triumph,Tiger 900 GT Pro
+motos,Triumph,Tiger 900 Rally
+motos,Triumph,Tiger 900 Rally Pro
+motos,Triumph,Tiger 955
+motos,Triumph,Tiger 1050
+motos,Triumph,Tiger 1050 SE
+motos,Triumph,Tiger 1050 Sport
+motos,Triumph,Tiger 1200
+motos,Triumph,Tiger 1200 GT
+motos,Triumph,Tiger 1200 GT Pro
+motos,Triumph,Tiger 1200 Rally
+motos,Triumph,Tiger 1200 Rally Pro
+motos,Triumph,Tiger 1200 XCA
+motos,Triumph,Tiger Explorer 1200
+motos,Triumph,Tiger Sport 660
+motos,Triumph,Tiger Sport 1050
+motos,Triumph,Tiger Sport 1200
+motos,Triumph,Thruxton 900
+motos,Triumph,Thruxton 1200
+motos,Triumph,Thruxton 1200 R
+motos,Triumph,Thruxton 1200 TFC
+motos,Triumph,Trident 660
+motos,Triumph,Trophy 900
+motos,Triumph,Trophy 1200
+motos,Triumph,Trophy SE 1200
+motos,Triumph,Thunderbird 1600
+motos,Triumph,Thunderbird 1700 Commander
+motos,Triumph,Thunderbird 1700 LT
+motos,Triumph,Thunderbird 1700 Storm
+motos,Vespa,946 125
+motos,Vespa,946 150
+motos,Vespa,946 Armani
+motos,Vespa,946 Emporio Armani
+motos,Vespa,946 Ferrari
+motos,Vespa,Elettrica
+motos,Vespa,ET2 50
+motos,Vespa,ET4 125
+motos,Vespa,ET4 150
+motos,Vespa,GTS 125
+motos,Vespa,GTS 150
+motos,Vespa,GTS 250
+motos,Vespa,GTS 300
+motos,Vespa,GTS 300 Super
+motos,Vespa,GTS 300 Super Sport
+motos,Vespa,GTS 300 HPE
+motos,Vespa,GTV 125
+motos,Vespa,GTV 250
+motos,Vespa,GTV 300
+motos,Vespa,LX 50
+motos,Vespa,LX 125
+motos,Vespa,LX 150
+motos,Vespa,LXV 50
+motos,Vespa,LXV 125
+motos,Vespa,LXV 150
+motos,Vespa,Primavera 50
+motos,Vespa,Primavera 125
+motos,Vespa,Primavera 150
+motos,Vespa,S 50
+motos,Vespa,S 125
+motos,Vespa,S 150
+motos,Vespa,Sprint 50
+motos,Vespa,Sprint 125
+motos,Vespa,Sprint 150
+motos,Vespa,Sprint 150 S
+motos,Yamaha,FJR1300
+motos,Yamaha,FJR1300 AS
+motos,Yamaha,FJR1300 AE
+motos,Yamaha,FZ1
+motos,Yamaha,FZ1 Fazer
+motos,Yamaha,FZ6
+motos,Yamaha,FZ6 Fazer
+motos,Yamaha,FZ6 S2
+motos,Yamaha,FZ8
+motos,Yamaha,FZ8 Fazer
+motos,Yamaha,MT-01
+motos,Yamaha,MT-03
+motos,Yamaha,MT-07
+motos,Yamaha,MT-07 Moto Cage
+motos,Yamaha,MT-09
+motos,Yamaha,MT-09 SP
+motos,Yamaha,MT-09 Tracer
+motos,Yamaha,MT-10
+motos,Yamaha,MT-10 SP
+motos,Yamaha,MT-125
+motos,Yamaha,Neo's 50
+motos,Yamaha,NMAX 125
+motos,Yamaha,NMAX 155
+motos,Yamaha,R1 YZF-R1
+motos,Yamaha,R1M
+motos,Yamaha,R3 YZF-R3
+motos,Yamaha,R6 YZF-R6
+motos,Yamaha,R7
+motos,Yamaha,R125 YZF-R125
+motos,Yamaha,TMAX 500
+motos,Yamaha,TMAX 530
+motos,Yamaha,TMAX 560
+motos,Yamaha,Tenere 700
+motos,Yamaha,Tenere 700 World Raid
+motos,Yamaha,Tracer 7
+motos,Yamaha,Tracer 7 GT
+motos,Yamaha,Tracer 9
+motos,Yamaha,Tracer 9 GT
+motos,Yamaha,Tracer 9 GT+
+motos,Yamaha,Tricity 125
+motos,Yamaha,Tricity 155
+motos,Yamaha,Tricity 300
+motos,Yamaha,TT-R125
+motos,Yamaha,TT-R230
+motos,Yamaha,V-Max 1200
+motos,Yamaha,V-Max 1700
+motos,Yamaha,Virago 250
+motos,Yamaha,Virago 535
+motos,Yamaha,Virago 750
+motos,Yamaha,Virago 1100
+motos,Yamaha,WR125R
+motos,Yamaha,WR125X
+motos,Yamaha,WR250F
+motos,Yamaha,WR450F
+motos,Yamaha,X-MAX 125
+motos,Yamaha,X-MAX 250
+motos,Yamaha,X-MAX 300
+motos,Yamaha,X-MAX 400
+motos,Yamaha,XJ6
+motos,Yamaha,XJ6 Diversion
+motos,Yamaha,XJR1200
+motos,Yamaha,XJR1300
+motos,Yamaha,XSR125
+motos,Yamaha,XSR700
+motos,Yamaha,XSR900
+motos,Yamaha,XT660R
+motos,Yamaha,XT660X
+motos,Yamaha,XT660Z Tenere
+motos,Yamaha,XT1200Z Super Tenere
+motos,Yamaha,YZ125
+motos,Yamaha,YZ250
+motos,Yamaha,YZ250F
+motos,Yamaha,YZ450F
+motos,Yamaha,YZF600R Thundercat

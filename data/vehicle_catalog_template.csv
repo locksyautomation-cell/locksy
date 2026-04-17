@@ -1,0 +1,51 @@
+vehicle_type,brand,model
+coches,Toyota,Corolla Cross
+coches,Toyota,C-HR Hybrid
+coches,Toyota,bZ4X
+coches,Volkswagen,ID.3
+coches,Volkswagen,ID.4
+coches,Volkswagen,ID.7
+coches,BMW,X2 M35i
+coches,BMW,i4
+coches,BMW,iX1
+coches,Mercedes-Benz,EQB
+coches,Mercedes-Benz,EQE
+coches,Hyundai,Ioniq 5
+coches,Hyundai,Ioniq 6
+coches,Kia,EV6
+coches,Kia,EV9
+coches,Tesla,Model 3
+coches,Tesla,Model Y
+coches,Tesla,Model S
+coches,Renault,Mégane E-Tech
+coches,Renault,Scenic E-Tech
+coches,Dacia,Spring Electric
+coches,CUPRA,Born
+coches,CUPRA,Tavascan
+coches,CUPRA,Formentor
+motos,Honda,CB650R
+motos,Honda,CB750 Hornet
+motos,Honda,NT1100
+motos,Honda,CRF1100L Africa Twin
+motos,Yamaha,MT-07
+motos,Yamaha,MT-09
+motos,Yamaha,XSR700
+motos,Yamaha,Tracer 9
+motos,Kawasaki,Z650
+motos,Kawasaki,Z900
+motos,Kawasaki,Ninja 650
+motos,Kawasaki,Versys 650
+motos,Suzuki,GSX-8S
+motos,Suzuki,V-Strom 800DE
+motos,BMW Motorrad,F 900 R
+motos,BMW Motorrad,S 1000 XR
+motos,BMW Motorrad,R 1300 GS
+motos,Ducati,Monster
+motos,Ducati,Multistrada V4
+motos,Ducati,Panigale V4
+motos,KTM,Duke 390
+motos,KTM,Duke 890
+motos,KTM,1290 Super Adventure
+motos,Triumph,Trident 660
+motos,Triumph,Tiger 900
+motos,Triumph,Speed Triple 1200

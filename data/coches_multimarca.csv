@@ -1,0 +1,398 @@
+vehicle_type,brand,model
+coches,Abarth,500
+coches,Abarth,500C
+coches,Abarth,500e
+coches,Abarth,595
+coches,Abarth,595C
+coches,Abarth,595 Turismo
+coches,Abarth,595 Competizione
+coches,Abarth,595 Esseesse
+coches,Abarth,595 Scorpioneoro
+coches,Abarth,595 Monster Energy Yamaha
+coches,Abarth,600e
+coches,Abarth,695
+coches,Abarth,695C
+coches,Abarth,695 Biposto
+coches,Abarth,695 Tributo Ferrari
+coches,Abarth,695 Rivale
+coches,Abarth,695 XSR Yamaha
+coches,Abarth,695 70° Anniversario
+coches,Abarth,695 Edizione Maserati
+coches,Abarth,124 Spider
+coches,Abarth,Grande Punto
+coches,Abarth,Punto Evo
+coches,Acura,CL
+coches,Acura,CSX
+coches,Acura,EL
+coches,Acura,ILX
+coches,Acura,Integra
+coches,Acura,MDX
+coches,Acura,NSX
+coches,Acura,RDX
+coches,Acura,RL
+coches,Acura,RLX
+coches,Acura,RSX
+coches,Acura,TL
+coches,Acura,TLX
+coches,Acura,TSX
+coches,Acura,ZDX
+coches,AITO,M5
+coches,AITO,M5 EV
+coches,AITO,M7
+coches,AITO,M7 Pro
+coches,AITO,M8
+coches,AITO,M9
+coches,Aiways,U5
+coches,Aiways,U6
+coches,Alfa Romeo,145
+coches,Alfa Romeo,146
+coches,Alfa Romeo,147
+coches,Alfa Romeo,155
+coches,Alfa Romeo,156
+coches,Alfa Romeo,156 Sportwagon
+coches,Alfa Romeo,157
+coches,Alfa Romeo,159
+coches,Alfa Romeo,159 Sportwagon
+coches,Alfa Romeo,164
+coches,Alfa Romeo,166
+coches,Alfa Romeo,Brera
+coches,Alfa Romeo,GTA
+coches,Alfa Romeo,GTV
+coches,Alfa Romeo,GT
+coches,Alfa Romeo,Giulia
+coches,Alfa Romeo,Giulietta
+coches,Alfa Romeo,Junior
+coches,Alfa Romeo,MiTo
+coches,Alfa Romeo,Spider
+coches,Alfa Romeo,Stelvio
+coches,Alfa Romeo,Tonale
+coches,Alfa Romeo,8C Competizione
+coches,Alfa Romeo,4C
+coches,Alfa Romeo,4C Spider
+coches,Alpine,A110
+coches,Alpine,A110 S
+coches,Alpine,A110 R
+coches,Alpine,A110 GT
+coches,Alpine,A290
+coches,Alpine,A390
+coches,Audi,A1
+coches,Audi,A1 Sportback
+coches,Audi,A2
+coches,Audi,A3
+coches,Audi,A3 Sportback
+coches,Audi,A3 Cabriolet
+coches,Audi,A3 Sedan
+coches,Audi,A4
+coches,Audi,A4 Avant
+coches,Audi,A4 Cabriolet
+coches,Audi,A4 Allroad
+coches,Audi,A5
+coches,Audi,A5 Sportback
+coches,Audi,A5 Cabriolet
+coches,Audi,A5 Coupe
+coches,Audi,A6
+coches,Audi,A6 Avant
+coches,Audi,A6 Allroad
+coches,Audi,A6 e-tron
+coches,Audi,A7
+coches,Audi,A7 Sportback
+coches,Audi,A8
+coches,Audi,A8 L
+coches,Audi,Q2
+coches,Audi,Q3
+coches,Audi,Q3 Sportback
+coches,Audi,Q4 e-tron
+coches,Audi,Q4 e-tron Sportback
+coches,Audi,Q5
+coches,Audi,Q5 Sportback
+coches,Audi,Q6 e-tron
+coches,Audi,Q7
+coches,Audi,Q8
+coches,Audi,Q8 e-tron
+coches,Audi,Q8 e-tron Sportback
+coches,Audi,R8
+coches,Audi,R8 Spyder
+coches,Audi,RS3
+coches,Audi,RS3 Sportback
+coches,Audi,RS4
+coches,Audi,RS4 Avant
+coches,Audi,RS5
+coches,Audi,RS5 Sportback
+coches,Audi,RS6
+coches,Audi,RS6 Avant
+coches,Audi,RS7
+coches,Audi,RS7 Sportback
+coches,Audi,RS Q3
+coches,Audi,RS Q3 Sportback
+coches,Audi,RS Q8
+coches,Audi,RS e-tron GT
+coches,Audi,S1
+coches,Audi,S3
+coches,Audi,S4
+coches,Audi,S5
+coches,Audi,S6
+coches,Audi,S7
+coches,Audi,S8
+coches,Audi,SQ2
+coches,Audi,SQ5
+coches,Audi,SQ7
+coches,Audi,SQ8
+coches,Audi,TT
+coches,Audi,TT Roadster
+coches,Audi,TTS
+coches,Audi,TTRS
+coches,Audi,e-tron
+coches,Audi,e-tron GT
+coches,Audi,e-tron Sportback
+coches,Avatr,11
+coches,Avatr,12
+coches,Avatr,06
+coches,Bentley,Arnage
+coches,Bentley,Azure
+coches,Bentley,Bentayga
+coches,Bentley,Bentayga EWB
+coches,Bentley,Continental GT
+coches,Bentley,Continental GTC
+coches,Bentley,Continental Flying Spur
+coches,Bentley,Continental Supersports
+coches,Bentley,Brooklands
+coches,Bentley,Mulsanne
+coches,Bentley,Mulsanne Extended Wheelbase
+coches,Bentley,Mulsanne Speed
+coches,BMW,1 Series
+coches,BMW,2 Series
+coches,BMW,2 Series Active Tourer
+coches,BMW,2 Series Gran Coupe
+coches,BMW,2 Series Gran Tourer
+coches,BMW,3 Series
+coches,BMW,3 Series Touring
+coches,BMW,3 Series Gran Turismo
+coches,BMW,3 Series Compact
+coches,BMW,4 Series
+coches,BMW,4 Series Coupe
+coches,BMW,4 Series Cabriolet
+coches,BMW,4 Series Gran Coupe
+coches,BMW,5 Series
+coches,BMW,5 Series Touring
+coches,BMW,5 Series Gran Turismo
+coches,BMW,6 Series
+coches,BMW,6 Series Cabriolet
+coches,BMW,6 Series Gran Coupe
+coches,BMW,6 Series Gran Turismo
+coches,BMW,7 Series
+coches,BMW,8 Series
+coches,BMW,8 Series Cabriolet
+coches,BMW,8 Series Gran Coupe
+coches,BMW,i3
+coches,BMW,i4
+coches,BMW,i5
+coches,BMW,i7
+coches,BMW,iX
+coches,BMW,iX1
+coches,BMW,iX2
+coches,BMW,iX3
+coches,BMW,M2
+coches,BMW,M3
+coches,BMW,M3 Touring
+coches,BMW,M4
+coches,BMW,M4 Cabriolet
+coches,BMW,M5
+coches,BMW,M5 Touring
+coches,BMW,M6
+coches,BMW,M6 Gran Coupe
+coches,BMW,M8
+coches,BMW,M8 Gran Coupe
+coches,BMW,M235i
+coches,BMW,X1
+coches,BMW,X2
+coches,BMW,X3
+coches,BMW,X3 M
+coches,BMW,X4
+coches,BMW,X4 M
+coches,BMW,X5
+coches,BMW,X5 M
+coches,BMW,X6
+coches,BMW,X6 M
+coches,BMW,X7
+coches,BMW,XM
+coches,BMW,Z3
+coches,BMW,Z4
+coches,Bugatti,Veyron
+coches,Bugatti,Veyron Super Sport
+coches,Bugatti,Chiron
+coches,Bugatti,Chiron Sport
+coches,Bugatti,Chiron Super Sport
+coches,Bugatti,Chiron Pur Sport
+coches,Bugatti,Divo
+coches,Bugatti,Centodieci
+coches,Bugatti,Mistral
+coches,Bugatti,Tourbillon
+coches,Bugatti,Bolide
+coches,BYD,Atto 2
+coches,BYD,Atto 3
+coches,BYD,Dolphin
+coches,BYD,Dolphin Mini
+coches,BYD,Han EV
+coches,BYD,Han DM
+coches,BYD,Lark
+coches,BYD,Seal
+coches,BYD,Seal U
+coches,BYD,Sea Lion 5
+coches,BYD,Sea Lion 6
+coches,BYD,Sea Lion 7
+coches,BYD,Sea Lion 9
+coches,BYD,Song
+coches,BYD,Song Plus
+coches,BYD,Song Pro
+coches,BYD,Song L
+coches,BYD,Sealion 6 DM-i
+coches,BYD,Seagull
+coches,BYD,Shark
+coches,BYD,Tang EV
+coches,BYD,Tang DM
+coches,BYD,Qin Plus DM-i
+coches,BYD,Qin L
+coches,BYD,Yuan EV
+coches,BYD,Yuan Plus
+coches,BYD,Yuan Pro
+coches,BYD,F0
+coches,BYD,F3
+coches,BYD,F6
+coches,BYD,G6
+coches,BYD,S6
+coches,BYD,e2
+coches,BYD,e5
+coches,BYD,e6
+coches,Cadillac,ATS
+coches,Cadillac,ATS-V
+coches,Cadillac,CT4
+coches,Cadillac,CT4-V
+coches,Cadillac,CT5
+coches,Cadillac,CT5-V
+coches,Cadillac,CTS
+coches,Cadillac,CTS-V
+coches,Cadillac,DeVille
+coches,Cadillac,DTS
+coches,Cadillac,Eldorado
+coches,Cadillac,Escalade
+coches,Cadillac,Escalade ESV
+coches,Cadillac,Escalade IQ
+coches,Cadillac,LYRIQ
+coches,Cadillac,OPTIQ
+coches,Cadillac,STS
+coches,Cadillac,SRX
+coches,Cadillac,XT4
+coches,Cadillac,XT5
+coches,Cadillac,XT6
+coches,Cadillac,XTS
+coches,Chery,Arrizo 3
+coches,Chery,Arrizo 5
+coches,Chery,Arrizo 6
+coches,Chery,Arrizo 7
+coches,Chery,Arrizo 8
+coches,Chery,eQ
+coches,Chery,eQ1
+coches,Chery,eQ7
+coches,Chery,Fengyun A9
+coches,Chery,Fengyun T9
+coches,Chery,Omoda 5
+coches,Chery,Omoda E5
+coches,Chery,Omoda C9
+coches,Chery,QQ
+coches,Chery,QQ Ice Cream
+coches,Chery,Tiggo 2
+coches,Chery,Tiggo 3
+coches,Chery,Tiggo 4
+coches,Chery,Tiggo 5
+coches,Chery,Tiggo 7
+coches,Chery,Tiggo 7 Pro
+coches,Chery,Tiggo 8
+coches,Chery,Tiggo 8 Pro
+coches,Chery,Tiggo 9
+coches,Chery,Tiggo 10
+coches,Chevrolet,Astro
+coches,Chevrolet,Avalanche
+coches,Chevrolet,Aveo
+coches,Chevrolet,Blazer
+coches,Chevrolet,Blazer EV
+coches,Chevrolet,Bolt EV
+coches,Chevrolet,Bolt EUV
+coches,Chevrolet,Camaro
+coches,Chevrolet,Captiva
+coches,Chevrolet,Colorado
+coches,Chevrolet,Corvette
+coches,Chevrolet,Corvette C8
+coches,Chevrolet,Corvette Z06
+coches,Chevrolet,Corvette ZR1
+coches,Chevrolet,Cruze
+coches,Chevrolet,Equinox
+coches,Chevrolet,Equinox EV
+coches,Chevrolet,Express
+coches,Chevrolet,HHR
+coches,Chevrolet,Impala
+coches,Chevrolet,Malibu
+coches,Chevrolet,Monte Carlo
+coches,Chevrolet,Niva
+coches,Chevrolet,Orlando
+coches,Chevrolet,Silverado
+coches,Chevrolet,Silverado EV
+coches,Chevrolet,Sonic
+coches,Chevrolet,Spark
+coches,Chevrolet,SSR
+coches,Chevrolet,Suburban
+coches,Chevrolet,Tahoe
+coches,Chevrolet,Tracker
+coches,Chevrolet,TrailBlazer
+coches,Chevrolet,Traverse
+coches,Chevrolet,Trax
+coches,Chevrolet,Uplander
+coches,Chevrolet,Volt
+coches,Citroën,Berlingo
+coches,Citroën,Berlingo Multispace
+coches,Citroën,Berlingo Van
+coches,Citroën,C1
+coches,Citroën,C2
+coches,Citroën,C3
+coches,Citroën,C3 Aircross
+coches,Citroën,C3 Picasso
+coches,Citroën,C4
+coches,Citroën,C4 Cactus
+coches,Citroën,C4 Picasso
+coches,Citroën,C4 Spacetourer
+coches,Citroën,C4 X
+coches,Citroën,C5
+coches,Citroën,C5 Aircross
+coches,Citroën,C5 Tourer
+coches,Citroën,C5 X
+coches,Citroën,C6
+coches,Citroën,C8
+coches,Citroën,Ë-C3
+coches,Citroën,Ë-C3 Aircross
+coches,Citroën,Ë-C4
+coches,Citroën,Ë-C4 X
+coches,Citroën,Ë-Jumpy
+coches,Citroën,Ë-SpaceTourer
+coches,Citroën,C-Crosser
+coches,Citroën,C-Elysée
+coches,Citroën,C-Zero
+coches,Citroën,DS3
+coches,Citroën,DS4
+coches,Citroën,DS5
+coches,Citroën,Grand C4 Picasso
+coches,Citroën,Grand C4 SpaceTourer
+coches,Citroën,Jumpy
+coches,Citroën,Nemo
+coches,Citroën,Saxo
+coches,Citroën,SpaceTourer
+coches,Citroën,Xantia
+coches,Citroën,Xsara
+coches,Citroën,Xsara Picasso
+coches,Citroën,ZX
+coches,Cupra,Ateca
+coches,Cupra,Born
+coches,Cupra,Formentor
+coches,Cupra,Leon
+coches,Cupra,Leon Sportstourer
+coches,Cupra,Raval
+coches,Cupra,Tavascan
+coches,Cupra,Terramar

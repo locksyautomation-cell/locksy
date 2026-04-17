@@ -1,0 +1,282 @@
+vehicle_type,brand,model
+motos,Askoll,Dixy
+motos,Askoll,Dixy Plus
+motos,Askoll,eS1
+motos,Askoll,eS1 Evolution
+motos,Askoll,eS2
+motos,Askoll,eS2 Evolution
+motos,Askoll,eS3
+motos,Askoll,eS3 Evolution
+motos,Askoll,eSpro 45
+motos,Askoll,eSpro 70
+motos,Askoll,NGS1
+motos,Askoll,NGS2
+motos,Askoll,NGS3
+motos,Gas Gas,TXT Racing 80
+motos,Gas Gas,TXT Racing 125
+motos,Gas Gas,TXT Racing 200
+motos,Gas Gas,TXT Racing 250
+motos,Gas Gas,TXT Racing 280
+motos,Gas Gas,TXT Racing 300
+motos,Gas Gas,TXT GP 125
+motos,Gas Gas,TXT GP 200
+motos,Gas Gas,TXT GP 250
+motos,Gas Gas,TXT GP 280
+motos,Gas Gas,TXT GP 300
+motos,Gas Gas,TXT Raga Racing 250
+motos,Gas Gas,TXT Raga Racing 300
+motos,Gas Gas,EC 125
+motos,Gas Gas,EC 200
+motos,Gas Gas,EC 250
+motos,Gas Gas,EC 300
+motos,Gas Gas,EC 300 Racing
+motos,Gas Gas,EC 300 Six Days
+motos,Gas Gas,EC 250F
+motos,Gas Gas,EC 350F
+motos,Gas Gas,EC 450F
+motos,Gas Gas,EC 500F
+motos,Gas Gas,XC 200
+motos,Gas Gas,XC 250
+motos,Gas Gas,XC 300
+motos,Gas Gas,MC 65
+motos,Gas Gas,MC 85
+motos,Gas Gas,MC 125
+motos,Gas Gas,MC 150
+motos,Gas Gas,MC 250
+motos,Gas Gas,MC 300
+motos,Gas Gas,MC 250F
+motos,Gas Gas,MC 350F
+motos,Gas Gas,MC 450F
+motos,Gas Gas,EX 250F
+motos,Gas Gas,EX 350F
+motos,Gas Gas,EX 450F
+motos,Gas Gas,ES 700
+motos,Gas Gas,SM 700
+motos,Gas Gas,MC-E 5
+motos,QJ Motor,CTR 125
+motos,QJ Motor,LTR 125
+motos,QJ Motor,LTR 150
+motos,QJ Motor,NTX 300
+motos,QJ Motor,SRC 250
+motos,QJ Motor,SRC 500
+motos,QJ Motor,SRF 135
+motos,QJ Motor,SRK 125
+motos,QJ Motor,SRK 250 RS
+motos,QJ Motor,SRK 400
+motos,QJ Motor,SRK 400 RR
+motos,QJ Motor,SRK 500 S
+motos,QJ Motor,SRK 500 RC
+motos,QJ Motor,SRK 600
+motos,QJ Motor,SRK 600 A
+motos,QJ Motor,SRK 600 RR
+motos,QJ Motor,SRK 600 RS
+motos,QJ Motor,SRK 700
+motos,QJ Motor,SRK 700 C
+motos,QJ Motor,SRK 800 RR
+motos,QJ Motor,SRK 921 RR
+motos,QJ Motor,SRT 135
+motos,QJ Motor,SRT 300
+motos,QJ Motor,SRT 450 RX
+motos,QJ Motor,SRT 550
+motos,QJ Motor,SRT 550 X
+motos,QJ Motor,SRT 600 SX
+motos,QJ Motor,SRT 700
+motos,QJ Motor,SRT 700 S
+motos,QJ Motor,SRT 700 X
+motos,QJ Motor,SRT 700 SX
+motos,QJ Motor,SRT 800
+motos,QJ Motor,SRT 800 X
+motos,QJ Motor,SRV 300
+motos,QJ Motor,SRV 500
+motos,QJ Motor,SRV 550
+motos,QJ Motor,SRV 600 V2
+motos,QJ Motor,SRV 600 V4
+motos,QJ Motor,VPS 50
+motos,QJ Motor,VPS 125
+motos,Zontes,E-Mantis 125
+motos,Zontes,GK 350
+motos,Zontes,Mantis 125
+motos,Zontes,Monster 125
+motos,Zontes,Panther 125
+motos,Zontes,RA1 350
+motos,Zontes,Storm 125
+motos,Zontes,Tiger 125
+motos,Zontes,ZT125-G1
+motos,Zontes,ZT125-M
+motos,Zontes,ZT125-U
+motos,Zontes,ZT125-U1
+motos,Zontes,ZT200-7A Phantom
+motos,Zontes,ZT250-S
+motos,Zontes,ZT310-M
+motos,Zontes,ZT310-R
+motos,Zontes,ZT310-T
+motos,Zontes,ZT310-V
+motos,Zontes,ZT310-X
+motos,Zontes,ZT350-GK
+motos,Zontes,ZT350-T
+motos,Zontes,ZT368-G
+motos,Zontes,ZT703-F Adventure
+motos,Zontes,ZT703-RR
+motos,Daelim,A-Four 50
+motos,Daelim,Advance 125
+motos,Daelim,Aroma 125
+motos,Daelim,B-Bone 125
+motos,Daelim,Besbi 125
+motos,Daelim,Beagle 50
+motos,Daelim,Bonita 50
+motos,Daelim,Citi Ace 110
+motos,Daelim,Cordi 50
+motos,Daelim,Dart 125
+motos,Daelim,Daystar 125
+motos,Daelim,Daystar 250
+motos,Daelim,Delfino 125
+motos,Daelim,E-Five 50
+motos,Daelim,NS 125 Trans Up
+motos,Daelim,Otello 125 ABS
+motos,Daelim,Roadwin 125
+motos,Daelim,Roadwin R 125
+motos,Daelim,Roadsport 125
+motos,Daelim,Roadsport 250
+motos,Daelim,S-Five 50
+motos,Daelim,S1 125
+motos,Daelim,S2 125
+motos,Daelim,S2 250
+motos,Daelim,S3 125
+motos,Daelim,S3 250
+motos,Daelim,Steezer 125
+motos,Daelim,VT 125
+motos,Daelim,XQ1 125
+motos,NIU,BQi-C3 Pro
+motos,NIU,BQi-C3 Sport
+motos,NIU,Gova A0
+motos,NIU,Gova C0
+motos,NIU,Gova F0
+motos,NIU,MQi
+motos,NIU,MQi GT
+motos,NIU,MQi GT Evo
+motos,NIU,MQi+ Lite
+motos,NIU,MQi+ Sport
+motos,NIU,NQi
+motos,NIU,NQi GTS
+motos,NIU,NQi GTS ER
+motos,NIU,NQi GTS Pro
+motos,NIU,NQi GTS Sport
+motos,NIU,NQi Lite
+motos,NIU,NQi Pro
+motos,NIU,NQi Sport
+motos,NIU,NQi Super
+motos,NIU,NQi TGT
+motos,NIU,RQi Sport
+motos,NIU,RQi GT
+motos,NIU,TQi Pro
+motos,NIU,UQi
+motos,NIU,UQi GT
+motos,NIU,UQi GT Pro
+motos,NIU,UQi Pro
+motos,NIU,UQi Sport
+motos,NIU,XQi3
+motos,NIU,YQi
+motos,Ray,RAY 7.7
+motos,Silence,S01
+motos,Silence,S01 Connected
+motos,Silence,S01 Power
+motos,Silence,S01 Sport
+motos,Silence,S02
+motos,Silence,S02 Urban
+motos,Silence,S02 Vision
+motos,Silence,S03
+motos,Silence,S04
+motos,Voge,125 R
+motos,Voge,300 AC
+motos,Voge,300 ACX
+motos,Voge,300 R
+motos,Voge,300 Rally
+motos,Voge,300 RR
+motos,Voge,350 AC
+motos,Voge,500 AC
+motos,Voge,500 DS
+motos,Voge,500 DSX
+motos,Voge,500 R
+motos,Voge,525 ACX
+motos,Voge,525 DSX
+motos,Voge,525 R
+motos,Voge,650 DS
+motos,Voge,650 DSX
+motos,Voge,DS 625 X
+motos,Voge,DS 800 X Rally
+motos,Voge,DS 900 X
+motos,Voge,R 625
+motos,Voge,SR1 125
+motos,Voge,SR1 ADV 125
+motos,Voge,SR4 Max 350
+motos,Voge,SR16 125
+motos,Yadea,C1S
+motos,Yadea,C1S Pro
+motos,Yadea,E8S
+motos,Yadea,E8S Pro
+motos,Yadea,G5
+motos,Yadea,G5S
+motos,Yadea,T9
+motos,Yadea,T9 Pro
+motos,Yadea,VFLY
+motos,Yadea,VFLY Pro
+motos,Keeway,Ajax 150
+motos,Keeway,Blackster 250
+motos,Keeway,Blog 150
+motos,Keeway,Brusco 125
+motos,Keeway,Cafe Racer 152
+motos,Keeway,Cafe Racer X 152
+motos,Keeway,Cityblade 125
+motos,Keeway,CK 110
+motos,Keeway,Cruiser 250i
+motos,Keeway,Fact 50
+motos,Keeway,Fact X 125
+motos,Keeway,Fact Evo 50
+motos,Keeway,Horse 150
+motos,Keeway,Hyperbrusco 175
+motos,Keeway,K-Light 125
+motos,Keeway,K-Light 202
+motos,Keeway,K-Light 250V
+motos,Keeway,K300 N
+motos,Keeway,K300 R
+motos,Keeway,K300 SF
+motos,Keeway,Kee 125
+motos,Keeway,Logik 125
+motos,Keeway,Matrix 50
+motos,Keeway,Matrix 110
+motos,Keeway,RK 125 E
+motos,Keeway,RK 150e X
+motos,Keeway,RK 200
+motos,Keeway,RKF 125
+motos,Keeway,RKR 125
+motos,Keeway,RKS 125
+motos,Keeway,RKS 125 Sport
+motos,Keeway,RKV 125
+motos,Keeway,RR 300
+motos,Keeway,RCS 125
+motos,Keeway,RCX 125
+motos,Keeway,Sixties 125
+motos,Keeway,Sixties 300i
+motos,Keeway,Sip 125
+motos,Keeway,SR 125
+motos,Keeway,SR 202
+motos,Keeway,SR 250
+motos,Keeway,Superlight 125
+motos,Keeway,Superlight 125 Limited
+motos,Keeway,TerraFina 350i
+motos,Keeway,TX 125
+motos,Keeway,TX 125 Adventure
+motos,Keeway,TX 125 Supermoto
+motos,Keeway,TX 150
+motos,Keeway,TX 450R
+motos,Keeway,TXM 125S
+motos,Keeway,V302C
+motos,Keeway,V-Cruise 300
+motos,Keeway,Versilia 50
+motos,Keeway,Versilia 125
+motos,Keeway,Vieste 125
+motos,Keeway,Vieste 175
+motos,Keeway,Vieste 200 XDV
+motos,Keeway,Vieste 300
+motos,Keeway,Vieste 300 XDV
+motos,Keeway,Zahara 125

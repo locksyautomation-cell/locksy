@@ -1,0 +1,390 @@
+vehicle_type,brand,model
+coches,Dacia,Bigster
+coches,Dacia,Dokker
+coches,Dacia,Duster
+coches,Dacia,Jogger
+coches,Dacia,Lodgy
+coches,Dacia,Logan
+coches,Dacia,Logan MCV
+coches,Dacia,Logan Van
+coches,Dacia,Sandero
+coches,Dacia,Sandero Stepway
+coches,Dacia,Spring
+coches,Deepal,L07
+coches,Deepal,S05
+coches,Deepal,S07
+coches,Deepal,S09
+coches,Deepal,SL03
+coches,Denza,D9
+coches,Denza,N7
+coches,Denza,N8
+coches,Denza,N9
+coches,Denza,Z9
+coches,Denza,Z9 GT
+coches,DS Automobiles,DS 3
+coches,DS Automobiles,DS 3 Crossback
+coches,DS Automobiles,DS 3 E-Tense
+coches,DS Automobiles,DS 4
+coches,DS Automobiles,DS 4 Crossback
+coches,DS Automobiles,DS 5
+coches,DS Automobiles,DS 7
+coches,DS Automobiles,DS 7 Crossback
+coches,DS Automobiles,DS 9
+coches,Exeed,RX
+coches,Exeed,TXL
+coches,Exeed,VX
+coches,Exeed,LX
+coches,Exeed,WX
+coches,Exeed,Yaoguang
+coches,Exeed,Sterra ES
+coches,Exeed,Sterra ET
+coches,Fang Cheng Bao,Bao 3
+coches,Fang Cheng Bao,Bao 5
+coches,Fang Cheng Bao,Leopard 5
+coches,Fang Cheng Bao,Tai 3
+coches,Ferrari,296 GTB
+coches,Ferrari,296 GTS
+coches,Ferrari,296 GT3
+coches,Ferrari,360 Modena
+coches,Ferrari,360 Spider
+coches,Ferrari,430 Scuderia
+coches,Ferrari,458 Italia
+coches,Ferrari,458 Spider
+coches,Ferrari,458 Speciale
+coches,Ferrari,488 GTB
+coches,Ferrari,488 Spider
+coches,Ferrari,488 Pista
+coches,Ferrari,488 Pista Spider
+coches,Ferrari,499P Modificata
+coches,Ferrari,512 M
+coches,Ferrari,512 TR
+coches,Ferrari,575M Maranello
+coches,Ferrari,599 GTB Fiorano
+coches,Ferrari,599 GTO
+coches,Ferrari,612 Scaglietti
+coches,Ferrari,California
+coches,Ferrari,California T
+coches,Ferrari,Daytona SP3
+coches,Ferrari,Enzo
+coches,Ferrari,F12 Berlinetta
+coches,Ferrari,F12 TDF
+coches,Ferrari,F355
+coches,Ferrari,F430
+coches,Ferrari,F40
+coches,Ferrari,F50
+coches,Ferrari,F8 Tributo
+coches,Ferrari,F8 Spider
+coches,Ferrari,FF
+coches,Ferrari,GTC4Lusso
+coches,Ferrari,GTC4Lusso T
+coches,Ferrari,LaFerrari
+coches,Ferrari,LaFerrari Aperta
+coches,Ferrari,Monza SP1
+coches,Ferrari,Monza SP2
+coches,Ferrari,Portofino
+coches,Ferrari,Portofino M
+coches,Ferrari,Purosangue
+coches,Ferrari,Roma
+coches,Ferrari,Roma Spider
+coches,Ferrari,SF90 Stradale
+coches,Ferrari,SF90 Spider
+coches,Ferrari,SF90 XX Stradale
+coches,Ferrari,SF90 XX Spider
+coches,Ferrari,Superamerica
+coches,Fisker,Karma
+coches,Fisker,Ocean
+coches,Fisker,Pear
+coches,Fisker,Alaska
+coches,Ford,B-Max
+coches,Ford,Bronco
+coches,Ford,C-Max
+coches,Ford,Capri
+coches,Ford,Connect
+coches,Ford,Cougar
+coches,Ford,Edge
+coches,Ford,Escape
+coches,Ford,EcoSport
+coches,Ford,Expedition
+coches,Ford,Explorer
+coches,Ford,Explorer EV
+coches,Ford,F-150
+coches,Ford,F-150 Lightning
+coches,Ford,Fiesta
+coches,Ford,Flex
+coches,Ford,Focus
+coches,Ford,Focus Active
+coches,Ford,Focus ST
+coches,Ford,Focus RS
+coches,Ford,Freestar
+coches,Ford,Fusion
+coches,Ford,Galaxy
+coches,Ford,Grand C-Max
+coches,Ford,GT
+coches,Ford,Ka
+coches,Ford,Ka+
+coches,Ford,Kuga
+coches,Ford,Maverick
+coches,Ford,Mondeo
+coches,Ford,Mustang
+coches,Ford,Mustang Mach-E
+coches,Ford,Mustang Dark Horse
+coches,Ford,Puma
+coches,Ford,Ranger
+coches,Ford,S-Max
+coches,Ford,Taurus
+coches,Ford,Tourneo Connect
+coches,Ford,Transit Connect
+coches,Genesis,G70
+coches,Genesis,G80
+coches,Genesis,G90
+coches,Genesis,GV60
+coches,Genesis,GV70
+coches,Genesis,GV80
+coches,Genesis,Electrified G80
+coches,Genesis,Electrified GV70
+coches,Honda,Accord
+coches,Honda,Accord Hybrid
+coches,Honda,City
+coches,Honda,Civic
+coches,Honda,Civic Type R
+coches,Honda,CR-V
+coches,Honda,CR-V Hybrid
+coches,Honda,CR-Z
+coches,Honda,e
+coches,Honda,e:Ny1
+coches,Honda,Element
+coches,Honda,Fit
+coches,Honda,FR-V
+coches,Honda,HR-V
+coches,Honda,Insight
+coches,Honda,Jazz
+coches,Honda,Legend
+coches,Honda,Logo
+coches,Honda,NSX
+coches,Honda,Odyssey
+coches,Honda,Passport
+coches,Honda,Pilot
+coches,Honda,Prelude
+coches,Honda,Prologue
+coches,Honda,Ridgeline
+coches,Honda,S2000
+coches,Honda,Stream
+coches,Honda,ZR-V
+coches,Hyundai,Accent
+coches,Hyundai,Atos
+coches,Hyundai,Bayon
+coches,Hyundai,Coupe
+coches,Hyundai,Creta
+coches,Hyundai,Elantra
+coches,Hyundai,Elantra N
+coches,Hyundai,Getz
+coches,Hyundai,Grand Santa Fe
+coches,Hyundai,Grand Starex
+coches,Hyundai,H-1
+coches,Hyundai,i10
+coches,Hyundai,i20
+coches,Hyundai,i20 N
+coches,Hyundai,i30
+coches,Hyundai,i30 N
+coches,Hyundai,i30 Fastback
+coches,Hyundai,i40
+coches,Hyundai,i40 SW
+coches,Hyundai,INSTER
+coches,Hyundai,IONIQ
+coches,Hyundai,IONIQ 5
+coches,Hyundai,IONIQ 5 N
+coches,Hyundai,IONIQ 6
+coches,Hyundai,IONIQ 9
+coches,Hyundai,ix20
+coches,Hyundai,ix35
+coches,Hyundai,ix55
+coches,Hyundai,Kona
+coches,Hyundai,Kona Electric
+coches,Hyundai,Kona N
+coches,Hyundai,Matrix
+coches,Hyundai,Nexo
+coches,Hyundai,Santa Cruz
+coches,Hyundai,Santa Fe
+coches,Hyundai,Sonata
+coches,Hyundai,Staria
+coches,Hyundai,Terracan
+coches,Hyundai,Trajet
+coches,Hyundai,Tucson
+coches,Hyundai,Veloster
+coches,Hyundai,Veloster N
+coches,Hyundai,Venue
+coches,IM Motors,L6
+coches,IM Motors,LS6
+coches,IM Motors,LS7
+coches,IM Motors,LS9
+coches,Infiniti,EX
+coches,Infiniti,FX
+coches,Infiniti,G
+coches,Infiniti,G37
+coches,Infiniti,I30
+coches,Infiniti,I35
+coches,Infiniti,J30
+coches,Infiniti,JX
+coches,Infiniti,M
+coches,Infiniti,M35h
+coches,Infiniti,M37
+coches,Infiniti,M56
+coches,Infiniti,Q30
+coches,Infiniti,Q40
+coches,Infiniti,Q45
+coches,Infiniti,Q50
+coches,Infiniti,Q60
+coches,Infiniti,Q70
+coches,Infiniti,QX30
+coches,Infiniti,QX50
+coches,Infiniti,QX55
+coches,Infiniti,QX56
+coches,Infiniti,QX60
+coches,Infiniti,QX70
+coches,Infiniti,QX80
+coches,INEOS Automotive,Grenadier
+coches,INEOS Automotive,Quartermaster
+coches,Jaecoo,J5
+coches,Jaecoo,J6
+coches,Jaecoo,J7
+coches,Jaecoo,J8
+coches,Jaecoo,7
+coches,Jaguar,E-Pace
+coches,Jaguar,F-Pace
+coches,Jaguar,F-Type
+coches,Jaguar,I-Pace
+coches,Jaguar,S-Type
+coches,Jaguar,X-Type
+coches,Jaguar,XE
+coches,Jaguar,XF
+coches,Jaguar,XF Sportbrake
+coches,Jaguar,XJ
+coches,Jaguar,XK
+coches,Jaguar,XKR
+coches,Jeep,Avenger
+coches,Jeep,Cherokee
+coches,Jeep,Commander
+coches,Jeep,Compass
+coches,Jeep,Gladiator
+coches,Jeep,Grand Cherokee
+coches,Jeep,Grand Cherokee L
+coches,Jeep,Grand Wagoneer
+coches,Jeep,Liberty
+coches,Jeep,Patriot
+coches,Jeep,Renegade
+coches,Jeep,Wagoneer
+coches,Jeep,Wrangler
+coches,Jeep,Wrangler 4xe
+coches,Jetour,Dashing
+coches,Jetour,T2
+coches,Jetour,Traveler
+coches,Jetour,X70
+coches,Jetour,X90
+coches,Jetour,X90 Plus
+coches,Kia,Carens
+coches,Kia,Carnival
+coches,Kia,Ceed
+coches,Kia,Ceed GT
+coches,Kia,Ceed Sportswagon
+coches,Kia,Cerato
+coches,Kia,EV3
+coches,Kia,EV6
+coches,Kia,EV6 GT
+coches,Kia,EV9
+coches,Kia,K5
+coches,Kia,Magentis
+coches,Kia,Niro
+coches,Kia,Niro EV
+coches,Kia,Niro Hybrid
+coches,Kia,Optima
+coches,Kia,Picanto
+coches,Kia,ProCeed
+coches,Kia,Rio
+coches,Kia,Sorento
+coches,Kia,Soul
+coches,Kia,Soul EV
+coches,Kia,Sportage
+coches,Kia,Stinger
+coches,Kia,Stonic
+coches,Kia,Telluride
+coches,Kia,Venga
+coches,Kia,XCeed
+coches,Lamborghini,Aventador
+coches,Lamborghini,Aventador S
+coches,Lamborghini,Aventador SVJ
+coches,Lamborghini,Centenario
+coches,Lamborghini,Diablo
+coches,Lamborghini,Gallardo
+coches,Lamborghini,Gallardo LP570-4 Superleggera
+coches,Lamborghini,Huracan
+coches,Lamborghini,Huracan Evo
+coches,Lamborghini,Huracan Evo Spyder
+coches,Lamborghini,Huracan STO
+coches,Lamborghini,Huracan Tecnica
+coches,Lamborghini,Huracan Sterrato
+coches,Lamborghini,Murcielago
+coches,Lamborghini,Murcielago LP670-4 SuperVeloce
+coches,Lamborghini,Revuelto
+coches,Lamborghini,Sian
+coches,Lamborghini,Urus
+coches,Lamborghini,Urus S
+coches,Lamborghini,Urus SE
+coches,Lamborghini,Veneno
+coches,Lancia,Delta
+coches,Lancia,Kappa
+coches,Lancia,Lybra
+coches,Lancia,Musa
+coches,Lancia,Phedra
+coches,Lancia,Thesis
+coches,Lancia,Voyager
+coches,Lancia,Ypsilon
+coches,Lancia,Ypsilon Electric
+coches,Land Rover,Defender
+coches,Land Rover,Defender 90
+coches,Land Rover,Defender 110
+coches,Land Rover,Defender 130
+coches,Land Rover,Discovery
+coches,Land Rover,Discovery Sport
+coches,Land Rover,Freelander
+coches,Land Rover,Range Rover
+coches,Land Rover,Range Rover Evoque
+coches,Land Rover,Range Rover Sport
+coches,Land Rover,Range Rover Velar
+coches,Land Rover,Range Rover Electric
+coches,Leapmotor,C01
+coches,Leapmotor,C10
+coches,Leapmotor,C11
+coches,Leapmotor,C16
+coches,Leapmotor,T03
+coches,Lexus,CT
+coches,Lexus,ES
+coches,Lexus,GS
+coches,Lexus,GS F
+coches,Lexus,GX
+coches,Lexus,IS
+coches,Lexus,IS F
+coches,Lexus,LC
+coches,Lexus,LFA
+coches,Lexus,LM
+coches,Lexus,LS
+coches,Lexus,LX
+coches,Lexus,NX
+coches,Lexus,RC
+coches,Lexus,RC F
+coches,Lexus,RX
+coches,Lexus,RZ
+coches,Lexus,SC
+coches,Lexus,UX
+coches,Li Auto,L6
+coches,Li Auto,L7
+coches,Li Auto,L8
+coches,Li Auto,L9
+coches,Li Auto,MEGA
+coches,Li Auto,One
+coches,Lightyear,0
+coches,Lightyear,2
+coches,Lucid,Air
+coches,Lucid,Air Grand Touring
+coches,Lucid,Air Pure
+coches,Lucid,Air Sapphire
+coches,Lucid,Gravity

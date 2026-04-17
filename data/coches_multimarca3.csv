@@ -1,0 +1,586 @@
+vehicle_type,brand,model
+coches,Maserati,228
+coches,Maserati,3200 GT
+coches,Maserati,4200 GT
+coches,Maserati,Ghibli
+coches,Maserati,GranCabrio
+coches,Maserati,GranTurismo
+coches,Maserati,Grecale
+coches,Maserati,Levante
+coches,Maserati,MC20
+coches,Maserati,MC20 Cielo
+coches,Maserati,Quattroporte
+coches,Maserati,Spyder
+coches,Maxus,D90
+coches,Maxus,Euniq 5
+coches,Maxus,Euniq 6
+coches,Maxus,Euniq 7
+coches,Maxus,G10
+coches,Maxus,G50
+coches,Maxus,MIFA 6
+coches,Maxus,MIFA 9
+coches,Maxus,T60
+coches,Maxus,T90
+coches,Maxus,V90
+coches,Maybach,57
+coches,Maybach,62
+coches,Maybach,GLS 600
+coches,Maybach,S 500
+coches,Maybach,S 580
+coches,Maybach,S 650
+coches,Maybach,S 680
+coches,Maybach,EQS 680 SUV
+coches,Maybach,Zeppelin
+coches,McLaren,540C
+coches,McLaren,570GT
+coches,McLaren,570S
+coches,McLaren,570S Spider
+coches,McLaren,600LT
+coches,McLaren,600LT Spider
+coches,McLaren,620R
+coches,McLaren,650S
+coches,McLaren,650S Spider
+coches,McLaren,675LT
+coches,McLaren,675LT Spider
+coches,McLaren,720S
+coches,McLaren,720S Spider
+coches,McLaren,750S
+coches,McLaren,750S Spider
+coches,McLaren,Artura
+coches,McLaren,Artura Spider
+coches,McLaren,Elva
+coches,McLaren,F1
+coches,McLaren,GT
+coches,McLaren,MP4-12C
+coches,McLaren,P1
+coches,McLaren,P1 GTR
+coches,McLaren,Senna
+coches,McLaren,Senna GTR
+coches,McLaren,Speedtail
+coches,Mercedes-Benz,A-Class
+coches,Mercedes-Benz,A-Class Sedan
+coches,Mercedes-Benz,AMG GT
+coches,Mercedes-Benz,AMG GT 4-Door
+coches,Mercedes-Benz,AMG GT Coupe
+coches,Mercedes-Benz,AMG GT Roadster
+coches,Mercedes-Benz,AMG GT S
+coches,Mercedes-Benz,AMG GT R
+coches,Mercedes-Benz,AMG GT 63
+coches,Mercedes-Benz,AMG GT 63 S
+coches,Mercedes-Benz,AMG GT 63 S E Performance
+coches,Mercedes-Benz,AMG ONE
+coches,Mercedes-Benz,AMG SL
+coches,Mercedes-Benz,B-Class
+coches,Mercedes-Benz,C-Class
+coches,Mercedes-Benz,C-Class Coupe
+coches,Mercedes-Benz,C-Class Cabrio
+coches,Mercedes-Benz,C-Class Estate
+coches,Mercedes-Benz,CLA
+coches,Mercedes-Benz,CLA Shooting Brake
+coches,Mercedes-Benz,CLK
+coches,Mercedes-Benz,CLS
+coches,Mercedes-Benz,CLS Shooting Brake
+coches,Mercedes-Benz,E-Class
+coches,Mercedes-Benz,E-Class Coupe
+coches,Mercedes-Benz,E-Class Cabrio
+coches,Mercedes-Benz,E-Class Estate
+coches,Mercedes-Benz,E-Class All-Terrain
+coches,Mercedes-Benz,EQA
+coches,Mercedes-Benz,EQB
+coches,Mercedes-Benz,EQC
+coches,Mercedes-Benz,EQE
+coches,Mercedes-Benz,EQE SUV
+coches,Mercedes-Benz,EQS
+coches,Mercedes-Benz,EQS SUV
+coches,Mercedes-Benz,G-Class
+coches,Mercedes-Benz,G 63 AMG
+coches,Mercedes-Benz,GLA
+coches,Mercedes-Benz,GLB
+coches,Mercedes-Benz,GLC
+coches,Mercedes-Benz,GLC Coupe
+coches,Mercedes-Benz,GLE
+coches,Mercedes-Benz,GLE Coupe
+coches,Mercedes-Benz,GLK
+coches,Mercedes-Benz,GLS
+coches,Mercedes-Benz,M-Class
+coches,Mercedes-Benz,ML
+coches,Mercedes-Benz,R-Class
+coches,Mercedes-Benz,S-Class
+coches,Mercedes-Benz,S-Class Coupe
+coches,Mercedes-Benz,S-Class Cabrio
+coches,Mercedes-Benz,SL
+coches,Mercedes-Benz,SLC
+coches,Mercedes-Benz,SLK
+coches,Mercedes-Benz,SLR McLaren
+coches,Mercedes-Benz,SLS AMG
+coches,Mercedes-Benz,SLS AMG Roadster
+coches,Mercedes-Benz,Vaneo
+coches,Mercedes-Benz,V-Class
+coches,Mercedes-Benz,Vito
+coches,Mercedes-Benz,X-Class
+coches,MG Motor,3
+coches,MG Motor,4
+coches,MG Motor,5
+coches,MG Motor,6
+coches,MG Motor,Cyberster
+coches,MG Motor,EHS
+coches,MG Motor,HS
+coches,MG Motor,Marvel R
+coches,MG Motor,One
+coches,MG Motor,RX5
+coches,MG Motor,ZS
+coches,MG Motor,ZS EV
+coches,Mini,Aceman
+coches,Mini,Clubman
+coches,Mini,Convertible
+coches,Mini,Coupe
+coches,Mini,Countryman
+coches,Mini,Paceman
+coches,Mini,Roadster
+coches,Mini,3 Door
+coches,Mini,5 Door
+coches,Mini,Electric
+coches,Mitsubishi,ASX
+coches,Mitsubishi,Carisma
+coches,Mitsubishi,Colt
+coches,Mitsubishi,Eclipse Cross
+coches,Mitsubishi,Galant
+coches,Mitsubishi,Grandis
+coches,Mitsubishi,i-MiEV
+coches,Mitsubishi,L200
+coches,Mitsubishi,Lancer
+coches,Mitsubishi,Lancer Evolution
+coches,Mitsubishi,Outlander
+coches,Mitsubishi,Outlander PHEV
+coches,Mitsubishi,Pajero
+coches,Mitsubishi,Pajero Sport
+coches,Mitsubishi,Space Star
+coches,NIO,EC6
+coches,NIO,EC7
+coches,NIO,EL6
+coches,NIO,EL7
+coches,NIO,EL8
+coches,NIO,ES6
+coches,NIO,ES7
+coches,NIO,ES8
+coches,NIO,ET5
+coches,NIO,ET5 Touring
+coches,NIO,ET7
+coches,NIO,ETP9
+coches,NIO,Firefly
+coches,Nissan,350Z
+coches,Nissan,370Z
+coches,Nissan,Almera
+coches,Nissan,Altima
+coches,Nissan,Ariya
+coches,Nissan,Armada
+coches,Nissan,Cube
+coches,Nissan,Frontier
+coches,Nissan,GT-R
+coches,Nissan,Juke
+coches,Nissan,Kicks
+coches,Nissan,Leaf
+coches,Nissan,Maxima
+coches,Nissan,Micra
+coches,Nissan,Murano
+coches,Nissan,Navara
+coches,Nissan,Note
+coches,Nissan,Pathfinder
+coches,Nissan,Patrol
+coches,Nissan,Primera
+coches,Nissan,Pulsar
+coches,Nissan,Qashqai
+coches,Nissan,Rogue
+coches,Nissan,Sentra
+coches,Nissan,Serena
+coches,Nissan,Skyline
+coches,Nissan,Sunny
+coches,Nissan,Terra
+coches,Nissan,Tiida
+coches,Nissan,Titan
+coches,Nissan,Townstar
+coches,Nissan,Versa
+coches,Nissan,X-Trail
+coches,Opel,Adam
+coches,Opel,Agila
+coches,Opel,Ampera
+coches,Opel,Ampera-e
+coches,Opel,Antara
+coches,Opel,Astra
+coches,Opel,Astra Sports Tourer
+coches,Opel,Cascada
+coches,Opel,Combo
+coches,Opel,Corsa
+coches,Opel,Corsa Electric
+coches,Opel,Crossland
+coches,Opel,Frontera
+coches,Opel,Grandland
+coches,Opel,Grandland Electric
+coches,Opel,Insignia
+coches,Opel,Insignia Sports Tourer
+coches,Opel,Karl
+coches,Opel,Meriva
+coches,Opel,Mokka
+coches,Opel,Mokka Electric
+coches,Opel,Omega
+coches,Opel,Signum
+coches,Opel,Tigra
+coches,Opel,Vectra
+coches,Opel,Vectra Caravan
+coches,Opel,Vivaro
+coches,Opel,Zafira
+coches,Opel,Zafira Tourer
+coches,Omoda,5
+coches,Omoda,5 EV
+coches,Omoda,C5
+coches,Omoda,C9
+coches,Omoda,E5
+coches,Peugeot,106
+coches,Peugeot,107
+coches,Peugeot,108
+coches,Peugeot,205
+coches,Peugeot,206
+coches,Peugeot,206 SW
+coches,Peugeot,206 CC
+coches,Peugeot,207
+coches,Peugeot,207 SW
+coches,Peugeot,207 CC
+coches,Peugeot,208
+coches,Peugeot,208 Electric
+coches,Peugeot,301
+coches,Peugeot,306
+coches,Peugeot,307
+coches,Peugeot,307 SW
+coches,Peugeot,307 CC
+coches,Peugeot,308
+coches,Peugeot,308 SW
+coches,Peugeot,308 CC
+coches,Peugeot,406
+coches,Peugeot,407
+coches,Peugeot,407 SW
+coches,Peugeot,408
+coches,Peugeot,508
+coches,Peugeot,508 SW
+coches,Peugeot,2008
+coches,Peugeot,2008 Electric
+coches,Peugeot,3008
+coches,Peugeot,3008 Electric
+coches,Peugeot,4007
+coches,Peugeot,4008
+coches,Peugeot,4008 Electric
+coches,Peugeot,5008
+coches,Peugeot,5008 Electric
+coches,Peugeot,Bipper
+coches,Peugeot,Expert
+coches,Peugeot,Partner
+coches,Peugeot,RCZ
+coches,Polestar,1
+coches,Polestar,2
+coches,Polestar,3
+coches,Polestar,4
+coches,Polestar,6
+coches,Porsche,718 Boxster
+coches,Porsche,718 Cayman
+coches,Porsche,718 Spyder
+coches,Porsche,718 GT4
+coches,Porsche,911
+coches,Porsche,911 Carrera
+coches,Porsche,911 Carrera S
+coches,Porsche,911 Carrera 4
+coches,Porsche,911 Carrera 4S
+coches,Porsche,911 Targa
+coches,Porsche,911 Turbo
+coches,Porsche,911 Turbo S
+coches,Porsche,911 GT2
+coches,Porsche,911 GT2 RS
+coches,Porsche,911 GT3
+coches,Porsche,911 GT3 RS
+coches,Porsche,911 GT3 Touring
+coches,Porsche,911 R
+coches,Porsche,911 Speedster
+coches,Porsche,911 Sport Classic
+coches,Porsche,911 Dakar
+coches,Porsche,Boxster
+coches,Porsche,Cayenne
+coches,Porsche,Cayenne Coupe
+coches,Porsche,Cayenne Turbo
+coches,Porsche,Cayenne E-Hybrid
+coches,Porsche,Cayman
+coches,Porsche,Macan
+coches,Porsche,Macan EV
+coches,Porsche,Panamera
+coches,Porsche,Panamera Sport Turismo
+coches,Porsche,Taycan
+coches,Porsche,Taycan Cross Turismo
+coches,Porsche,Taycan Sport Turismo
+coches,Porsche,Taycan Turbo GT
+coches,Renault,4
+coches,Renault,4 E-Tech
+coches,Renault,5
+coches,Renault,5 E-Tech
+coches,Renault,Arkana
+coches,Renault,Austral
+coches,Renault,Captur
+coches,Renault,Clio
+coches,Renault,Clio E-Tech
+coches,Renault,Espace
+coches,Renault,Fluence
+coches,Renault,Kadjar
+coches,Renault,Kangoo
+coches,Renault,Koleos
+coches,Renault,Laguna
+coches,Renault,Laguna Coupe
+coches,Renault,Latitude
+coches,Renault,Master
+coches,Renault,Megane
+coches,Renault,Megane E-Tech
+coches,Renault,Megane Coupe
+coches,Renault,Megane GT
+coches,Renault,Megane RS
+coches,Renault,Modus
+coches,Renault,Rafale
+coches,Renault,Safrane
+coches,Renault,Scenic
+coches,Renault,Scenic E-Tech
+coches,Renault,Symbol
+coches,Renault,Talisman
+coches,Renault,Talisman Estate
+coches,Renault,Thalia
+coches,Renault,Trafic
+coches,Renault,Twingo
+coches,Renault,Twingo Electric
+coches,Renault,Vel Satis
+coches,Renault,Wind
+coches,Renault,Zoe
+coches,Rising Auto,F7
+coches,Rising Auto,R7
+coches,Rising Auto,R9
+coches,Rivian,R1S
+coches,Rivian,R1T
+coches,Rivian,R2
+coches,Rivian,R3
+coches,Rolls-Royce,Cullinan
+coches,Rolls-Royce,Dawn
+coches,Rolls-Royce,Ghost
+coches,Rolls-Royce,Ghost Extended
+coches,Rolls-Royce,Phantom
+coches,Rolls-Royce,Phantom Extended
+coches,Rolls-Royce,Silver Seraph
+coches,Rolls-Royce,Silver Shadow
+coches,Rolls-Royce,Silver Spirit
+coches,Rolls-Royce,Spectre
+coches,Rolls-Royce,Wraith
+coches,Seat,Alhambra
+coches,Seat,Altea
+coches,Seat,Altea XL
+coches,Seat,Arona
+coches,Seat,Arosa
+coches,Seat,Ateca
+coches,Seat,Cordoba
+coches,Seat,Exeo
+coches,Seat,Ibiza
+coches,Seat,Leon
+coches,Seat,Leon ST
+coches,Seat,Mii
+coches,Seat,Tarraco
+coches,Seat,Toledo
+coches,Seres,3
+coches,Seres,5
+coches,Seres,SF5
+coches,Smart,#1
+coches,Smart,#3
+coches,Smart,Fortwo
+coches,Smart,Fortwo Cabrio
+coches,Smart,Fortwo Electric
+coches,Smart,Forfour
+coches,Smart,Forfour Electric
+coches,Smart,Formore
+coches,Subaru,Ascent
+coches,Subaru,BRZ
+coches,Subaru,Crosstrek
+coches,Subaru,Forester
+coches,Subaru,Impreza
+coches,Subaru,Impreza WRX
+coches,Subaru,Impreza WRX STI
+coches,Subaru,Legacy
+coches,Subaru,Legacy Outback
+coches,Subaru,Levorg
+coches,Subaru,Outback
+coches,Subaru,Solterra
+coches,Subaru,Tribeca
+coches,Subaru,XV
+coches,Suzuki,Alto
+coches,Suzuki,Baleno
+coches,Suzuki,Celerio
+coches,Suzuki,Grand Vitara
+coches,Suzuki,Ignis
+coches,Suzuki,Jimny
+coches,Suzuki,Kizashi
+coches,Suzuki,Liana
+coches,Suzuki,S-Cross
+coches,Suzuki,Splash
+coches,Suzuki,SX4
+coches,Suzuki,SX4 S-Cross
+coches,Suzuki,Swift
+coches,Suzuki,Swift Sport
+coches,Suzuki,Vitara
+coches,Suzuki,Wagon R+
+coches,Tesla,Cybertruck
+coches,Tesla,Model 3
+coches,Tesla,Model S
+coches,Tesla,Model X
+coches,Tesla,Model Y
+coches,Tesla,Roadster
+coches,Toyota,4Runner
+coches,Toyota,Avensis
+coches,Toyota,Aygo
+coches,Toyota,Aygo X
+coches,Toyota,bZ3
+coches,Toyota,bZ4X
+coches,Toyota,C-HR
+coches,Toyota,Camry
+coches,Toyota,Camry Hybrid
+coches,Toyota,Celica
+coches,Toyota,Corolla
+coches,Toyota,Corolla Cross
+coches,Toyota,Corolla Touring Sports
+coches,Toyota,Corolla Verso
+coches,Toyota,Crown
+coches,Toyota,GR86
+coches,Toyota,GR Corolla
+coches,Toyota,GR Supra
+coches,Toyota,GR Yaris
+coches,Toyota,Hilux
+coches,Toyota,IQ
+coches,Toyota,Land Cruiser
+coches,Toyota,Land Cruiser Prado
+coches,Toyota,Mirai
+coches,Toyota,MR2
+coches,Toyota,Proace City Verso
+coches,Toyota,Prius
+coches,Toyota,Prius Plug-in
+coches,Toyota,RAV4
+coches,Toyota,RAV4 Hybrid
+coches,Toyota,RAV4 Prime
+coches,Toyota,Sequoia
+coches,Toyota,Sienna
+coches,Toyota,Tacoma
+coches,Toyota,Tundra
+coches,Toyota,Urban Cruiser
+coches,Toyota,Venza
+coches,Toyota,Verso
+coches,Toyota,Yaris
+coches,Toyota,Yaris Cross
+coches,Toyota,Yaris Hybrid
+coches,VinFast,VF 3
+coches,VinFast,VF 5
+coches,VinFast,VF 6
+coches,VinFast,VF 7
+coches,VinFast,VF 8
+coches,VinFast,VF 9
+coches,Volkswagen,Amarok
+coches,Volkswagen,Arteon
+coches,Volkswagen,Arteon Shooting Brake
+coches,Volkswagen,Atlas
+coches,Volkswagen,Beetle
+coches,Volkswagen,Bora
+coches,Volkswagen,Caddy
+coches,Volkswagen,Caravelle
+coches,Volkswagen,CC
+coches,Volkswagen,Eos
+coches,Volkswagen,Fox
+coches,Volkswagen,Golf
+coches,Volkswagen,Golf Plus
+coches,Volkswagen,Golf GTD
+coches,Volkswagen,Golf GTI
+coches,Volkswagen,Golf GTE
+coches,Volkswagen,Golf R
+coches,Volkswagen,Golf Sportsvan
+coches,Volkswagen,Golf Variant
+coches,Volkswagen,ID.2
+coches,Volkswagen,ID.3
+coches,Volkswagen,ID.4
+coches,Volkswagen,ID.5
+coches,Volkswagen,ID.6
+coches,Volkswagen,ID.7
+coches,Volkswagen,ID. Buzz
+coches,Volkswagen,Jetta
+coches,Volkswagen,Lupo
+coches,Volkswagen,Multivan
+coches,Volkswagen,New Beetle
+coches,Volkswagen,Passat
+coches,Volkswagen,Passat Alltrack
+coches,Volkswagen,Passat Variant
+coches,Volkswagen,Phaeton
+coches,Volkswagen,Polo
+coches,Volkswagen,Polo GTI
+coches,Volkswagen,Routan
+coches,Volkswagen,Scirocco
+coches,Volkswagen,Sharan
+coches,Volkswagen,T-Cross
+coches,Volkswagen,T-Roc
+coches,Volkswagen,T-Roc Cabriolet
+coches,Volkswagen,Taigo
+coches,Volkswagen,Teramont
+coches,Volkswagen,Tiguan
+coches,Volkswagen,Tiguan Allspace
+coches,Volkswagen,Touareg
+coches,Volkswagen,Touran
+coches,Volkswagen,up!
+coches,Volvo,C30
+coches,Volvo,C40
+coches,Volvo,C70
+coches,Volvo,EX30
+coches,Volvo,EX40
+coches,Volvo,EX90
+coches,Volvo,S40
+coches,Volvo,S60
+coches,Volvo,S70
+coches,Volvo,S80
+coches,Volvo,S90
+coches,Volvo,V40
+coches,Volvo,V40 Cross Country
+coches,Volvo,V50
+coches,Volvo,V60
+coches,Volvo,V60 Cross Country
+coches,Volvo,V70
+coches,Volvo,V90
+coches,Volvo,V90 Cross Country
+coches,Volvo,XC40
+coches,Volvo,XC40 Recharge
+coches,Volvo,XC60
+coches,Volvo,XC70
+coches,Volvo,XC90
+coches,XPeng,G3
+coches,XPeng,G6
+coches,XPeng,G7
+coches,XPeng,G9
+coches,XPeng,P5
+coches,XPeng,P7
+coches,XPeng,P7i
+coches,XPeng,X9
+coches,Yangwang,U7
+coches,Yangwang,U8
+coches,Yangwang,U9
+coches,Zeekr,001
+coches,Zeekr,007
+coches,Zeekr,009
+coches,Zeekr,X
+coches,Škoda,Citigo
+coches,Škoda,Enyaq
+coches,Škoda,Enyaq Coupe
+coches,Škoda,Fabia
+coches,Škoda,Favorit
+coches,Škoda,Felicia
+coches,Škoda,Karoq
+coches,Škoda,Kodiaq
+coches,Škoda,Kosmiq
+coches,Škoda,Octavia
+coches,Škoda,Octavia Combi
+coches,Škoda,Octavia RS
+coches,Škoda,Rapid
+coches,Škoda,Roomster
+coches,Škoda,Scala
+coches,Škoda,Superb
+coches,Škoda,Superb Combi
+coches,Škoda,Yeti

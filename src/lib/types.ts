@@ -77,7 +77,7 @@ export interface Appointment {
   vehicle_id?: string | null;
   locator: string;
   key_code: string;
-  status: "pendiente" | "en_curso" | "finalizada" | "pendiente_aprobacion";
+  status: "pendiente" | "en_curso" | "finalizada" | "pendiente_aprobacion" | "rechazada";
   repair_status?: string | null;
   scheduled_date: string;
   scheduled_time: string;

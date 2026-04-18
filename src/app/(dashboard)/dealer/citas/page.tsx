@@ -910,14 +910,14 @@ export default function DealerCitasPage() {
                       </svg>
                       {copiedLink ? "¡Enlace copiado!" : "Copiar enlace de aceptación"}
                     </button>
-                    {!selectedApt.order_accepted_at && selectedApt.repair_acceptance_token && (
+                    {selectedApt.repair_acceptance_token && (!selectedApt.order_accepted_at || !selectedApt.order_return_accepted_at) && (
                       <a
                         href={`/orden/${selectedApt.repair_acceptance_token}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 text-xs bg-navy text-white hover:bg-navy/90 rounded-lg px-3 py-1.5 transition-colors"
                       >
-                        Firma presencial →
+                        {!selectedApt.order_accepted_at ? "Firma entrega →" : "Firma recogida →"}
                       </a>
                     )}
                   </div>

@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "LOCKSY <noreply@locksy-at.es>";
 const EMAILS_ENABLED = process.env.RESEND_ENABLED !== "false";
 
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     } else {
       const originalMessage = (msg as unknown as { message?: string | null }).message;
 
-      const { error: emailError } = await resend.emails.send({
+      const { error: emailError } = await getResend().emails.send({
         from: FROM_EMAIL,
         to: msg.email,
         subject,

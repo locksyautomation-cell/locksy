@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "LOCKSY <noreply@locksy-at.es>";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
   });
 
   // Send onboarding link by email to the dealership
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM_EMAIL,
     to: dealer.email,
     subject: "Configura tu cuenta de pagos en LOCKSY",

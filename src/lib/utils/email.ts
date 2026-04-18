@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.RESEND_FROM_EMAIL || "LOCKSY <noreply@locksy-at.es>";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "";
 const EMAILS_ENABLED = process.env.RESEND_ENABLED !== "false";
@@ -8,7 +8,7 @@ const EMAILS_ENABLED = process.env.RESEND_ENABLED !== "false";
 /** Sends the 2FA verification code to the user */
 export async function sendVerificationCode(email: string, code: string) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendVerificationCode → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Tu código de acceso a LOCKSY",
@@ -38,7 +38,7 @@ export async function sendStatusChangeEmail(
   appointmentId: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendStatusChangeEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Actualización de tu reparación — ${locator}`,
@@ -71,7 +71,7 @@ export async function sendBudgetEmail(
   appointmentId: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendBudgetEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Presupuesto disponible para tu reparación — ${locator}`,
@@ -110,7 +110,7 @@ export async function sendAppointmentConfirmationEmail(
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendAppointmentConfirmationEmail → ${email}`); return; }
   const dateFormatted = new Date(scheduledDate).toLocaleDateString("es-ES", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Confirmación de cita — ${locator}`,
@@ -148,7 +148,7 @@ export async function sendDealershipDeletedEmail(
   dealerName: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendDealershipDeletedEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Concesionario desvinculado — ${dealerName}`,
@@ -173,7 +173,7 @@ export async function sendPaymentConfirmedEmail(
   appointmentId: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendPaymentConfirmedEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Confirmación de pago — ${locator}`,
@@ -217,7 +217,7 @@ export async function sendDealerAppointmentNotificationEmail(
     modificada: "Cita modificada",
   };
   const dateFormatted = new Date(scheduledDate).toLocaleDateString("es-ES", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `${eventLabels[eventType]} — ${locator}`,
@@ -249,7 +249,7 @@ export async function sendDealerAppointmentNotificationEmail(
 // ── Email #12 — Suscripción activada (concesionario) ─────────────────────
 export async function sendSubscriptionActivatedEmail(email: string, name: string) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendSubscriptionActivatedEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Suscripción activada correctamente — LOCKSY",
@@ -279,7 +279,7 @@ export async function sendSubscriptionPaymentEmail(
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendSubscriptionPaymentEmail → ${email}`); return; }
   const periodEndFormatted = periodEnd.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Pago de suscripción recibido — LOCKSY",
@@ -314,7 +314,7 @@ export async function sendSubscriptionCancelledEmail(
   const periodFormatted = periodEnd
     ? new Date(periodEnd).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })
     : null;
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Suscripción cancelada — LOCKSY",
@@ -339,7 +339,7 @@ export async function sendSubscriptionCancelledEmail(
 // ── Email #15 — Suscripción reactivada (concesionario) ───────────────────
 export async function sendSubscriptionReactivatedEmail(email: string, name: string) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendSubscriptionReactivatedEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Reactivación de suscripción — LOCKSY",
@@ -367,7 +367,7 @@ export async function sendPriceChangeEmail(
   newAmountEur: number
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendPriceChangeEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Actualización del precio de tu suscripción LOCKSY",
@@ -410,7 +410,7 @@ export async function sendAppointmentStatusEmail(
     ? `Tu solicitud de cita <strong>${locator}</strong> ha sido <strong style="color:#16a34a;">aceptada</strong>. El concesionario se pondrá en contacto contigo para confirmar los detalles.`
     : `Tu solicitud de cita <strong>${locator}</strong> ha sido <strong style="color:#dc2626;">rechazada</strong>. Puedes solicitar una nueva cita desde la app.`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject,
@@ -441,7 +441,7 @@ export async function sendRepairOrderEmail(
   acceptanceUrl: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendRepairOrderEmail → ${email}`); return; }
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: `Orden de reparación lista para aceptar — ${locator}`,

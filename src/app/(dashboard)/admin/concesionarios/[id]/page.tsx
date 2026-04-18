@@ -1373,11 +1373,34 @@ export default function DealerDetailPage() {
                       disabled={savingLoaner}
                       aria-checked={loanerEnabled}
                       role="switch"
-                      className={`relative mt-1 inline-flex h-7 w-13 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-navy/40 focus:ring-offset-2 disabled:opacity-50 ${loanerEnabled ? "bg-navy" : "bg-gray-300"}`}
-                      style={{ width: "52px" }}
+                      style={{
+                        position: "relative",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        width: "52px",
+                        height: "28px",
+                        borderRadius: "9999px",
+                        border: "none",
+                        cursor: "pointer",
+                        flexShrink: 0,
+                        transition: "background-color 0.3s ease",
+                        backgroundColor: loanerEnabled ? "#1a2e4a" : "#d1d5db",
+                        outline: "none",
+                        opacity: savingLoaner ? 0.5 : 1,
+                        padding: "2px",
+                      }}
                     >
                       <span
-                        className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ${loanerEnabled ? "translate-x-6" : "translate-x-0"}`}
+                        style={{
+                          display: "inline-block",
+                          width: "24px",
+                          height: "24px",
+                          borderRadius: "9999px",
+                          backgroundColor: "white",
+                          boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
+                          transition: "transform 0.3s ease",
+                          transform: loanerEnabled ? "translateX(24px)" : "translateX(0px)",
+                        }}
                       />
                     </button>
                   </div>

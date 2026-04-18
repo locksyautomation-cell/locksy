@@ -3,9 +3,7 @@ import Stripe from "stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-02-25.clover",
-});
+const getStripe = () => new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2026-02-25.clover" });
 
 async function verifyAdmin(): Promise<boolean> {
   const supabase = await createClient();
@@ -38,7 +36,7 @@ export async function GET(request: NextRequest) {
   }
 
   // Check live status from Stripe
-  const account = await stripe.accounts.retrieve(dealer.stripe_connect_account_id);
+  const account = await getStripe().accounts.retrieve(dealer.stripe_connect_account_id);
   const complete = account.details_submitted && !account.requirements?.currently_due?.length;
 
   // Sync to DB if changed

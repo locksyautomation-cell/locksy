@@ -7,9 +7,7 @@ import { createClient } from "@/lib/supabase/server";
 const getResend = () => new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "LOCKSY <noreply@locksy-at.es>";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-02-25.clover",
-});
+const getStripe = () => new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2026-02-25.clover" });
 
 async function verifyAdmin(): Promise<boolean> {
   const supabase = await createClient();
@@ -45,7 +43,7 @@ export async function POST(request: NextRequest) {
 
   // Create Connect Express account if it doesn't exist yet
   if (!accountId) {
-    const account = await stripe.accounts.create({
+    const account = await getStripe().accounts.create({
       type: "express",
       email: dealer.email,
       business_profile: { name: dealer.name },
@@ -65,7 +63,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Generate onboarding link
-  const accountLink = await stripe.accountLinks.create({
+  const accountLink = await getStripe().accountLinks.create({
     account: accountId,
     refresh_url: `${process.env.NEXT_PUBLIC_APP_URL}/admin/concesionarios/${dealer.id}?connect=refresh`,
     return_url: `${process.env.NEXT_PUBLIC_APP_URL}/admin/concesionarios/${dealer.id}?connect=success`,

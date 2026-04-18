@@ -26,7 +26,7 @@ export async function PUT(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { id, name, nif_cif, phone, address, city, postal_code, repair_statuses, vehicle_type } = body;
+    const { id, name, nif_cif, phone, address, city, postal_code, repair_statuses, vehicle_type, loaner_vehicle_enabled } = body;
 
     if (!id) {
       return NextResponse.json({ error: "ID requerido" }, { status: 400 });
@@ -35,6 +35,7 @@ export async function PUT(request: NextRequest) {
     const adminClient = createAdminClient();
     const updatePayload: Record<string, unknown> = { name, nif_cif, phone, address, city, postal_code, repair_statuses };
     if (vehicle_type !== undefined) updatePayload.vehicle_type = vehicle_type;
+    if (loaner_vehicle_enabled !== undefined) updatePayload.loaner_vehicle_enabled = loaner_vehicle_enabled;
 
     const { error } = await adminClient
       .from("dealerships")

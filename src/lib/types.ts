@@ -46,6 +46,7 @@ export interface Dealership {
   locator_prefix?: string | null;
   locator_sequence?: number;
   vehicle_type?: "motos" | "coches" | "ambos" | null;
+  loaner_vehicle_enabled?: boolean;
 }
 
 export interface DealershipClient {
@@ -94,6 +95,8 @@ export interface Appointment {
   order_accepted_at?: string | null;
   order_return_accepted_at?: string | null;
   vehicle_km?: number | null;
+  loaner_vehicle_requested?: boolean;
+  loaner_vehicle_status?: "pending" | "accepted" | "rejected" | null;
   payment_status: "pending" | "paid" | "not_required";
   payment_method?: "card" | "cash" | null;
   stripe_payment_id?: string;

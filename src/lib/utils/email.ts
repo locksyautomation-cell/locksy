@@ -106,7 +106,8 @@ export async function sendAppointmentConfirmationEmail(
   scheduledDate: string,
   scheduledTime: string,
   vehicleInfo: string,
-  appointmentId: string
+  appointmentId: string,
+  loanerRequested = false
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendAppointmentConfirmationEmail → ${email}`); return; }
   const dateFormatted = new Date(scheduledDate).toLocaleDateString("es-ES", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
@@ -127,6 +128,7 @@ export async function sendAppointmentConfirmationEmail(
             <tr><td style="padding:6px 0;color:#666;font-size:13px;">Fecha</td><td style="padding:6px 0;">${dateFormatted}</td></tr>
             <tr><td style="padding:6px 0;color:#666;font-size:13px;">Hora</td><td style="padding:6px 0;">${scheduledTime}</td></tr>
             ${vehicleInfo ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Vehículo</td><td style="padding:6px 0;">${vehicleInfo}</td></tr>` : ""}
+            ${loanerRequested ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Vehículo sustitución</td><td style="padding:6px 0;color:#e07b3a;font-weight:600;">Solicitado — pendiente de confirmación</td></tr>` : ""}
           </table>
         </div>
         <div style="text-align:center;margin:24px 0;">
@@ -207,7 +209,8 @@ export async function sendDealerAppointmentNotificationEmail(
   scheduledDate: string,
   scheduledTime: string,
   vehicleInfo: string,
-  appointmentId: string
+  appointmentId: string,
+  loanerRequested = false
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendDealerAppointmentNotificationEmail → ${email}`); return; }
   const eventLabels = {
@@ -232,6 +235,7 @@ export async function sendDealerAppointmentNotificationEmail(
             <tr><td style="padding:6px 0;color:#666;font-size:13px;">Fecha</td><td style="padding:6px 0;">${dateFormatted}</td></tr>
             <tr><td style="padding:6px 0;color:#666;font-size:13px;">Hora</td><td style="padding:6px 0;">${scheduledTime}</td></tr>
             ${vehicleInfo ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Vehículo</td><td style="padding:6px 0;">${vehicleInfo}</td></tr>` : ""}
+            ${loanerRequested ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Vehículo sustitución</td><td style="padding:6px 0;color:#e07b3a;font-weight:600;">⚠ Solicitado por el cliente</td></tr>` : ""}
           </table>
         </div>
         <div style="text-align:center;margin:24px 0;">
@@ -473,6 +477,40 @@ export async function sendRepairOrderEmail(
           </p>
           <p style="color:#666;font-size:12px;margin-top:32px;">— El equipo de LOCKSY</p>
         </div>
+      </div>
+    `,
+  });
+}
+
+// ── Email — Respuesta vehículo de sustitución (cliente) ───────────────────
+export async function sendLoanerVehicleResponseEmail(
+  email: string,
+  clientName: string,
+  locator: string,
+  dealerName: string,
+  accepted: boolean,
+  appointmentId: string
+) {
+  if (!EMAILS_ENABLED) { console.log(`[email disabled] sendLoanerVehicleResponseEmail → ${email}`); return; }
+  await getResend().emails.send({
+    from: FROM,
+    to: email,
+    subject: `Vehículo de sustitución ${accepted ? "confirmado" : "no disponible"} — ${locator}`,
+    html: `
+      <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#111;">
+        <h2 style="color:#0a1628;">Vehículo de sustitución</h2>
+        <p>Hola${clientName ? ` ${clientName}` : ""},</p>
+        ${accepted
+          ? `<p>El taller <strong>${dealerName}</strong> ha <strong style="color:#16a34a;">confirmado</strong> que dispondrá de un vehículo de sustitución para tu cita <strong>${locator}</strong>.</p>`
+          : `<p>El taller <strong>${dealerName}</strong> nos informa de que <strong style="color:#dc2626;">no podrá proporcionarte</strong> un vehículo de sustitución para tu cita <strong>${locator}</strong>.</p>`
+        }
+        <div style="text-align:center;margin:24px 0;">
+          <a href="${APP_URL}/client/appointments/${appointmentId}"
+             style="background:#0a1628;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">
+            Ver mi cita
+          </a>
+        </div>
+        <p style="color:#666;font-size:12px;margin-top:32px;">— El equipo de LOCKSY</p>
       </div>
     `,
   });

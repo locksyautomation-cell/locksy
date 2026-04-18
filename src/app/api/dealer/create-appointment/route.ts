@@ -65,6 +65,11 @@ export async function POST(req: NextRequest) {
     insertData.manual_vehicle_plate = body.manual_vehicle_plate || null;
   }
 
+  if (body.loaner_vehicle_requested) {
+    insertData.loaner_vehicle_requested = true;
+    insertData.loaner_vehicle_status = body.loaner_vehicle_status || "accepted";
+  }
+
   const { data, error } = await adminClient.from("appointments").insert(insertData).select().single();
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

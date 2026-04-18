@@ -27,6 +27,7 @@ export default function NewAppointmentPage() {
     scheduled_date: "",
     scheduled_time: "",
     description: "",
+    loaner_vehicle_requested: false,
   });
 
   const [brandWarning, setBrandWarning] = useState("");
@@ -155,6 +156,7 @@ export default function NewAppointmentPage() {
           scheduled_time: form.scheduled_time,
           description: form.description,
           requires_approval: requiresApproval,
+          loaner_vehicle_requested: form.loaner_vehicle_requested,
           attachments,
         }),
       });
@@ -292,6 +294,24 @@ export default function NewAppointmentPage() {
             required
             placeholder="Describe el motivo de la cita..."
           />
+
+          {/* Vehículo de sustitución */}
+          {selectedDealership?.loaner_vehicle_enabled && (
+            <label className="flex items-start gap-3 cursor-pointer rounded-xl border border-border p-4 hover:border-navy transition-colors">
+              <input
+                type="checkbox"
+                checked={form.loaner_vehicle_requested}
+                onChange={(e) => setForm((prev) => ({ ...prev, loaner_vehicle_requested: e.target.checked }))}
+                className="mt-0.5 h-4 w-4 rounded border-gray-300 accent-navy cursor-pointer"
+              />
+              <div>
+                <p className="text-sm font-medium text-navy">Solicitar vehículo de sustitución</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  El taller confirmará la disponibilidad antes de tu cita.
+                </p>
+              </div>
+            </label>
+          )}
 
           {/* File upload */}
           <div>

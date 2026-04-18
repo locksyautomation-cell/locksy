@@ -219,6 +219,10 @@ export default function DealerDetailPage() {
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState("");
 
+  const [loanerEnabled, setLoanerEnabled] = useState(false);
+  const [savingLoaner, setSavingLoaner] = useState(false);
+  const [loanerMsg, setLoanerMsg] = useState("");
+
   async function fetchSubConfig() {
     try {
       const res = await fetch(`/api/admin/get-subscription-config?dealer_id=${id}`);
@@ -271,6 +275,7 @@ export default function DealerDetailPage() {
         const existing = found.repair_statuses || DEFAULT_STATUSES;
         setCustomStatuses(existing.filter((s) => !DEFAULT_STATUSES.includes(s)));
         setPrefixInput(found.locator_prefix || "");
+        setLoanerEnabled(found.loaner_vehicle_enabled ?? false);
       }
       const invData = await invRes.json();
       setInvoices(invData.invoices || []);
@@ -570,6 +575,23 @@ export default function DealerDetailPage() {
     setTimeout(() => setLinkCopied(false), 2500);
   }
 
+  async function handleToggleLoaner(enabled: boolean) {
+    if (!dealer) return;
+    setSavingLoaner(true);
+    setLoanerMsg("");
+    const res = await fetch("/api/admin/update-dealership", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: dealer.id, loaner_vehicle_enabled: enabled }),
+    });
+    if (res.ok) {
+      setLoanerEnabled(enabled);
+      setLoanerMsg(enabled ? "Función activada." : "Función desactivada.");
+      setTimeout(() => setLoanerMsg(""), 3000);
+    }
+    setSavingLoaner(false);
+  }
+
   if (loadingDealer) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -629,6 +651,7 @@ export default function DealerDetailPage() {
           { id: "estados", label: "Estados de reparación" },
           { id: "facturacion", label: "Facturación" },
           { id: "registro", label: "Enlace de registro" },
+          { id: "funcionalidades", label: "Funcionalidades extras" },
         ]}
         defaultTab={initialTab}
         onChange={handleTabChange}
@@ -1320,6 +1343,30 @@ export default function DealerDetailPage() {
                 )}
               </div>
             )}
+            {/* ── TAB G: Funcionalidades extras ── */}
+            {activeTab === "funcionalidades" && (
+              <div className="max-w-xl space-y-6">
+                <h2 className="heading text-lg text-navy mb-4">FUNCIONALIDADES EXTRAS</h2>
+                <div className="rounded-xl border border-border p-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-medium text-navy">Vehículo de sustitución</p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Permite que los clientes soliciten un vehículo de sustitución al reservar cita.
+                      El concesionario podrá aceptar o rechazar cada solicitud.
+                    </p>
+                    {loanerMsg && <p className="text-sm text-green-600 mt-2">{loanerMsg}</p>}
+                  </div>
+                  <button
+                    onClick={() => handleToggleLoaner(!loanerEnabled)}
+                    disabled={savingLoaner}
+                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-50 ${loanerEnabled ? "bg-navy" : "bg-gray-300"}`}
+                  >
+                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition duration-200 ${loanerEnabled ? "translate-x-5" : "translate-x-0"}`} />
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* ── TAB F: Enlace de registro ── */}
             {activeTab === "registro" && (
               <div className="max-w-xl">

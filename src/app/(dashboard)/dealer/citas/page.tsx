@@ -11,7 +11,7 @@ import Card from "@/components/ui/Card";
 import { createClient } from "@/lib/supabase/client";
 import { generateKeyCode } from "@/lib/utils/keycode";
 import { generateTimeSlots, formatTime } from "@/lib/utils/dates";
-import type { Appointment, User, ScheduleBlock, Attachment } from "@/lib/types";
+import type { Appointment, Dealership, User, ScheduleBlock, Attachment } from "@/lib/types";
 
 interface ContactOption {
   kind: "registered" | "manual";
@@ -70,6 +70,7 @@ const EMPTY_FORM = {
   manual_vehicle_brand: "",
   manual_vehicle_model: "",
   manual_vehicle_plate: "",
+  loaner_vehicle_requested: false,
 };
 
 export default function DealerCitasPage() {
@@ -77,6 +78,7 @@ export default function DealerCitasPage() {
   const router = useRouter();
 
   const [dealershipId, setDealershipId] = useState("");
+  const [dealership, setDealership] = useState<Dealership | null>(null);
   const [repairStatuses, setRepairStatuses] = useState<string[]>([]);
   const [dealerVehicleType, setDealerVehicleType] = useState<"motos" | "coches" | "ambos" | null>(null);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -150,6 +152,7 @@ export default function DealerCitasPage() {
 
     if (!ds) { setLoading(false); return; }
     setDealershipId(ds.id);
+    setDealership(ds as Dealership);
     setRepairStatuses((ds.repair_statuses as string[]) || ["En espera", "En reparación", "Reparación finalizada"]);
     setDealerVehicleType((ds.vehicle_type as "motos" | "coches" | "ambos" | null) || null);
 
@@ -375,6 +378,16 @@ export default function DealerCitasPage() {
     });
   }
 
+  async function handleLoanerStatus(appointmentId: string, status: "accepted" | "rejected") {
+    await fetch("/api/dealer/update-loaner-status", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ appointment_id: appointmentId, status }),
+    });
+    setSelectedApt((prev) => prev ? { ...prev, loaner_vehicle_status: status } : prev);
+    setAppointments((prev) => prev.map((a) => a.id === appointmentId ? { ...a, loaner_vehicle_status: status } : a));
+  }
+
   async function handleAddAppointment() {
     if (!form.scheduled_date || !form.scheduled_time) {
       setAddError("Fecha y hora son obligatorios.");
@@ -412,6 +425,11 @@ export default function DealerCitasPage() {
       payload.manual_vehicle_brand = form.manual_vehicle_brand;
       payload.manual_vehicle_model = form.manual_vehicle_model;
       payload.manual_vehicle_plate = form.manual_vehicle_plate;
+    }
+
+    if (dealership?.loaner_vehicle_enabled && form.loaner_vehicle_requested) {
+      payload.loaner_vehicle_requested = true;
+      payload.loaner_vehicle_status = "accepted";
     }
 
     const res = await fetch("/api/dealer/create-appointment", {
@@ -821,6 +839,34 @@ export default function DealerCitasPage() {
                 <p className="text-muted-foreground text-xs">Motivo</p>
                 <p>{selectedApt.description || "—"}</p>
               </div>
+              {selectedApt.loaner_vehicle_requested && (
+                <div className="col-span-2">
+                  <p className="text-muted-foreground text-xs mb-1">Vehículo de sustitución</p>
+                  {selectedApt.loaner_vehicle_status === "pending" && (
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs text-orange font-medium">Solicitado — pendiente de respuesta</span>
+                      <button
+                        onClick={() => handleLoanerStatus(selectedApt.id, "accepted")}
+                        className="rounded-lg bg-green-600 px-3 py-1 text-xs font-semibold text-white hover:bg-green-700 transition-colors"
+                      >
+                        Aceptar
+                      </button>
+                      <button
+                        onClick={() => handleLoanerStatus(selectedApt.id, "rejected")}
+                        className="rounded-lg bg-red-600 px-3 py-1 text-xs font-semibold text-white hover:bg-red-700 transition-colors"
+                      >
+                        Rechazar
+                      </button>
+                    </div>
+                  )}
+                  {selectedApt.loaner_vehicle_status === "accepted" && (
+                    <span className="text-xs text-green-600 font-medium">✓ Aceptado</span>
+                  )}
+                  {selectedApt.loaner_vehicle_status === "rejected" && (
+                    <span className="text-xs text-red-600 font-medium">✗ Rechazado</span>
+                  )}
+                </div>
+              )}
               <div className="col-span-2 flex items-center gap-2">
                 <p className="text-muted-foreground text-xs">Estado:</p>
                 <Badge variant={
@@ -1205,6 +1251,18 @@ export default function DealerCitasPage() {
               placeholder="Describe el problema..."
             />
           </div>
+
+          {dealership?.loaner_vehicle_enabled && (
+            <label className="flex items-center gap-3 cursor-pointer rounded-lg border border-border p-3 hover:border-navy transition-colors">
+              <input
+                type="checkbox"
+                checked={form.loaner_vehicle_requested}
+                onChange={(e) => setForm(p => ({ ...p, loaner_vehicle_requested: e.target.checked }))}
+                className="h-4 w-4 rounded border-gray-300 accent-navy cursor-pointer"
+              />
+              <span className="text-sm font-medium">Vehículo de sustitución</span>
+            </label>
+          )}
 
           {addError && <p className="text-sm text-error">{addError}</p>}
 

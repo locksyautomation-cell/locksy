@@ -57,6 +57,8 @@ export async function POST(request: NextRequest) {
         scheduled_time: body.scheduled_time,
         description: body.description || null,
         status: body.requires_approval ? "pendiente_aprobacion" : "pendiente",
+        loaner_vehicle_requested: body.loaner_vehicle_requested === true,
+        loaner_vehicle_status: body.loaner_vehicle_requested === true ? "pending" : null,
       })
       .select()
       .single();
@@ -165,17 +167,18 @@ export async function POST(request: NextRequest) {
       const clientFullName = [clientData?.first_name, clientData?.last_name].filter(Boolean).join(" ");
       const eventType = appointment.status === "pendiente_aprobacion" ? "solicitada" : "nueva";
 
+      const loanerRequested = body.loaner_vehicle_requested === true;
       if (clientData?.email) {
         sendAppointmentConfirmationEmail(
           clientData.email, clientFullName, dealerName, dealerAddress,
           locator, appointment.scheduled_date, appointment.scheduled_time,
-          vehicleInfo, appointment.id
+          vehicleInfo, appointment.id, loanerRequested
         ).catch(() => {});
       }
       if (dealerEmail) {
         sendDealerAppointmentNotificationEmail(
           dealerEmail, dealerName, eventType, locator, clientFullName,
-          appointment.scheduled_date, appointment.scheduled_time, vehicleInfo, appointment.id
+          appointment.scheduled_date, appointment.scheduled_time, vehicleInfo, appointment.id, loanerRequested
         ).catch(() => {});
       }
     } catch { /* non-fatal */ }

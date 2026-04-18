@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendStatusChangeEmail, sendBudgetEmail } from "@/lib/utils/email";
+import { generateRepairInvoiceForAppointment } from "@/lib/utils/repair-invoice-service";
 
 async function getDealership(user_id: string) {
   const adminClient = createAdminClient();
@@ -31,7 +32,7 @@ export async function PUT(request: NextRequest) {
     // Fetch current appointment state for notification diffing
     const { data: currentApt } = await adminClient
       .from("appointments")
-      .select("client_id, repair_status, budget_url, locator, budget_amount")
+      .select("client_id, repair_status, budget_url, locator, budget_amount, status")
       .eq("id", id)
       .eq("dealership_id", dealership.id)
       .maybeSingle();
@@ -114,6 +115,14 @@ export async function PUT(request: NextRequest) {
           ).catch(() => {});
         }
       }
+    }
+
+    // Auto-generate repair invoice when status changes to "finalizada"
+    if (
+      fields.status === "finalizada" &&
+      currentApt?.status !== "finalizada"
+    ) {
+      generateRepairInvoiceForAppointment(id, adminClient).catch(() => {});
     }
 
     return NextResponse.json({ success: true });

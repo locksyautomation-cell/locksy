@@ -49,7 +49,14 @@ export async function POST() {
       console.warn("[generate-code] Usuario sin email:", user.id);
     }
 
-    return NextResponse.json({ success: true });
+    const res = NextResponse.json({ success: true });
+    res.cookies.set("pending_2fa", "1", {
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+      maxAge: VERIFICATION_CODE_EXPIRY_MINUTES * 60,
+    });
+    return res;
   } catch (err) {
     console.error("[generate-code] Error general:", err);
     return NextResponse.json({ error: "Error del servidor" }, { status: 500 });

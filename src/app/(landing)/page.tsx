@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata: Metadata = {
   title: "LOCKSY - Gestión Inteligente para tu Taller",
@@ -68,7 +69,24 @@ const features = [
   },
 ];
 
-export default function HomePage() {
+async function getStats() {
+  try {
+    const admin = createAdminClient();
+    const [dealershipsRes, clientsRes] = await Promise.all([
+      admin.from("dealerships").select("id", { count: "exact", head: true }),
+      admin.from("users").select("id", { count: "exact", head: true }).eq("role", "client"),
+    ]);
+    return {
+      dealerships: dealershipsRes.count ?? 0,
+      clients: clientsRes.count ?? 0,
+    };
+  } catch {
+    return { dealerships: 0, clients: 0 };
+  }
+}
+
+export default async function HomePage() {
+  const stats = await getStats();
   return (
     <>
       {/* Hero Banner */}
@@ -107,6 +125,20 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          {/* Stats */}
+          {(stats.dealerships > 0 || stats.clients > 0) && (
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="rounded-xl border border-border p-8 text-center">
+                <p className="heading text-4xl text-navy mb-2">{stats.dealerships}</p>
+                <p className="text-muted-foreground">talleres ya confían en LOCKSY</p>
+              </div>
+              <div className="rounded-xl border border-border p-8 text-center">
+                <p className="heading text-4xl text-navy mb-2">{stats.clients}</p>
+                <p className="text-muted-foreground">clientes gestionan sus citas a través de nuestra plataforma</p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

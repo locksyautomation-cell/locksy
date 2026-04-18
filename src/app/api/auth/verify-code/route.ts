@@ -46,7 +46,9 @@ export async function POST(request: NextRequest) {
       })
       .eq("id", user.id);
 
-    return NextResponse.json({ success: true, role: userData.role });
+    const res = NextResponse.json({ success: true, role: userData.role });
+    res.cookies.set("pending_2fa", "", { maxAge: 0, path: "/" });
+    return res;
   } catch {
     return NextResponse.json({ error: "Error del servidor" }, { status: 500 });
   }

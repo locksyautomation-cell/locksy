@@ -80,6 +80,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // Block access if 2FA code has not been verified yet (only enforced in production)
+  if (process.env.NODE_ENV === "production" && request.cookies.get("pending_2fa")?.value === "1") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/verify";
+    return NextResponse.redirect(url);
+  }
+
   // Get user role — first from DB, fallback to JWT metadata
   const { data: userData } = await supabase
     .from("users")

@@ -27,7 +27,7 @@ interface ContactOption {
 
 const DAYS = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 const MONTHS = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-const HOURS = Array.from({ length: 17 }, (_, i) => i + 6); // 6..22
+const DEFAULT_HOURS = Array.from({ length: 17 }, (_, i) => i + 6); // 6..22 fallback
 
 type ViewMode = "month" | "week";
 
@@ -83,6 +83,7 @@ export default function DealerCitasPage() {
   const [dealerVehicleType, setDealerVehicleType] = useState<"motos" | "coches" | "ambos" | null>(null);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [blockedSlots, setBlockedSlots] = useState<ScheduleBlock[]>([]);
+  const [dealerSchedule, setDealerSchedule] = useState<{ day_of_week: number; is_closed: boolean; morning_start: string | null; morning_end: string | null; afternoon_start: string | null; afternoon_end: string | null; }[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Calendar state
@@ -156,15 +157,18 @@ export default function DealerCitasPage() {
     setRepairStatuses((ds.repair_statuses as string[]) || ["En espera", "En reparación", "Reparación finalizada"]);
     setDealerVehicleType((ds.vehicle_type as "motos" | "coches" | "ambos" | null) || null);
 
-    const [aptsData, blocksRes] = await Promise.all([
+    const [aptsData, blocksRes, scheduleRes] = await Promise.all([
       fetch("/api/dealer/get-appointments"),
       fetch("/api/dealer/schedule-blocks"),
+      fetch("/api/dealer/schedule"),
     ]);
 
     const { appointments: apts } = await aptsData.json();
     setAppointments((apts as Appointment[]) || []);
     const blocksData = await blocksRes.json();
     setBlockedSlots((blocksData.blocks as ScheduleBlock[]) || []);
+    const scheduleData = await scheduleRes.json();
+    setDealerSchedule((scheduleData.schedule as typeof dealerSchedule) || []);
     setLoading(false);
   }
 
@@ -253,6 +257,25 @@ export default function DealerCitasPage() {
     [weekStart]
   );
 
+  // Compute visible hour range from dealer schedule
+  const calendarHours = useMemo(() => {
+    if (!dealerSchedule.length) return DEFAULT_HOURS;
+    const openRows = dealerSchedule.filter((r) => !r.is_closed);
+    if (!openRows.length) return DEFAULT_HOURS;
+
+    const times: number[] = [];
+    openRows.forEach((r) => {
+      if (r.morning_start) times.push(parseInt(r.morning_start.slice(0, 2), 10));
+      if (r.morning_end)   times.push(parseInt(r.morning_end.slice(0, 2), 10));
+      if (r.afternoon_start) times.push(parseInt(r.afternoon_start.slice(0, 2), 10));
+      if (r.afternoon_end)   times.push(parseInt(r.afternoon_end.slice(0, 2), 10));
+    });
+
+    const minH = Math.min(...times);
+    const maxH = Math.max(...times);
+    return Array.from({ length: maxH - minH }, (_, i) => minH + i);
+  }, [dealerSchedule]);
+
   // Calendar grid
   const calendarDays = useMemo(() => {
     const firstDay = new Date(currentYear, currentMonth, 1);
@@ -287,6 +310,15 @@ export default function DealerCitasPage() {
       const endH = parseInt(b.end_time.split(":")[0], 10);
       return hour >= startH && hour < endH;
     });
+  }
+
+  function isDayScheduleClosed(date: Date): boolean {
+    if (!dealerSchedule.length) return false;
+    // JS getDay(): 0=sunday, convert to 0=monday..6=sunday
+    const jsDay = date.getDay();
+    const dow = jsDay === 0 ? 6 : jsDay - 1;
+    const row = dealerSchedule.find((r) => r.day_of_week === dow);
+    return row ? row.is_closed : false;
   }
 
   function blockedTimesForDate(date: string): string[] {
@@ -750,20 +782,20 @@ export default function DealerCitasPage() {
               );
             })}
           </div>
-          {/* Hour rows — stretch to fill remaining height */}
-          <div className="divide-y divide-border flex-1 flex flex-col">
-            {HOURS.map((hour) => (
-              <div key={hour} className="grid flex-1" style={{ gridTemplateColumns: "56px repeat(7, 1fr)" }}>
-                <div className="border-r border-border flex items-start justify-end pr-2 pt-1 bg-muted/30">
+          {/* Hour rows — fixed height so columns stay aligned */}
+          <div className="divide-y divide-border overflow-y-auto flex-1">
+            {calendarHours.map((hour) => (
+              <div key={hour} className="grid" style={{ gridTemplateColumns: "56px repeat(7, 1fr)", minHeight: "56px" }}>
+                <div className="border-r border-border flex items-start justify-end pr-2 pt-1 bg-muted/30 flex-shrink-0">
                   <span className="text-xs text-muted-foreground">{String(hour).padStart(2, "0")}:00</span>
                 </div>
                 {weekDays.map((d, i) => {
                   const apts = aptsForDayHour(d, hour);
-                  const blocked = isHourBlocked(d, hour);
+                  const blocked = isHourBlocked(d, hour) || isDayScheduleClosed(d);
                   return (
                     <div
                       key={i}
-                      className="border-l border-border p-1"
+                      className="border-l border-border p-1 overflow-hidden"
                       style={blocked ? { backgroundColor: "#e8ecf0" } : undefined}
                     >
                       {apts.map((apt) => (

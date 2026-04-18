@@ -17,6 +17,7 @@ export default function NewAppointmentPage() {
   const [allVehicles, setAllVehicles] = useState<Vehicle[]>([]);
   const [dealerships, setDealerships] = useState<Dealership[]>([]);
   const [scheduleBlocks, setScheduleBlocks] = useState<ScheduleBlock[]>([]);
+  const [dealerSchedule, setDealerSchedule] = useState<{ day_of_week: number; is_closed: boolean; morning_start: string | null; morning_end: string | null; afternoon_start: string | null; afternoon_end: string | null; }[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [files, setFiles] = useState<File[]>([]);
@@ -81,6 +82,15 @@ export default function NewAppointmentPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.vehicle_id, form.dealership_id]);
 
+  // Fetch dealer working hours when dealership changes
+  useEffect(() => {
+    if (!form.dealership_id) { setDealerSchedule([]); return; }
+    fetch(`/api/client/get-dealership-schedule?dealership_id=${form.dealership_id}`)
+      .then((r) => r.json())
+      .then(({ schedule }) => setDealerSchedule(schedule || []))
+      .catch(() => {});
+  }, [form.dealership_id]);
+
   // Fetch schedule blocks when dealership or date changes
   useEffect(() => {
     async function fetchBlocks() {
@@ -98,13 +108,49 @@ export default function NewAppointmentPage() {
     fetchBlocks();
   }, [form.dealership_id, form.scheduled_date, supabase]);
 
+  function getDayOfWeek(dateStr: string): number {
+    // JS getDay(): 0=domingo...6=sábado → convert to 0=lunes...6=domingo
+    const jsDay = new Date(dateStr + "T12:00:00").getDay();
+    return jsDay === 0 ? 6 : jsDay - 1;
+  }
+
+  function isDayClosed(dateStr: string): boolean {
+    if (!dealerSchedule.length) return false;
+    const dow = getDayOfWeek(dateStr);
+    const dayRow = dealerSchedule.find((r) => r.day_of_week === dow);
+    return dayRow ? dayRow.is_closed : false;
+  }
+
   function getAvailableTimeSlots() {
-    const allSlots = generateTimeSlots();
     const todayStr = new Date().toISOString().split("T")[0];
     const nowStr = `${String(new Date().getHours()).padStart(2, "0")}:${String(new Date().getMinutes()).padStart(2, "0")}`;
     const isToday = form.scheduled_date === todayStr;
 
-    return allSlots.filter((slot) => {
+    // Build allowed slots from dealer working hours
+    let allowedSlots: string[] = [];
+    if (dealerSchedule.length && form.scheduled_date) {
+      const dow = getDayOfWeek(form.scheduled_date);
+      const dayRow = dealerSchedule.find((r) => r.day_of_week === dow);
+      if (!dayRow || dayRow.is_closed) return [];
+
+      const addRange = (start: string, end: string) => {
+        const s = start.slice(0, 5);
+        const e = end.slice(0, 5);
+        const gen = generateTimeSlots(parseInt(s.split(":")[0]), parseInt(e.split(":")[0]));
+        allowedSlots.push(...gen.filter((slot) => slot >= s && slot < e));
+      };
+
+      if (dayRow.morning_start && dayRow.morning_end) {
+        addRange(dayRow.morning_start, dayRow.morning_end);
+      }
+      if (dayRow.afternoon_start && dayRow.afternoon_end) {
+        addRange(dayRow.afternoon_start, dayRow.afternoon_end);
+      }
+    } else {
+      allowedSlots = generateTimeSlots();
+    }
+
+    return allowedSlots.filter((slot) => {
       if (isToday && slot <= nowStr) return false;
       return !scheduleBlocks.some((block) => {
         return slot >= block.start_time.slice(0, 5) && slot < block.end_time.slice(0, 5);
@@ -177,11 +223,13 @@ export default function NewAppointmentPage() {
 
   const availableSlots = getAvailableTimeSlots();
   const requiresApproval = !!brandWarning;
+  const selectedDateClosed = form.scheduled_date ? isDayClosed(form.scheduled_date) : false;
 
   const isFormValid =
     form.dealership_id &&
     form.vehicle_id &&
     form.scheduled_date &&
+    !selectedDateClosed &&
     form.scheduled_time &&
     form.description;
 
@@ -266,7 +314,16 @@ export default function NewAppointmentPage() {
             required
           />
 
-          {form.scheduled_date && (
+          {form.scheduled_date && selectedDateClosed && (
+            <div className="flex items-start gap-3 rounded-lg border border-error/40 bg-error/5 px-4 py-3">
+              <svg className="h-5 w-5 text-error flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              <p className="text-sm text-error">El taller está cerrado ese día. Por favor, selecciona otra fecha.</p>
+            </div>
+          )}
+
+          {form.scheduled_date && !selectedDateClosed && (
             <Select
               label="Hora"
               value={form.scheduled_time}
@@ -280,7 +337,7 @@ export default function NewAppointmentPage() {
                 value: slot,
                 label: slot,
               }))}
-              placeholder="Selecciona una hora"
+              placeholder={availableSlots.length === 0 ? "Sin horas disponibles" : "Selecciona una hora"}
               required
             />
           )}

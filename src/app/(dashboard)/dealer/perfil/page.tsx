@@ -32,6 +32,7 @@ const SUB_PAGES = [
   { label: "Pagos", href: "/dealer/perfil/pagos", desc: "Configura tu IBAN y datos de facturación" },
   { label: "Facturación", href: "/dealer/perfil/facturacion", desc: "Consulta tus ingresos y pagos recibidos" },
   { label: "Historial de órdenes", href: "/dealer/perfil/historial", desc: "Consulta todas las reparaciones completadas" },
+  { label: "Horarios", href: "/dealer/perfil/horarios", desc: "Configura el horario de apertura del taller" },
 ];
 
 export default function DealerPerfilPage() {
@@ -357,7 +358,7 @@ export default function DealerPerfilPage() {
       </Card>
 
       {/* Sub-page navigation */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {SUB_PAGES.map((page) => (
           <button
             key={page.href}

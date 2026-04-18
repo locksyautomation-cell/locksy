@@ -148,7 +148,7 @@ export function generateRepairOrderPDF(data: RepairOrderData): Promise<Buffer> {
       `${data.vehicleBrand} ${data.vehicleModel}`.trim(),
       data.vehiclePlate ? `Matrícula: ${data.vehiclePlate}` : null,
       data.vehicleChassis ? `Bastidor: ${data.vehicleChassis}` : null,
-      data.vehicleKm != null ? `Km: ${data.vehicleKm.toLocaleString("es-ES")}` : null,
+      data.vehicleKm != null ? `Km: ${data.vehicleKm}` : null,
     ].filter(Boolean).join("   ·   ");
 
     doc.font("Helvetica").fontSize(10).fillColor(BLACK).text(vehicleText, ML + 8, y, { width: CW - 16 });

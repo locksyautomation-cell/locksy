@@ -632,6 +632,21 @@ export default function TallerDetailPage() {
                     : "Pendiente"}
                 </dd>
               </div>
+              {!appointment.order_accepted_at && appointment.repair_acceptance_token && (
+                <div>
+                  <dt className="text-muted-foreground mb-1">Firma presencial</dt>
+                  <dd>
+                    <a
+                      href={`/orden/${appointment.repair_acceptance_token}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md bg-navy px-3 py-1.5 text-sm font-medium text-white hover:bg-navy/90 transition-colors"
+                    >
+                      Abrir para que el cliente firme →
+                    </a>
+                  </dd>
+                </div>
+              )}
               <div>
                 <dt className="text-muted-foreground">Firma recogida del vehículo</dt>
                 <dd className={appointment.order_return_accepted_at ? "text-green-600 font-medium" : "text-muted-foreground"}>

@@ -146,7 +146,7 @@ export default function RepairOrderAcceptancePage({
           {order.vehicleKm != null && (
             <div className="col-span-2">
               <p className="text-gray-400 text-xs uppercase tracking-wider mb-0.5">Kilómetros registrados</p>
-              <p className="font-medium text-[#1a2e4a]">{order.vehicleKm.toLocaleString("es-ES")} km</p>
+              <p className="font-medium text-[#1a2e4a]">{order.vehicleKm} km</p>
             </div>
           )}
         </div>
@@ -209,7 +209,7 @@ export default function RepairOrderAcceptancePage({
                 {pickupDone ? (
                   <p className="text-sm text-green-700 mt-0.5">
                     Aceptado el {formatDate(order.orderAcceptedAt!)}
-                    {order.vehicleKm != null && ` · ${order.vehicleKm.toLocaleString("es-ES")} km`}
+                    {order.vehicleKm != null && ` · ${order.vehicleKm} km`}
                   </p>
                 ) : (
                   <p className="text-sm text-gray-500 mt-0.5">Autoriza las reparaciones indicadas en esta orden.</p>

@@ -900,7 +900,7 @@ export default function DealerCitasPage() {
                         : "Pendiente"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <button
                       onClick={handleCopyAcceptanceLink}
                       className="flex items-center gap-1.5 text-xs bg-muted hover:bg-muted/80 rounded-lg px-3 py-1.5 transition-colors"
@@ -910,6 +910,16 @@ export default function DealerCitasPage() {
                       </svg>
                       {copiedLink ? "¡Enlace copiado!" : "Copiar enlace de aceptación"}
                     </button>
+                    {!selectedApt.order_accepted_at && selectedApt.repair_acceptance_token && (
+                      <a
+                        href={`/orden/${selectedApt.repair_acceptance_token}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs bg-navy text-white hover:bg-navy/90 rounded-lg px-3 py-1.5 transition-colors"
+                      >
+                        Firma presencial →
+                      </a>
+                    )}
                   </div>
                 </div>
               ) : (

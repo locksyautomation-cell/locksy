@@ -37,15 +37,30 @@ export async function POST(request: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const apt = aptRaw as any;
 
-  if (apt.client_id && apt.client?.email) {
-    sendLoanerVehicleResponseEmail(
-      apt.client.email,
-      apt.client.first_name || "",
-      apt.locator,
-      dealer.name,
-      status === "accepted",
-      appointment_id
-    ).catch(() => {});
+  if (apt.client_id) {
+    const accepted = status === "accepted";
+
+    await adminClient.from("notifications").insert({
+      user_id: apt.client_id,
+      appointment_id,
+      type: "status_change",
+      title: accepted ? "Vehículo de sustitución confirmado" : "Vehículo de sustitución no disponible",
+      message: accepted
+        ? `El taller ${dealer.name} ha confirmado que dispondrás de un vehículo de sustitución para la cita ${apt.locator}.`
+        : `El taller ${dealer.name} no podrá proporcionarte vehículo de sustitución para la cita ${apt.locator}.`,
+      read: false,
+    });
+
+    if (apt.client?.email) {
+      sendLoanerVehicleResponseEmail(
+        apt.client.email,
+        apt.client.first_name || "",
+        apt.locator,
+        dealer.name,
+        accepted,
+        appointment_id
+      ).catch(() => {});
+    }
   }
 
   return NextResponse.json({ success: true });

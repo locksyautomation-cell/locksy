@@ -121,6 +121,31 @@ export default function AppointmentDetailPage() {
               <dt className="text-sm text-muted-foreground">Descripción</dt>
               <dd className="text-foreground">{appointment.description}</dd>
             </div>
+            {appointment.loaner_vehicle_requested && (
+              <div>
+                <dt className="text-sm text-muted-foreground">Vehículo de sustitución</dt>
+                <dd className="mt-0.5">
+                  {appointment.loaner_vehicle_status === "accepted" && (
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green-700">
+                      <span className="h-2 w-2 rounded-full bg-green-500" />
+                      Confirmado por el taller
+                    </span>
+                  )}
+                  {appointment.loaner_vehicle_status === "rejected" && (
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-red-600">
+                      <span className="h-2 w-2 rounded-full bg-red-500" />
+                      No disponible
+                    </span>
+                  )}
+                  {(!appointment.loaner_vehicle_status || appointment.loaner_vehicle_status === "pending") && (
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-orange">
+                      <span className="h-2 w-2 rounded-full bg-orange-400" />
+                      Solicitado — pendiente de respuesta
+                    </span>
+                  )}
+                </dd>
+              </div>
+            )}
           </dl>
         </Card>
 

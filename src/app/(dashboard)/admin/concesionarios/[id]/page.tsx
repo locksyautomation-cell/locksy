@@ -1345,24 +1345,51 @@ export default function DealerDetailPage() {
             )}
             {/* ── TAB G: Funcionalidades extras ── */}
             {activeTab === "funcionalidades" && (
-              <div className="max-w-xl space-y-6">
-                <h2 className="heading text-lg text-navy mb-4">FUNCIONALIDADES EXTRAS</h2>
-                <div className="rounded-xl border border-border p-5 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="font-medium text-navy">Vehículo de sustitución</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Permite que los clientes soliciten un vehículo de sustitución al reservar cita.
-                      El concesionario podrá aceptar o rechazar cada solicitud.
-                    </p>
-                    {loanerMsg && <p className="text-sm text-green-600 mt-2">{loanerMsg}</p>}
+              <div className="max-w-xl space-y-4">
+                <h2 className="heading text-lg text-navy mb-2">FUNCIONALIDADES EXTRAS</h2>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Activa o desactiva funciones opcionales para este concesionario.
+                </p>
+
+                <div className={`rounded-xl border-2 p-5 transition-colors ${loanerEnabled ? "border-navy bg-navy/5" : "border-border bg-background"}`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-start gap-3">
+                      <div className={`mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg ${loanerEnabled ? "bg-navy text-white" : "bg-muted text-muted-foreground"}`}>
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-navy">Vehículo de sustitución</p>
+                        <p className="text-sm text-muted-foreground mt-0.5">
+                          Los clientes podrán solicitar un vehículo de sustitución al reservar cita.
+                          El concesionario acepta o rechaza cada solicitud.
+                        </p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleToggleLoaner(!loanerEnabled)}
+                      disabled={savingLoaner}
+                      aria-checked={loanerEnabled}
+                      role="switch"
+                      className={`relative mt-1 inline-flex h-7 w-13 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-navy/40 focus:ring-offset-2 disabled:opacity-50 ${loanerEnabled ? "bg-navy" : "bg-gray-300"}`}
+                      style={{ width: "52px" }}
+                    >
+                      <span
+                        className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ${loanerEnabled ? "translate-x-6" : "translate-x-0"}`}
+                      />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => handleToggleLoaner(!loanerEnabled)}
-                    disabled={savingLoaner}
-                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-50 ${loanerEnabled ? "bg-navy" : "bg-gray-300"}`}
-                  >
-                    <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition duration-200 ${loanerEnabled ? "translate-x-5" : "translate-x-0"}`} />
-                  </button>
+
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${loanerEnabled ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
+                      <span className={`h-1.5 w-1.5 rounded-full ${loanerEnabled ? "bg-green-500" : "bg-gray-400"}`} />
+                      {loanerEnabled ? "Activo" : "Inactivo"}
+                    </span>
+                    {savingLoaner && <span className="text-xs text-muted-foreground">Guardando...</span>}
+                    {loanerMsg && <span className="text-xs text-green-600 font-medium">{loanerMsg}</span>}
+                  </div>
                 </div>
               </div>
             )}

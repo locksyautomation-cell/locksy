@@ -515,3 +515,56 @@ export async function sendLoanerVehicleResponseEmail(
     `,
   });
 }
+
+// ── Email — Confirmación de firma de orden (evidencia legal) ─────────────────
+export async function sendSignatureConfirmationEmail(
+  email: string,
+  clientName: string,
+  locator: string,
+  dealershipName: string,
+  type: "key_pickup" | "key_return",
+  signedAt: string,
+  ip: string
+) {
+  if (!EMAILS_ENABLED) { console.log(`[email disabled] sendSignatureConfirmationEmail → ${email}`); return; }
+  const label = type === "key_pickup" ? "Entrega de vehículo" : "Recogida de vehículo";
+  const date = new Date(signedAt).toLocaleString("es-ES", { dateStyle: "full", timeStyle: "short" });
+  await getResend().emails.send({
+    from: FROM,
+    to: email,
+    subject: `Confirmación de firma — ${locator} (${label})`,
+    html: `
+      <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#111;">
+        <div style="background:#0a1628;border-radius:12px 12px 0 0;padding:28px 32px;">
+          <span style="color:#fff;font-size:22px;font-weight:700;letter-spacing:1px;">LOCKSY</span>
+        </div>
+        <div style="border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px;padding:32px;">
+          <h2 style="color:#0a1628;margin:0 0 16px;">Firma registrada correctamente</h2>
+          <p style="margin:0 0 8px;">Hola${clientName ? ` ${clientName}` : ""},</p>
+          <p style="margin:0 0 24px;color:#444;">
+            Hemos registrado tu firma electrónica para la cita <strong>${locator}</strong>
+            en <strong>${dealershipName}</strong>.
+          </p>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:24px;">
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:10px 0;color:#6b7280;width:40%;">Tipo de firma</td>
+              <td style="padding:10px 0;font-weight:600;">${label}</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e5e7eb;">
+              <td style="padding:10px 0;color:#6b7280;">Fecha y hora</td>
+              <td style="padding:10px 0;">${date}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 0;color:#6b7280;">IP registrada</td>
+              <td style="padding:10px 0;font-family:monospace;">${ip}</td>
+            </tr>
+          </table>
+          <p style="color:#888;font-size:12px;">
+            Guarda este email como comprobante. Si no has realizado esta acción, contacta con nosotros inmediatamente.
+          </p>
+          <p style="color:#666;font-size:12px;margin-top:32px;">— El equipo de LOCKSY</p>
+        </div>
+      </div>
+    `,
+  });
+}

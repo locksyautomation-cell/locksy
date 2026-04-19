@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { generateRepairOrderForAppointment } from "@/lib/utils/repair-order-service";
+import { sendSignatureConfirmationEmail } from "@/lib/utils/email";
 
 export async function POST(
   request: NextRequest,
@@ -16,9 +17,21 @@ export async function POST(
 
   const adminClient = createAdminClient();
 
+  // Capture client IP for legal evidence
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+    request.headers.get("x-real-ip") ||
+    "unknown";
+
   const { data: aptRaw, error: findError } = await adminClient
     .from("appointments")
-    .select("id, order_accepted_at, order_return_accepted_at, payment_status")
+    .select(`
+      id, locator, order_accepted_at, order_return_accepted_at, payment_status,
+      client_id,
+      manual_first_name, manual_last_name, manual_email,
+      client:users ( first_name, last_name, email ),
+      dealership:dealerships ( name )
+    `)
     .eq("repair_acceptance_token", token)
     .single();
 
@@ -38,12 +51,11 @@ export async function POST(
 
     const { error } = await adminClient
       .from("appointments")
-      .update({ order_accepted_at: now, vehicle_km: km })
+      .update({ order_accepted_at: now, vehicle_km: km, order_accepted_ip: ip })
       .eq("id", apt.id);
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    // Regenerate PDF with pickup mark and km (fire-and-forget)
     generateRepairOrderForAppointment(apt.id, adminClient).catch(() => {});
 
   } else {
@@ -64,13 +76,31 @@ export async function POST(
 
     const { error } = await adminClient
       .from("appointments")
-      .update({ order_return_accepted_at: now })
+      .update({ order_return_accepted_at: now, order_return_accepted_ip: ip })
       .eq("id", apt.id);
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    // Regenerate PDF with both marks (fire-and-forget)
     generateRepairOrderForAppointment(apt.id, adminClient).catch(() => {});
+  }
+
+  // Send confirmation email (fire-and-forget)
+  const clientEmail = apt.client?.email || apt.manual_email;
+  const clientName = apt.client
+    ? `${apt.client.first_name || ""} ${apt.client.last_name || ""}`.trim()
+    : `${apt.manual_first_name || ""} ${apt.manual_last_name || ""}`.trim();
+  const dealershipName = apt.dealership?.name || "";
+
+  if (clientEmail) {
+    sendSignatureConfirmationEmail(
+      clientEmail,
+      clientName,
+      apt.locator,
+      dealershipName,
+      type,
+      now,
+      ip
+    ).catch(() => {});
   }
 
   return NextResponse.json({ ok: true });

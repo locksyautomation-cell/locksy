@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createAdminClient } from "@/lib/supabase/admin";
+import DealershipsMapWrapper from "@/components/DealershipsMapWrapper";
 
 export const metadata: Metadata = {
   title: "LOCKSY - Gestión Inteligente para tu Taller",
@@ -139,6 +140,19 @@ export default async function HomePage() {
               </div>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="pt-0 pb-16 lg:pb-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="heading text-2xl sm:text-3xl text-navy mb-3 text-center">
+            TALLERES EN TU ZONA
+          </h2>
+          <p className="text-center text-muted-foreground mb-8">
+            Encuentra el taller más cercano y regístrate directamente desde el mapa.
+          </p>
+          <DealershipsMapWrapper />
         </div>
       </section>
 

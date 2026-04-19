@@ -30,6 +30,7 @@ const publicRoutes = [
   "/api/auth/signout",
   "/api/webhooks/stripe",
   "/api/repair-order",
+  "/api/public",
 ];
 
 function isPublicRoute(pathname: string): boolean {

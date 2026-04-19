@@ -1,0 +1,2 @@
+ALTER TABLE dealerships ADD COLUMN IF NOT EXISTS latitude FLOAT;
+ALTER TABLE dealerships ADD COLUMN IF NOT EXISTS longitude FLOAT;

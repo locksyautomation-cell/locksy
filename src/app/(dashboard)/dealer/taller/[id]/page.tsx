@@ -7,7 +7,6 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
-import { createClient } from "@/lib/supabase/client";
 import { formatDate, formatTime } from "@/lib/utils/dates";
 import type { Appointment, Dealership } from "@/lib/types";
 
@@ -46,8 +45,6 @@ export default function TallerDetailPage() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
-  const supabase = createClient();
-
   const [appointment, setAppointment] = useState<Appointment | null>(null);
   const [dealership, setDealership] = useState<Dealership | null>(null);
   const [repairStatuses, setRepairStatuses] = useState<string[]>(DEFAULT_REPAIR_STATUSES);
@@ -61,12 +58,16 @@ export default function TallerDetailPage() {
   const [recommendations, setRecommendations] = useState("");
 
   // Budget
-  const [budgetAmount, setBudgetAmount] = useState("");
-  const [budgetFile, setBudgetFile] = useState<File | null>(null);
   const [sendingBudget, setSendingBudget] = useState(false);
+  const [budgetError, setBudgetError] = useState("");
+  const [budgetLines, setBudgetLines] = useState<{ description: string; quantity: string; unit_price: string }[]>([
+    { description: "", quantity: "1", unit_price: "" },
+  ]);
 
   // Invoice
-  const [invoiceAmount, setInvoiceAmount] = useState("");
+  const [invoiceLines, setInvoiceLines] = useState<{ description: string; quantity: string; unit_price: string }[]>([
+    { description: "", quantity: "1", unit_price: "" },
+  ]);
   const [invoiceFile, setInvoiceFile] = useState<File | null>(null);
   const [finishing, setFinishing] = useState(false);
   const [lateInvoiceFile, setLateInvoiceFile] = useState<File | null>(null);
@@ -96,12 +97,42 @@ export default function TallerDetailPage() {
         setRepairStatus(apt.repair_status || "");
         setObservations(apt.dealer_observations || "");
         setRecommendations(apt.dealer_recommendations || "");
-        setBudgetAmount(apt.budget_amount?.toString() || "");
+        // Pre-poblar líneas de factura: invoice_lines > budget aceptado > vacío
+        const srcLines = apt.invoice_lines?.length
+          ? apt.invoice_lines
+          : apt.budget_status === "accepted" && apt.budget_lines?.length
+            ? apt.budget_lines
+            : null;
+        if (srcLines) {
+          setInvoiceLines(
+            srcLines.map((l: { description: string; quantity: number; unit_price: number }) => ({
+              description: l.description,
+              quantity: String(l.quantity),
+              unit_price: String(l.unit_price),
+            }))
+          );
+        }
+
+        if (apt.budget_lines?.length) {
+          setBudgetLines(
+            apt.budget_lines.map((l: { description: string; quantity: number; unit_price: number }) => ({
+              description: l.description,
+              quantity: String(l.quantity),
+              unit_price: String(l.unit_price),
+            }))
+          );
+        }
       }
       setLoading(false);
     }
 
     fetchData();
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") fetchData();
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
   }, [id]);
 
   async function apiUpdate(fields: Record<string, unknown>) {
@@ -138,39 +169,75 @@ export default function TallerDetailPage() {
   }
 
   async function handleSendBudget() {
-    if (!appointment || !budgetAmount) return;
+    if (!appointment) return;
     setSendingBudget(true);
+    setBudgetError("");
 
-    let budgetUrl: string | undefined;
+    const validLines = budgetLines
+      .filter((l) => l.description.trim() && parseFloat(l.unit_price) > 0)
+      .map((l) => ({
+        description: l.description.trim(),
+        quantity: parseFloat(l.quantity) || 1,
+        unit_price: parseFloat(l.unit_price),
+      }));
 
-    if (budgetFile) {
-      const fd = new FormData();
-      fd.append("file", budgetFile);
-      fd.append("appointment_id", id as string);
-      const uploadRes = await fetch("/api/dealer/upload-budget", { method: "POST", body: fd });
-      if (uploadRes.ok) {
-        const { url } = await uploadRes.json();
-        budgetUrl = url;
-      }
+    if (validLines.length === 0) {
+      setBudgetError("Añade al menos una línea con descripción y precio.");
+      setSendingBudget(false);
+      return;
     }
 
-    await apiUpdate({
-      budget_amount: parseFloat(budgetAmount),
-      budget_status: "pending",
-      budget_sent_at: new Date().toISOString(),
-      ...(budgetUrl && { budget_url: budgetUrl }),
-    });
+    try {
+      const res = await fetch("/api/dealer/send-budget", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          appointment_id: id,
+          lines: validLines,
+          description: appointment.description || undefined,
+        }),
+      });
 
-    // Notification is created server-side by /api/dealer/update-appointment
-    setAppointment((prev) =>
-      prev ? { ...prev, budget_amount: parseFloat(budgetAmount), budget_status: "pending", ...(budgetUrl && { budget_url: budgetUrl }) } : null
-    );
+      const data = await res.json();
+
+      if (!res.ok) {
+        setBudgetError(data.error || "Error al enviar el presupuesto.");
+      } else {
+        const totalWithIva = parseFloat(validLines.reduce((s, l) => s + l.quantity * l.unit_price, 0).toFixed(2));
+        setAppointment((prev) =>
+          prev ? {
+            ...prev,
+            budget_amount: totalWithIva,
+            budget_status: "pending",
+            budget_sent_at: new Date().toISOString(),
+            budget_url: data.budgetUrl,
+            budget_lines: validLines,
+            budget_accepted_at: null,
+            budget_accepted_ip: null,
+          } : null
+        );
+      }
+    } catch {
+      setBudgetError("Error de conexión.");
+    }
     setSendingBudget(false);
   }
 
   async function handleFinishRepair() {
     if (!appointment) return;
     setFinishing(true);
+
+    const validInvoiceLines = invoiceLines
+      .filter((l) => l.description.trim() && parseFloat(l.unit_price) > 0)
+      .map((l) => ({
+        description: l.description.trim(),
+        quantity: parseFloat(l.quantity) || 1,
+        unit_price: parseFloat(l.unit_price),
+      }));
+
+    const invoiceTotal = validInvoiceLines.length > 0
+      ? parseFloat(validInvoiceLines.reduce((s, l) => s + l.quantity * l.unit_price, 0).toFixed(2))
+      : null;
 
     let invoiceUrl: string | undefined;
 
@@ -191,21 +258,21 @@ export default function TallerDetailPage() {
       dealer_observations: observations,
       dealer_recommendations: recommendations,
       repair_status: repairStatus || null,
-      ...(invoiceAmount && { budget_amount: parseFloat(invoiceAmount) }),
+      ...(validInvoiceLines.length > 0 && { invoice_lines: validInvoiceLines }),
+      ...(invoiceTotal !== null && { budget_amount: invoiceTotal }),
       ...(invoiceUrl && { invoice_url: invoiceUrl }),
     });
 
     if (ok) {
-      if (appointment.client_id) {
-        await supabase.from("notifications").insert({
-          user_id: appointment.client_id,
-          appointment_id: id,
-          type: "repair_completed",
-          title: "Reparación finalizada",
-          message: `La reparación de su vehículo (cita ${appointment.locator}) ha sido finalizada.`,
-        });
-      }
       setAppointment((prev) => prev ? { ...prev, status: "finalizada" } : null);
+      // Re-cargar tras unos segundos para obtener invoice_url generado async
+      setTimeout(async () => {
+        const res = await fetch(`/api/dealer/get-appointment?id=${id}`);
+        if (res.ok) {
+          const { appointment: apt } = await res.json();
+          if (apt) setAppointment(apt as Appointment);
+        }
+      }, 4000);
     }
     setFinishing(false);
   }
@@ -398,23 +465,30 @@ export default function TallerDetailPage() {
               )}
             </div>
             {appointment.budget_status && (
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Presupuesto</span>
-                <Badge
-                  variant={
-                    appointment.budget_status === "accepted"
-                      ? "success"
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">Presupuesto</span>
+                  <Badge
+                    variant={
+                      appointment.budget_status === "accepted"
+                        ? "success"
+                        : appointment.budget_status === "rejected"
+                          ? "error"
+                          : "warning"
+                    }
+                  >
+                    {appointment.budget_status === "accepted"
+                      ? "Aceptado"
                       : appointment.budget_status === "rejected"
-                        ? "error"
-                        : "warning"
-                  }
-                >
-                  {appointment.budget_status === "accepted"
-                    ? "Aceptado"
-                    : appointment.budget_status === "rejected"
-                      ? "Rechazado"
-                      : "Pendiente respuesta"}
-                </Badge>
+                        ? "Rechazado"
+                        : "Pendiente respuesta"}
+                  </Badge>
+                </div>
+                {appointment.budget_accepted_at && (
+                  <p className="text-xs text-green-600 text-right">
+                    ✓ Firmado el {new Date(appointment.budget_accepted_at).toLocaleString("es-ES")}
+                  </p>
+                )}
               </div>
             )}
             <div className="flex items-center justify-between">
@@ -520,9 +594,15 @@ export default function TallerDetailPage() {
           {isFinished ? (
             <dl className="space-y-2 text-sm">
               <div>
-                <dt className="text-muted-foreground">Importe</dt>
+                <dt className="text-muted-foreground">Importe total (IVA inc.)</dt>
                 <dd className="font-medium">{appointment.budget_amount != null ? `${appointment.budget_amount.toFixed(2)} €` : "—"}</dd>
               </div>
+              {appointment.budget_accepted_at && (
+                <div>
+                  <dt className="text-muted-foreground">Firmado por cliente</dt>
+                  <dd className="text-green-600 font-medium">✓ {new Date(appointment.budget_accepted_at).toLocaleString("es-ES")}</dd>
+                </div>
+              )}
               {appointment.budget_url && (
                 <a href={appointment.budget_url} target="_blank" rel="noopener noreferrer"
                   className="block text-sm text-orange hover:underline">
@@ -532,40 +612,154 @@ export default function TallerDetailPage() {
             </dl>
           ) : (
             <div className="space-y-4">
-              <Input
-                label="Importe (€)"
-                type="number"
-                step="0.01"
-                min="0"
-                value={budgetAmount}
-                onChange={(e) => setBudgetAmount(e.target.value)}
-                placeholder="0.00"
-              />
+              {/* Line items table */}
               <div>
-                <label className="mb-1.5 block text-sm font-medium">Adjuntar presupuesto (PDF)</label>
-                <label className="flex cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-border px-6 py-3 text-sm text-muted-foreground hover:border-navy transition-colors">
-                  {budgetFile ? budgetFile.name : "Seleccionar archivo"}
-                  <input
-                    type="file"
-                    accept=".pdf,.jpg,.png"
-                    onChange={(e) => setBudgetFile(e.target.files?.[0] || null)}
-                    className="hidden"
-                  />
-                </label>
+                <label className="mb-2 block text-sm font-medium">Conceptos</label>
+                <div className="rounded-lg border border-border overflow-hidden">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-muted text-xs text-muted-foreground uppercase">
+                        <th className="text-left px-3 py-2 font-medium">Descripción</th>
+                        <th className="text-right px-3 py-2 font-medium w-16">Cant.</th>
+                        <th className="text-right px-3 py-2 font-medium w-24">P. Unit. (€)</th>
+                        <th className="text-right px-3 py-2 font-medium w-20">Subtotal</th>
+                        <th className="w-8" />
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {budgetLines.map((line, i) => {
+                        const sub = (parseFloat(line.quantity) || 0) * (parseFloat(line.unit_price) || 0);
+                        return (
+                          <tr key={i} className="border-t border-border">
+                            <td className="px-2 py-1.5">
+                              <input
+                                type="text"
+                                value={line.description}
+                                onChange={(e) => {
+                                  const updated = [...budgetLines];
+                                  updated[i] = { ...updated[i], description: e.target.value };
+                                  setBudgetLines(updated);
+                                }}
+                                placeholder="Mano de obra / pieza…"
+                                className="w-full rounded border border-border px-2 py-1 text-sm focus:outline-none focus:border-navy"
+                              />
+                            </td>
+                            <td className="px-2 py-1.5">
+                              <input
+                                type="number"
+                                min="0.01"
+                                step="0.01"
+                                value={line.quantity}
+                                onChange={(e) => {
+                                  const updated = [...budgetLines];
+                                  updated[i] = { ...updated[i], quantity: e.target.value };
+                                  setBudgetLines(updated);
+                                }}
+                                className="w-full rounded border border-border px-2 py-1 text-sm text-right focus:outline-none focus:border-navy"
+                              />
+                            </td>
+                            <td className="px-2 py-1.5">
+                              <input
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                value={line.unit_price}
+                                onChange={(e) => {
+                                  const updated = [...budgetLines];
+                                  updated[i] = { ...updated[i], unit_price: e.target.value };
+                                  setBudgetLines(updated);
+                                }}
+                                placeholder="0.00"
+                                className="w-full rounded border border-border px-2 py-1 text-sm text-right focus:outline-none focus:border-navy"
+                              />
+                            </td>
+                            <td className="px-2 py-1.5 text-right font-medium text-navy text-sm">
+                              {sub > 0 ? sub.toLocaleString("es-ES", { minimumFractionDigits: 2 }) + " €" : "—"}
+                            </td>
+                            <td className="px-1 py-1.5 text-center">
+                              {budgetLines.length > 1 && (
+                                <button
+                                  onClick={() => setBudgetLines(budgetLines.filter((_, j) => j !== i))}
+                                  className="text-muted-foreground hover:text-red-500 transition-colors"
+                                  title="Eliminar línea"
+                                >
+                                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                  </svg>
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <button
+                  onClick={() => setBudgetLines([...budgetLines, { description: "", quantity: "1", unit_price: "" }])}
+                  className="mt-2 text-xs text-orange hover:text-orange-dark font-medium"
+                >
+                  + Añadir línea
+                </button>
               </div>
+
+              {/* Totals preview */}
+              {(() => {
+                const total = budgetLines.reduce((s, l) => s + (parseFloat(l.quantity) || 0) * (parseFloat(l.unit_price) || 0), 0);
+                const base = total / 1.21;
+                const iva = total - base;
+                if (total <= 0) return null;
+                return (
+                  <div className="rounded-lg bg-muted p-3 text-sm space-y-1">
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>Base imponible</span>
+                      <span>{base.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                    </div>
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>IVA (21%)</span>
+                      <span>{iva.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                    </div>
+                    <div className="flex justify-between font-bold text-navy border-t border-border pt-1">
+                      <span>Total (IVA inc.)</span>
+                      <span className="text-orange">{total.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                    </div>
+                  </div>
+                );
+              })()}
+
               <Button
                 variant="secondary"
                 size="sm"
                 onClick={handleSendBudget}
                 loading={sendingBudget}
-                disabled={!budgetAmount}
+                disabled={!budgetLines.some((l) => l.description.trim() && parseFloat(l.unit_price) > 0)}
               >
                 {appointment.budget_sent_at ? "Reenviar presupuesto" : "Enviar presupuesto"}
               </Button>
+              {budgetError && <p className="text-sm text-error">{budgetError}</p>}
               {appointment.budget_sent_at && (
-                <p className="text-xs text-muted-foreground">
-                  Enviado el {new Date(appointment.budget_sent_at).toLocaleDateString("es-ES")}
-                </p>
+                <div className="space-y-1">
+                  <p className="text-xs text-muted-foreground">
+                    Enviado el {new Date(appointment.budget_sent_at).toLocaleDateString("es-ES")}
+                  </p>
+                  {appointment.budget_url && (
+                    <a
+                      href={appointment.budget_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-orange hover:underline font-medium"
+                    >
+                      Ver presupuesto →
+                    </a>
+                  )}
+                  {appointment.budget_accepted_at ? (
+                    <p className="text-sm text-green-600 font-medium">
+                      ✓ Firmado por el cliente el {new Date(appointment.budget_accepted_at).toLocaleString("es-ES")}
+                    </p>
+                  ) : appointment.budget_status === "pending" && (
+                    <p className="text-xs text-orange">Pendiente de firma del cliente</p>
+                  )}
+                </div>
               )}
             </div>
           )}
@@ -665,20 +859,122 @@ export default function TallerDetailPage() {
         {!isFinished && (
           <Card className="lg:col-span-2">
             <h2 className="heading text-lg text-navy mb-4">FINALIZAR REPARACIÓN</h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Input
-                label="Importe factura (€)"
-                type="number"
-                step="0.01"
-                min="0"
-                value={invoiceAmount}
-                onChange={(e) => setInvoiceAmount(e.target.value)}
-                placeholder="0.00"
-              />
+
+            {/* Invoice line items */}
+            <div className="mb-4">
+              <label className="mb-2 block text-sm font-medium">Líneas de factura</label>
+              <div className="rounded-lg border border-border overflow-hidden">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-muted text-xs text-muted-foreground uppercase">
+                      <th className="text-left px-3 py-2 font-medium">Descripción</th>
+                      <th className="text-right px-3 py-2 font-medium w-16">Cant.</th>
+                      <th className="text-right px-3 py-2 font-medium w-28">P. Unit. IVA inc. (€)</th>
+                      <th className="text-right px-3 py-2 font-medium w-20">Subtotal</th>
+                      <th className="w-8" />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {invoiceLines.map((line, i) => {
+                      const sub = (parseFloat(line.quantity) || 0) * (parseFloat(line.unit_price) || 0);
+                      return (
+                        <tr key={i} className="border-t border-border">
+                          <td className="px-2 py-1.5">
+                            <input
+                              type="text"
+                              value={line.description}
+                              onChange={(e) => {
+                                const updated = [...invoiceLines];
+                                updated[i] = { ...updated[i], description: e.target.value };
+                                setInvoiceLines(updated);
+                              }}
+                              placeholder="Mano de obra / pieza…"
+                              className="w-full rounded border border-border px-2 py-1 text-sm focus:outline-none focus:border-navy"
+                            />
+                          </td>
+                          <td className="px-2 py-1.5">
+                            <input
+                              type="number" min="0.01" step="0.01"
+                              value={line.quantity}
+                              onChange={(e) => {
+                                const updated = [...invoiceLines];
+                                updated[i] = { ...updated[i], quantity: e.target.value };
+                                setInvoiceLines(updated);
+                              }}
+                              className="w-full rounded border border-border px-2 py-1 text-sm text-right focus:outline-none focus:border-navy"
+                            />
+                          </td>
+                          <td className="px-2 py-1.5">
+                            <input
+                              type="number" min="0" step="0.01"
+                              value={line.unit_price}
+                              onChange={(e) => {
+                                const updated = [...invoiceLines];
+                                updated[i] = { ...updated[i], unit_price: e.target.value };
+                                setInvoiceLines(updated);
+                              }}
+                              placeholder="0.00"
+                              className="w-full rounded border border-border px-2 py-1 text-sm text-right focus:outline-none focus:border-navy"
+                            />
+                          </td>
+                          <td className="px-2 py-1.5 text-right font-medium text-navy text-sm">
+                            {sub > 0 ? sub.toLocaleString("es-ES", { minimumFractionDigits: 2 }) + " €" : "—"}
+                          </td>
+                          <td className="px-1 py-1.5 text-center">
+                            {invoiceLines.length > 1 && (
+                              <button
+                                onClick={() => setInvoiceLines(invoiceLines.filter((_, j) => j !== i))}
+                                className="text-muted-foreground hover:text-red-500 transition-colors"
+                              >
+                                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <button
+                onClick={() => setInvoiceLines([...invoiceLines, { description: "", quantity: "1", unit_price: "" }])}
+                className="mt-2 text-xs text-orange hover:text-orange-dark font-medium"
+              >
+                + Añadir línea
+              </button>
+            </div>
+
+            {/* Totals preview */}
+            {(() => {
+              const total = invoiceLines.reduce((s, l) => s + (parseFloat(l.quantity) || 0) * (parseFloat(l.unit_price) || 0), 0);
+              const base = total / 1.21;
+              const iva = total - base;
+              if (total <= 0) return null;
+              return (
+                <div className="rounded-lg bg-muted p-3 text-sm space-y-1 mb-4">
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Base imponible</span>
+                    <span>{base.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                  </div>
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>IVA (21%)</span>
+                    <span>{iva.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-navy border-t border-border pt-1">
+                    <span>Total (IVA inc.)</span>
+                    <span className="text-orange">{total.toLocaleString("es-ES", { minimumFractionDigits: 2 })} €</span>
+                  </div>
+                </div>
+              );
+            })()}
+
+            <div className="flex items-center gap-4 flex-wrap">
               <div>
-                <label className="mb-1.5 block text-sm font-medium">Adjuntar factura</label>
+                <label className="mb-1.5 block text-sm font-medium">Adjuntar factura externa (opcional)</label>
                 <label className="flex cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-border px-6 py-3 text-sm text-muted-foreground hover:border-navy transition-colors">
-                  {invoiceFile ? invoiceFile.name : "Seleccionar factura"}
+                  {invoiceFile ? invoiceFile.name : "Seleccionar PDF"}
                   <input
                     type="file"
                     accept=".pdf,.jpg,.png"
@@ -688,6 +984,7 @@ export default function TallerDetailPage() {
                 </label>
               </div>
             </div>
+
             <div className="mt-4">
               <Button
                 variant="secondary"

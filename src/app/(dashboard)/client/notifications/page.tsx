@@ -14,7 +14,7 @@ export default function ClientNotificationsPage() {
   const [responding, setResponding] = useState<string | null>(null);
 
   const fetchNotifications = useCallback(async () => {
-    const res = await fetch("/api/client/get-notifications");
+    const res = await fetch(`/api/client/get-notifications?t=${Date.now()}`);
     if (res.ok) {
       const { notifications: data } = await res.json();
       setNotifications((data as Notification[]) || []);
@@ -24,6 +24,19 @@ export default function ClientNotificationsPage() {
 
   useEffect(() => {
     fetchNotifications();
+
+    // Re-fetch when user returns to tab (e.g. after signing in a new tab)
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") fetchNotifications();
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    // BroadcastChannel — instant re-fetch when signing happens in another tab
+    let bc: BroadcastChannel | null = null;
+    try {
+      bc = new BroadcastChannel("budget_signed");
+      bc.onmessage = () => fetchNotifications();
+    } catch { /* not supported */ }
 
     // Real-time subscription — re-fetch when notifications change
     const supabase = createClient();
@@ -36,7 +49,11 @@ export default function ClientNotificationsPage() {
       )
       .subscribe();
 
-    return () => { supabase.removeChannel(channel); };
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+      bc?.close();
+      supabase.removeChannel(channel);
+    };
   }, [fetchNotifications]);
 
   async function markAsRead(id: string) {
@@ -203,9 +220,17 @@ export default function ClientNotificationsPage() {
                         </a>
                       )}
 
-                      {/* Accept / Reject — only while pending (unread) */}
-                      {!notification.read && (
-                        <div className="flex gap-3">
+                      {/* Signed state — use budget_accepted_at as source of truth */}
+                      {notification.appointment?.budget_accepted_at ? (
+                        <p className="text-sm text-green-600 font-medium">
+                          ✓ Presupuesto firmado el {new Date(notification.appointment.budget_accepted_at).toLocaleString("es-ES")}
+                        </p>
+                      ) : notification.read ? (
+                        <p className="text-xs text-muted-foreground">
+                          Presupuesto respondido.
+                        </p>
+                      ) : (
+                        <div className="flex gap-3 flex-wrap">
                           <Button
                             size="sm"
                             variant="outline"
@@ -220,26 +245,32 @@ export default function ClientNotificationsPage() {
                           >
                             Rechazar
                           </Button>
-                          <Button
-                            size="sm"
-                            variant="secondary"
-                            loading={responding === notification.id}
-                            onClick={() =>
-                              handleBudgetResponse(
-                                notification.id,
-                                notification.appointment_id!,
-                                true
-                              )
-                            }
-                          >
-                            Aceptar
-                          </Button>
+                          {notification.appointment?.budget_acceptance_token ? (
+                            <a
+                              href={`/presupuesto/${notification.appointment.budget_acceptance_token}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-md bg-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-navy/90 transition-colors"
+                            >
+                              Firmar presupuesto →
+                            </a>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="secondary"
+                              loading={responding === notification.id}
+                              onClick={() =>
+                                handleBudgetResponse(
+                                  notification.id,
+                                  notification.appointment_id!,
+                                  true
+                                )
+                              }
+                            >
+                              Aceptar
+                            </Button>
+                          )}
                         </div>
-                      )}
-                      {notification.read && (
-                        <p className="text-xs text-muted-foreground">
-                          Presupuesto respondido.
-                        </p>
                       )}
                     </div>
                   )}

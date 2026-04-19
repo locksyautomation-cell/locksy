@@ -24,6 +24,8 @@ export interface RepairInvoiceData {
   recommendations: string | null;
   // Importe total con IVA
   totalAmount: number;
+  // Líneas de presupuesto aceptado (opcional)
+  budgetLines?: { description: string; quantity: number; unit_price: number }[] | null;
 }
 
 const NAVY = "#1a2e4a";
@@ -157,9 +159,40 @@ export function generateRepairInvoicePDF(data: RepairInvoiceData): Promise<Buffe
     doc.moveTo(ML, y).lineTo(ML + CW, y).strokeColor(LIGHT_GRAY).lineWidth(0.4).stroke();
     y += 10;
 
-    const obsText = data.observations?.trim() || "Sin observaciones registradas.";
-    doc.font("Helvetica").fontSize(10).fillColor(BLACK).text(obsText, ML + 8, y, { width: CW - 16 });
-    y += doc.heightOfString(obsText, { width: CW - 16 }) + 20;
+    if (data.budgetLines && data.budgetLines.length > 0) {
+      // Line items table header
+      doc.rect(ML, y, CW, 18).fillColor(NAVY).fill();
+      doc.font("Helvetica-Bold").fontSize(8).fillColor(WHITE).text("CONCEPTO", ML + 8, y + 5, { width: 220 });
+      doc.font("Helvetica-Bold").fontSize(8).fillColor(WHITE).text("CANT.", ML + 238, y + 5, { width: 40, align: "right" });
+      doc.font("Helvetica-Bold").fontSize(8).fillColor(WHITE).text("P.U. (IVA inc.)", ML + 288, y + 5, { width: 70, align: "right" });
+      doc.font("Helvetica-Bold").fontSize(8).fillColor(WHITE).text("SUBTOTAL", ML + 368, y + 5, { width: CW - 368, align: "right" });
+      y += 18;
+
+      data.budgetLines.forEach((line, i) => {
+        const subtotal = line.quantity * line.unit_price;
+        if (i % 2 === 0) doc.rect(ML, y, CW, 18).fillColor("#f8f9fb").fill();
+        doc.font("Helvetica").fontSize(9).fillColor(BLACK).text(line.description, ML + 8, y + 4, { width: 220 });
+        doc.font("Helvetica").fontSize(9).fillColor(BLACK).text(String(line.quantity), ML + 238, y + 4, { width: 40, align: "right" });
+        doc.font("Helvetica").fontSize(9).fillColor(BLACK).text(`${line.unit_price.toFixed(2)} €`, ML + 288, y + 4, { width: 70, align: "right" });
+        doc.font("Helvetica-Bold").fontSize(9).fillColor(NAVY).text(`${subtotal.toFixed(2)} €`, ML + 368, y + 4, { width: CW - 368, align: "right" });
+        y += 18;
+      });
+      y += 8;
+    }
+
+    // Observaciones — siempre visibles si existen
+    if (data.observations?.trim()) {
+      if (data.budgetLines && data.budgetLines.length > 0) {
+        doc.font("Helvetica-Bold").fontSize(8).fillColor(GRAY).text("OBSERVACIONES", ML + 8, y);
+        y += 12;
+      }
+      const obsText = data.observations.trim();
+      doc.font("Helvetica").fontSize(9).fillColor(BLACK).text(obsText, ML + 8, y, { width: CW - 16 });
+      y += doc.heightOfString(obsText, { width: CW - 16 }) + 12;
+    } else if (!data.budgetLines || data.budgetLines.length === 0) {
+      doc.font("Helvetica").fontSize(9).fillColor(GRAY).text("Sin observaciones registradas.", ML + 8, y, { width: CW - 16 });
+      y += 20;
+    }
 
     // ── RECOMENDACIONES ────────────────────────────────────────────────────
     if (data.recommendations?.trim()) {

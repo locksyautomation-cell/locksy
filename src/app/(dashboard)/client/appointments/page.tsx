@@ -33,7 +33,7 @@ function getRepairBadge(appointment: Appointment): { variant: "warning" | "info"
 export default function ClientAppointmentsPage() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
-  const [sortBy, setSortBy] = useState("date_asc");
+  const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => {
     async function fetchAppointments() {
@@ -52,6 +52,13 @@ export default function ClientAppointmentsPage() {
 
     if (status === "finalizada") {
       switch (sortBy) {
+        case "date_asc":
+          filtered.sort(
+            (a, b) =>
+              new Date(a.scheduled_date).getTime() -
+              new Date(b.scheduled_date).getTime()
+          );
+          break;
         case "date_desc":
           filtered.sort(
             (a, b) =>
@@ -59,22 +66,22 @@ export default function ClientAppointmentsPage() {
               new Date(a.scheduled_date).getTime()
           );
           break;
-        case "amount_desc":
-          filtered.sort(
-            (a, b) => (b.budget_amount || 0) - (a.budget_amount || 0)
-          );
-          break;
         case "amount_asc":
           filtered.sort(
             (a, b) => (a.budget_amount || 0) - (b.budget_amount || 0)
           );
           break;
-        default:
+        case "amount_desc":
           filtered.sort(
-            (a, b) =>
-              new Date(a.scheduled_date).getTime() -
-              new Date(b.scheduled_date).getTime()
+            (a, b) => (b.budget_amount || 0) - (a.budget_amount || 0)
           );
+          break;
+        default:
+          filtered.sort((a, b) => {
+            const numA = parseInt(a.locator.split("-")[1] || "0", 10);
+            const numB = parseInt(b.locator.split("-")[1] || "0", 10);
+            return numB - numA;
+          });
       }
     }
 
@@ -167,10 +174,11 @@ export default function ClientAppointmentsPage() {
                     onChange={(e) => setSortBy(e.target.value)}
                     className="rounded-lg border border-border px-3 py-1.5 text-sm focus:border-navy focus:outline-none"
                   >
-                    <option value="date_asc">Fecha más reciente</option>
+                    <option value="default">Por defecto</option>
+                    <option value="date_asc">Fecha más cercana</option>
                     <option value="date_desc">Fecha más lejana</option>
-                    <option value="amount_desc">Importe mayor</option>
-                    <option value="amount_asc">Importe menor</option>
+                    <option value="amount_asc">Importe ascendente</option>
+                    <option value="amount_desc">Importe descendente</option>
                   </select>
                 </div>
 

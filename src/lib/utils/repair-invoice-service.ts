@@ -12,7 +12,7 @@ export async function generateRepairInvoiceForAppointment(
     .from("appointments")
     .select(`
       id, locator, scheduled_date,
-      dealer_observations, dealer_recommendations, budget_amount,
+      dealer_observations, dealer_recommendations, budget_amount, budget_lines, invoice_lines,
       dealership_id,
       client_id, vehicle_id,
       manual_first_name, manual_last_name, manual_nif_cif,
@@ -93,6 +93,7 @@ export async function generateRepairInvoiceForAppointment(
     observations: apt.dealer_observations || null,
     recommendations: apt.dealer_recommendations || null,
     totalAmount: apt.budget_amount,
+    budgetLines: apt.invoice_lines || apt.budget_lines || null,
   });
 
   const fileName = `${dealer.id}/${apt.locator}-factura.pdf`;

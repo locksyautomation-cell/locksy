@@ -221,6 +221,8 @@ export async function POST() {
       mode: "subscription",
       success_url: `${appUrl}/dealer/perfil/pagos?subscription=success`,
       cancel_url: `${appUrl}/dealer/perfil/pagos`,
+      automatic_tax: { enabled: true },
+      customer_update: { address: "auto" },
       subscription_data: {
         metadata: { dealership_id: dealer.id },
       },

@@ -522,12 +522,12 @@ export async function sendSignatureConfirmationEmail(
   clientName: string,
   locator: string,
   dealershipName: string,
-  type: "key_pickup" | "key_return",
+  type: "key_pickup" | "key_return" | "budget_accepted",
   signedAt: string,
   ip: string
 ) {
   if (!EMAILS_ENABLED) { console.log(`[email disabled] sendSignatureConfirmationEmail → ${email}`); return; }
-  const label = type === "key_pickup" ? "Entrega de vehículo" : "Recogida de vehículo";
+  const label = type === "key_pickup" ? "Entrega de vehículo" : type === "key_return" ? "Recogida de vehículo" : "Aceptación de presupuesto";
   const date = new Date(signedAt).toLocaleString("es-ES", { dateStyle: "full", timeStyle: "short" });
   await getResend().emails.send({
     from: FROM,

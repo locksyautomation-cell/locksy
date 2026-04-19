@@ -89,6 +89,11 @@ export interface Appointment {
   budget_status?: "pending" | "accepted" | "rejected";
   budget_url?: string;
   budget_sent_at?: string;
+  budget_lines?: { description: string; quantity: number; unit_price: number }[] | null;
+  invoice_lines?: { description: string; quantity: number; unit_price: number }[] | null;
+  budget_acceptance_token?: string | null;
+  budget_accepted_at?: string | null;
+  budget_accepted_ip?: string | null;
   invoice_url?: string;
   repair_order_url?: string;
   repair_acceptance_token?: string;
@@ -178,6 +183,8 @@ export interface Notification {
   appointment?: {
     budget_url?: string | null;
     budget_amount?: number | null;
+    budget_acceptance_token?: string | null;
+    budget_accepted_at?: string | null;
     locator?: string;
     repair_acceptance_token?: string | null;
     dealership?: { name: string } | null;

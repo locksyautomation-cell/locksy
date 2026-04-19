@@ -117,11 +117,18 @@ export async function PUT(request: NextRequest) {
       }
     }
 
-    // Auto-generate repair invoice when status changes to "finalizada"
-    if (
-      fields.status === "finalizada" &&
-      currentApt?.status !== "finalizada"
-    ) {
+    // When status changes to "finalizada": notify client + generate invoice
+    if (fields.status === "finalizada" && currentApt?.status !== "finalizada") {
+      if (currentApt?.client_id) {
+        await adminClient.from("notifications").insert({
+          user_id: currentApt.client_id,
+          appointment_id: id,
+          type: "repair_completed",
+          title: "Reparación finalizada",
+          message: `La reparación de tu vehículo (cita ${currentApt.locator}) ha sido finalizada. Ya puedes ver la factura y proceder al pago.`,
+          read: false,
+        });
+      }
       generateRepairInvoiceForAppointment(id, adminClient).catch(() => {});
     }
 

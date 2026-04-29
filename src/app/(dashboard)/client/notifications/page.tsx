@@ -57,26 +57,22 @@ export default function ClientNotificationsPage() {
   }, [fetchNotifications]);
 
   async function markAsRead(id: string) {
-    const supabase = createClient();
-    await supabase.from("notifications").update({ read: true }).eq("id", id);
+    await fetch("/api/client/mark-notifications-read", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
     setNotifications((prev) =>
       prev.map((n) => (n.id === id ? { ...n, read: true } : n))
     );
   }
 
   async function markAllAsRead() {
-    const supabase = createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
-
-    // budget_sent notifications are excluded — they require explicit action
-    await supabase
-      .from("notifications")
-      .update({ read: true })
-      .eq("user_id", user.id)
-      .neq("type", "budget_sent")
-      .eq("read", false);
-
+    await fetch("/api/client/mark-notifications-read", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ all: true }),
+    });
     setNotifications((prev) =>
       prev.map((n) => (n.type !== "budget_sent" ? { ...n, read: true } : n))
     );

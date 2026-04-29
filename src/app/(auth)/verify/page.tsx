@@ -3,7 +3,6 @@
 import { Suspense, useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Button from "@/components/ui/Button";
-import { createClient } from "@/lib/supabase/client";
 import { RESEND_CODE_DELAY_SECONDS, VERIFICATION_CODE_LENGTH } from "@/lib/constants";
 
 export default function VerifyPage() {
@@ -87,8 +86,6 @@ function VerifyForm() {
     setError("");
 
     try {
-      const supabase = createClient();
-
       // Verify code via API route (uses admin client to bypass RLS)
       const res = await fetch("/api/auth/verify-code", {
         method: "POST",
@@ -110,21 +107,11 @@ function VerifyForm() {
 
       // Handle add dealership flow
       if (addDealership) {
-        const { data: { user } } = await supabase.auth.getUser();
-        const { data: dealership } = await supabase
-          .from("dealerships")
-          .select("id, name")
-          .eq("slug", addDealership)
-          .eq("active", true)
-          .single();
-
-        if (dealership && user) {
-          await supabase.from("dealership_clients").upsert({
-            dealership_id: dealership.id,
-            client_id: user.id,
-            active: true,
-          });
-        }
+        await fetch("/api/client/add-dealership", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ dealershipSlug: addDealership }),
+        });
       }
 
       // Redirect based on context

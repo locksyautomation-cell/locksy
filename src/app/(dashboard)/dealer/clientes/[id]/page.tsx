@@ -8,7 +8,6 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import VehicleSelect from "@/components/ui/VehicleSelect";
 import Modal from "@/components/ui/Modal";
-import { createClient } from "@/lib/supabase/client";
 import { formatDate, formatTime } from "@/lib/utils/dates";
 
 interface DealerContact {
@@ -125,8 +124,6 @@ function fullClientContact(apt: FullAppointment) {
 export default function DealerContactDetailPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const supabase = createClient();
-
   const [contact, setContact] = useState<DealerContact | null>(null);
   const [registeredUser, setRegisteredUser] = useState<RegisteredUser | null>(null);
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -319,17 +316,16 @@ export default function DealerContactDetailPage() {
 
     let tech_file_url = editingVehicle.tech_file_url;
 
-    // Upload tech file if provided (use a temp path; replace vehicle id after create)
+    // Upload tech file if provided
     const uploadTechFile = async (vehicleId: string) => {
       if (!techFile) return tech_file_url;
-      const ext = techFile.name.split(".").pop();
-      const path = `${vehicleId}/tech.${ext}`;
-      const { error: uploadError } = await supabase.storage
-        .from("tech-files")
-        .upload(path, techFile, { upsert: true });
-      if (!uploadError) {
-        const { data: { publicUrl } } = supabase.storage.from("tech-files").getPublicUrl(path);
-        return publicUrl;
+      const fd = new FormData();
+      fd.append("file", techFile);
+      fd.append("vehicle_id", vehicleId);
+      const uploadRes = await fetch("/api/dealer/upload-vehicle-tech-file", { method: "POST", body: fd });
+      if (uploadRes.ok) {
+        const { url } = await uploadRes.json();
+        return url as string;
       }
       return tech_file_url;
     };

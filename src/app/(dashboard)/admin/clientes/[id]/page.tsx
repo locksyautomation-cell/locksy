@@ -8,7 +8,6 @@ import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import VehicleSelect from "@/components/ui/VehicleSelect";
 import Modal from "@/components/ui/Modal";
-import { createClient } from "@/lib/supabase/client";
 import { formatDate, formatTime } from "@/lib/utils/dates";
 
 interface Vehicle {
@@ -98,8 +97,6 @@ export default function AdminClientDetailPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const type = searchParams.get("type") || "registered";
-  const supabase = createClient();
-
   const [client, setClient] = useState<ClientDetail | null>(null);
   const [appointments, setAppointments] = useState<AppointmentRow[]>([]);
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
@@ -206,12 +203,13 @@ export default function AdminClientDetailPage() {
 
     const uploadTechFile = async (vehicleId: string) => {
       if (!techFile) return tech_file_url;
-      const ext = techFile.name.split(".").pop();
-      const path = `${vehicleId}/tech.${ext}`;
-      const { error: uploadError } = await supabase.storage.from("tech-files").upload(path, techFile, { upsert: true });
-      if (!uploadError) {
-        const { data: { publicUrl } } = supabase.storage.from("tech-files").getPublicUrl(path);
-        return publicUrl;
+      const fd = new FormData();
+      fd.append("file", techFile);
+      fd.append("vehicle_id", vehicleId);
+      const uploadRes = await fetch("/api/admin/upload-vehicle-tech-file", { method: "POST", body: fd });
+      if (uploadRes.ok) {
+        const { url } = await uploadRes.json();
+        return url as string;
       }
       return tech_file_url;
     };

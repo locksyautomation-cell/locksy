@@ -8,7 +8,6 @@ import Input from "@/components/ui/Input";
 import VehicleSelect from "@/components/ui/VehicleSelect";
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
-import { createClient } from "@/lib/supabase/client";
 import { generateKeyCode } from "@/lib/utils/keycode";
 import { generateTimeSlots, formatTime } from "@/lib/utils/dates";
 import type { Appointment, Dealership, User, ScheduleBlock, Attachment } from "@/lib/types";
@@ -74,7 +73,6 @@ const EMPTY_FORM = {
 };
 
 export default function DealerCitasPage() {
-  const supabase = createClient();
   const router = useRouter();
 
   const [dealershipId, setDealershipId] = useState("");
@@ -246,8 +244,9 @@ export default function DealerCitasPage() {
   async function openDetail(apt: Appointment) {
     setSelectedApt(apt);
     setLoadingAttachments(true);
-    const { data } = await supabase.from("attachments").select("*").eq("appointment_id", apt.id);
-    setAptAttachments((data as Attachment[]) || []);
+    const res = await fetch(`/api/dealer/get-attachments?appointment_id=${apt.id}`);
+    const { attachments } = res.ok ? await res.json() : { attachments: [] };
+    setAptAttachments((attachments as Attachment[]) || []);
     setLoadingAttachments(false);
   }
 

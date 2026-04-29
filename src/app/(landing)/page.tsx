@@ -119,9 +119,9 @@ export default async function HomePage() {
                 className="rounded-xl border border-border p-8"
               >
                 <div className="mb-4 text-orange">{feature.icon}</div>
-                <h3 className="heading text-lg text-navy mb-3">
+                <h2 className="heading text-lg text-navy mb-3">
                   {feature.title}
-                </h3>
+                </h2>
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}

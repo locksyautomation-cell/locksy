@@ -102,7 +102,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/setup"
-            className="inline-block rounded-lg bg-orange px-8 py-4 text-lg font-semibold text-white hover:bg-orange-light transition-colors"
+            className="inline-block rounded-lg bg-orange px-8 py-4 text-lg font-semibold text-navy hover:bg-orange-light transition-colors"
           >
             Empieza Ahora
           </Link>
@@ -164,7 +164,7 @@ export default async function HomePage() {
           </h2>
           <Link
             href="/setup"
-            className="inline-block rounded-lg bg-orange px-8 py-4 text-lg font-semibold text-white hover:bg-orange-light transition-colors"
+            className="inline-block rounded-lg bg-orange px-8 py-4 text-lg font-semibold text-navy hover:bg-orange-light transition-colors"
           >
             Empieza Ahora
           </Link>

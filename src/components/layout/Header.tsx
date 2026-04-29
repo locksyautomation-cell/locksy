@@ -66,7 +66,7 @@ export default function Header() {
           <div className="hidden md:flex items-center">
             <Link
               href="/login"
-              className="rounded-lg bg-orange px-6 py-2 text-sm font-normal text-white hover:bg-orange-light transition-colors"
+              className="rounded-lg bg-orange px-6 py-2 text-sm font-normal text-navy hover:bg-orange-light transition-colors"
             >
               Iniciar Sesión
             </Link>
@@ -115,7 +115,7 @@ export default function Header() {
             })}
             <Link
               href="/login"
-              className="block rounded-lg bg-orange px-4 py-2 text-sm font-normal text-white text-center hover:bg-orange-light transition-colors mt-2"
+              className="block rounded-lg bg-orange px-4 py-2 text-sm font-normal text-navy text-center hover:bg-orange-light transition-colors mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Iniciar Sesión

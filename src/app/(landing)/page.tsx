@@ -3,6 +3,8 @@ import Link from "next/link";
 import { createAdminClient } from "@/lib/supabase/admin";
 import DealershipsMapWrapper from "@/components/DealershipsMapWrapper";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "LOCKSY - Gestión Inteligente para tu Taller",
 };

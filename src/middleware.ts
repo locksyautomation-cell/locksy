@@ -131,6 +131,7 @@ export async function middleware(request: NextRequest) {
 
     const hasAccess =
       status === "active" ||
+      status === "exempt" ||
       (status === "canceling" && periodEnd && periodEnd > new Date());
 
     if (!hasAccess) {
